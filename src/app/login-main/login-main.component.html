@@ -1,8 +1,19 @@
 <app-navbar></app-navbar>
-<form (submit)="login()">
+<form (submit)="register()">
   <h2>Iniciar sesión</h2>
-  <input type="text" placeholder="user" [(ngModel)]="username" name="userName">
-  <input type="password" placeholder="password" [(ngModel)]="password" name="password">
-  <input class="send" type="submit" value="login">
+  <div class="inputs">
+    <div class="userInput">
+      usuario:
+    </div>
+    <input class="subUserInput" type="text" placeholder="user" [(ngModel)]="username" name="user">
+    <div class="userInput">
+      contraseña:
+    </div>
+    <input type="password" placeholder="password" [(ngModel)]="password" name="pass">
+  </div>
+  <div class="sendInput">
+    <input class="send" type="submit" value="Register">
+  </div>
   <div *ngIf="error">{{ error | json }}</div>
+  <div *ngIf="valid">Registered! <button routerLink="/login">Go to Login</button></div>
 </form>

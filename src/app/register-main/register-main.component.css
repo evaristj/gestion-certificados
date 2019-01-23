@@ -2,8 +2,8 @@ form {
     display: flex;
     justify-content: center;
     margin: 2px;
-    background: #8ed201;
-    padding: 1em;
+    background: white;
+    padding: 1.5em;
     flex-flow: column nowrap;
     align-items: center;
     border-radius: 0.5em;
@@ -12,14 +12,34 @@ input {
     border-radius: 0.5em;
 }
 .send {
+    padding: 0.5em;
     border: none;
     border-radius: 1em;
     margin: 3px;
     background-image: linear-gradient(to left, rgb(78, 255, 78), rgb(15, 188, 211));
 }
+.sendInput {
+    margin-top: 1em;
+}
 .send:hover {
     background-image: linear-gradient(to right, rgb(78, 255, 78), rgb(15, 188, 211));
 }
 h2 {
+    background: #8ed201;
     color: white;
+    padding: 0.8em;
+    border-radius: 0.5em;
+}
+.inputs {
+    display: flex;
+    flex-flow: row wrap;
+}
+.subUserInput {
+    margin-right: 2em;
+}
+.userInput {
+    text-align: left;
+    align-content: center;
+    color: #8ed201;
+    font-size: 1.5em;
 }
