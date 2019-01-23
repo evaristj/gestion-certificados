@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { RegisterMainComponent } from './register-main/register-main.component';
 import { LoginMainComponent } from './login-main/login-main.component';
 import { ViewMainComponent } from './view-main/view-main.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterMainComponent,
     LoginMainComponent,
-    ViewMainComponent
+    ViewMainComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
