@@ -3,16 +3,16 @@
   <h2>Iniciar sesión</h2>
   <div class="inputs">
     <div class="userInput">
-      usuario:
+      <img src="/assets/images/user-silhouette.png" alt="Usuario">
     </div>
-    <input class="subUserInput" type="text" placeholder="user" [(ngModel)]="username" name="user">
+    <input class="subUserInput" type="text" placeholder="usuario" [(ngModel)]="username" name="user">
     <div class="userInput">
-      contraseña:
+      <img src="/assets/images/key-password.png" alt="Password">
     </div>
-    <input type="password" placeholder="password" [(ngModel)]="password" name="pass">
+    <input type="password" placeholder="contraseña" [(ngModel)]="password" name="pass">
   </div>
   <div class="sendInput">
-    <input class="send" type="submit" value="Register">
+    <button type="submit" value="Register"><img src="/assets/images/login (1).png" alt="enviar formulario"></button>
   </div>
   <div *ngIf="error">{{ error | json }}</div>
   <div *ngIf="valid">Registered! <button routerLink="/login">Go to Login</button></div>
