@@ -8,6 +8,9 @@ import { LoginMainComponent } from './login-main/login-main.component';
 import { ViewMainComponent } from './view-main/view-main.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
+import { DataManagerService } from './data-manager.service';
+import { ApiService } from './api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,9 +23,13 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    DataManagerService,
+    ApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
