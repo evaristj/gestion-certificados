@@ -1,6 +1,6 @@
 {
-    "/users/*": {
-        "target": "https://localhost:5001/api/",
+    "/api/*": {
+        "target": "https://localhost:5001/",
         "secure": false,
         "changeOrigin": true
     }
