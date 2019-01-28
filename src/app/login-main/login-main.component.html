@@ -1,6 +1,8 @@
 <app-navbar></app-navbar>
 <form (submit)="loginUser()">
-  <h2>Iniciar sesión</h2>
+  <div class="title">
+    <h2>Login</h2>
+  </div>
   <div class="inputs">
     <div class="userInput">
       <img src="/assets/images/user-silhouette.png" alt="Usuario">
@@ -12,13 +14,17 @@
     <input type="password" placeholder="contraseña" [(ngModel)]="password" name="pass">
   </div>
   <div class="sendInput">
-    <button type="submit" value="login"><img src="/assets/images/login (1).png" alt="enviar formulario"></button>
+    <button type="submit" value="login">
+      <div class="initSesion">
+        <h2>Iniciar Sesión</h2>
+      </div>
+    </button>
   </div>
   <div *ngIf="error">
     {{ error | json }}
   </div>
   <div *ngIf="valid">
-    Login! 
+    Login!
     <button routerLink="/main">Go to Main!!!</button>
   </div>
 </form>

@@ -7,26 +7,34 @@ form {
     flex-flow: column nowrap;
     align-items: center;
     border-radius: 0.5em;
+    font-family: 'Raleway', sans-serif;
 }
 input {
     border-radius: 0.5em;
 }
 .sendInput {
-    margin-top: 1em;
+    background: #8ed201;
+    color: white;
+    border-radius: 1em;
+    margin: 10px 0px 0px 0px;
+}
+.sendInput:hover {
+    background: #82c400;
+    color: white;
 }
 button {
     all: unset;
 }
-button:hover {
+/* button:hover {
     background-color: rgb(235, 231, 231);
     border-radius: 1em;
-}
+} */
 
-h2 {
-    background: #8ed201;
-    color: white;
-    padding: 0.8em;
-    border-radius: 0.5em;
+.title {
+    background: white;
+    color: #8ed201;
+    font-size: 1.8em;
+    margin: 0px 0px 10px 0px;
 }
 .inputs {
     display: flex;
