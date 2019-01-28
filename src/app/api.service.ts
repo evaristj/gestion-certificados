@@ -11,9 +11,10 @@ export class ApiService {
   urlLogin = '/api/auth'
   constructor(private http: HttpClient) { }
 
-  register(username, password) {
-    console.log(username, password, ' - registerFunctionApi.');
-    return this.http.post(this.urlRegister, { username, password }).toPromise();
+  register(username, password, email, role) {
+    console.log(username, password, email, role, ' - registerFunctionApi.');
+    const body = { username, password, email, role };
+    return this.http.post(this.urlRegister, body).toPromise();
   }
 
   login(username, password) {

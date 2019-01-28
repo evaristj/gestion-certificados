@@ -9,16 +9,18 @@ import { ApiService } from '../api.service';
 export class RegisterMainComponent {
   username: string;
   password: string;
+  email: string;
+  role: number;
   error: any;
   valid: any;
 
   constructor(private api: ApiService) { }
 
   registerUser(){
-    const { username, password } = this;
-    if (username.trim() !== '' && password.trim() !== '') {
+    const { username, password, email, role } = this;
+    if (username.trim() !== '' && password.trim() !== '' && email.trim() !== '') {
       if (username.trim().length >= 4) {
-         this.api.register(username.trim(), password.trim()).then( result => {
+         this.api.register(username.trim(), password.trim(), email.trim(), role).then( result => {
         console.log(result);
         this.valid = result;
       })
