@@ -12,8 +12,13 @@
     <input type="password" placeholder="contraseña" [(ngModel)]="password" name="pass">
   </div>
   <div class="sendInput">
-    <button type="submit" value="Register"><img src="/assets/images/login (1).png" alt="enviar formulario"></button>
+    <button type="submit" value="login"><img src="/assets/images/login (1).png" alt="enviar formulario"></button>
   </div>
-  <div *ngIf="error">{{ error | json }}</div>
-  <div *ngIf="valid">Registered! <button routerLink="/login">Go to Login</button></div>
+  <div *ngIf="error">
+    {{ error | json }}
+  </div>
+  <div *ngIf="valid">
+    Login! 
+    <button routerLink="/main">Go to Main!!!</button>
+  </div>
 </form>

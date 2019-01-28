@@ -17,7 +17,6 @@ export class ApiService {
   }
 
   login(username, password) {
-
     const body = { username, password };
     return new Promise((resolve, reject) => {
       this.http.post(this.urlLogin, body)

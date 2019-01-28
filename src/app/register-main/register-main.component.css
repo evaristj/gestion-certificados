@@ -7,6 +7,7 @@ form {
     flex-flow: column nowrap;
     align-items: center;
     border-radius: 0.5em;
+    font-family: 'Raleway', sans-serif;
 }
 input {
     border-radius: 0.5em;
@@ -15,21 +16,21 @@ button {
     all: unset;
 }
 button:hover {
-    background-color: rgb(235, 231, 231);
-    border-radius: 1em;
+    background-color: #e6e4e4;
+    border-radius: 0.5em;
 }
 
-h2 {
-    background: #8ed201;
-    color: white;
-    padding: 0.8em;
-    border-radius: 0.5em;
+.title {
+    background: white;
+    color: #8ed201;
+    font-size: 1.8em;
+    margin: 0px 0px 10px 0px;
 }
 .inputs {
     display: flex;
     flex-flow: row wrap;
 }
-.text {
+.text, .text2 {
     visibility: hidden;
 }
 form:hover .text{
@@ -41,4 +42,14 @@ form:hover .text{
 }
 .userInput, .passInput {
     margin-right: 0.5em;
+}
+.goToLogin:hover .text2{
+    visibility: visible;
+}
+.goToLogin {
+    margin-top: 0.5em;
+}
+.userCreate {
+    font-size: 1.4em;
+    background-color: rgb(255, 217, 217);
 }
