@@ -5,47 +5,32 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiService {
-
-  // urlRegister = 'https://localhost:5001/api/users';
-  urlRegister = '/api/users';
-  urlLogin = '/api/auth'
-  jwt: string;
+  jwt: string = localStorage.getItem('jwt');
+  urlList: string;
+  urlListTasks: string;
+  options = { headers: { Authorization: `Bearer ${this.jwt}` } };
   constructor(private http: HttpClient) { }
 
-  register(username, password, email, role) {
-    console.log(username, password, email, role, ' - registerFunctionApi.');
-    const body = { username, password, email, role };
-    return this.http.post(this.urlRegister, body).toPromise();
+ /*  getLists(): any {
+    return this.http.get(this.urlList, this.options).toPromise();
   }
-
-  login(username, password) {
-    const body = { username, password };
+  getTasks(idlist: number): any {
     return new Promise((resolve, reject) => {
-      this.http.post(this.urlLogin, body)
-        .toPromise().then(() => {
-          reject('User o password not found');
-        }).catch(maybeNotAndError => {
-          if (maybeNotAndError.status === 200) {
-            console.log('status.error.200');
-            const jwt = maybeNotAndError.error.text;
-            this.jwt = jwt;
-            localStorage.setItem('jwt', jwt);
-            resolve(200);
-          } else if (maybeNotAndError.status === 401) {
-            reject('Wrong password');
+      this.http
+        .get(this.urlListTasks + idlist, this.options)
+        .toPromise()
+        .then(tasks => {
+          if (tasks) {
+            resolve(tasks);
           } else {
-            reject('Try again');
+            resolve([]);
           }
-          console.log('fin login api');
+        })
+        .catch(error => {
+          console.log(error);
+          resolve([]);
         });
     });
-  }
-  public isAuthenticated(): boolean {
-    const token = localStorage.getItem('jwt');
-    if (token !== null) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  } */
+
 }

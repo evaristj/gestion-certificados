@@ -1,0 +1,79 @@
+.all {
+    font-family: 'Raleway', sans-serif;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+    background: rgb(102, 102, 102);
+    border-radius: 0.5em;
+}
+a {
+    font-size: 1.3em;
+    margin: 1em;
+    color: white;
+}
+
+/*formulario*/
+form {
+    display: flex;
+    justify-content: center;
+    margin: 2px;
+    background: white;
+    padding: 1.5em;
+    flex-flow: column nowrap;
+    align-items: center;
+    border-radius: 0.5em;
+    font-family: 'Raleway', sans-serif;
+}
+input {
+    border-radius: 0.5em;
+}
+button {
+    all: unset;
+}
+button:hover {
+    background-color: #e6e4e4;
+    border-radius: 0.5em;
+}
+
+.title {
+    background: white;
+    color: #8ed201;
+    font-size: 1.8em;
+    margin: 0px 0px 10px 0px;
+}
+.userInput, .passInput, .emailInput, .roleInput {
+    margin: 10px;
+}
+.inputs {
+    display: flex;
+    flex-flow: column wrap;
+}
+.inputs img {
+    text-align: left;
+    margin-right: 10px;
+}
+.text, .text2 {
+    visibility: hidden;
+}
+form:hover .text{
+    visibility: visible;
+}
+
+.subUserInput {
+    margin-right: 2em;
+}
+.userInput, .passInput {
+    margin-right: 0.5em;
+}
+.goToLogin:hover .text2{
+    visibility: visible;
+}
+.goToLogin {
+    margin-top: 0.5em;
+}
+.userCreate {
+    font-size: 1.4em;
+    background-color: rgb(255, 217, 217);
+}

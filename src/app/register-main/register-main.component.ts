@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
+import { AuthenticatedService } from '../authenticated.service';
 
 @Component({
   selector: 'app-register-main',
@@ -14,13 +15,13 @@ export class RegisterMainComponent {
   error: any;
   valid: any;
 
-  constructor(private api: ApiService) { }
+  constructor(private auth: AuthenticatedService) { }
 
   registerUser(){
     const { username, password, email, role } = this;
     if (username.trim() !== '' && password.trim() !== '' && email.trim() !== '') {
       if (username.trim().length >= 4) {
-         this.api.register(username.trim(), password.trim(), email.trim(), role).then( result => {
+         this.auth.register(username.trim(), password.trim(), email.trim(), role).then( result => {
         console.log(result);
         this.valid = result;
       })

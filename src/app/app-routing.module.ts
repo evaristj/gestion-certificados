@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'main', component: ViewMainComponent, canActivate: [AuthGuard] },
   { path: 'jiraUsersConfig', component: JiraUsersConfigComponent, canActivate: [AuthGuard] },
   { path: '404', component: NotfoundComponent, pathMatch: 'full' },
-  { path: '**', redirectTo: '/404' }
+  { path: '**', redirectTo: 'login' }
 ];
 
 @NgModule({

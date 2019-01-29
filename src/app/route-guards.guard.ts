@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ApiService } from './api.service';
+import { AuthenticatedService } from './authenticated.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RouteGuardsGuard implements CanActivate {
 
-  constructor(public api: ApiService, public router: Router) {}
+  constructor(public auth: AuthenticatedService, public router: Router) {}
 
   /* canActivate(
     next: ActivatedRouteSnapshot,
@@ -16,7 +17,7 @@ export class RouteGuardsGuard implements CanActivate {
     return true;
   } */
   canActivate(): boolean {
-    if (!this.api.isAuthenticated()) {
+    if (!this.auth.isAuthenticated()) {
       this.router.navigate(['/login']);
       return false;
     }

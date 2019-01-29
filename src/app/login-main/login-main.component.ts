@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
+import { AuthenticatedService } from '../authenticated.service';
 
 @Component({
   selector: 'app-login-main',
@@ -13,12 +14,12 @@ export class LoginMainComponent {
   password: string;
   error: any;
 
-  constructor(private api: ApiService, private router: Router) { }
+  constructor(private auth: AuthenticatedService, private router: Router) { }
 
   loginUser(){
     const { username, password } = this;
 
-    this.api.login(username.trim(), password.trim())
+    this.auth.login(username.trim(), password.trim())
     .then((response) => {
       console.log(response, 'entra en then de login');
       this.error = undefined;
