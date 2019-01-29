@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { DataManagerService } from './data-manager.service';
 import { ApiService } from './api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { JiraUsersConfigComponent } from './jira-users-config/jira-users-config.component';
+import { ShowCertificatesComponent } from './show-certificates/show-certificates.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterMainComponent,
     LoginMainComponent,
     ViewMainComponent,
-    NavbarComponent
+    NavbarComponent,
+    JiraUsersConfigComponent,
+    ShowCertificatesComponent
   ],
   imports: [
     BrowserModule,
