@@ -10,9 +10,10 @@ import { NotfoundComponent } from './notfound/notfound.component';
 const routes: Routes = [
   { path: 'login', component: LoginMainComponent },
   { path: 'register', component: RegisterMainComponent },
-  { path: 'main', component: ViewMainComponent, canActivate: [AuthGuard]},
+  { path: 'main', component: ViewMainComponent, canActivate: [AuthGuard] },
   { path: 'jiraUsersConfig', component: JiraUsersConfigComponent, canActivate: [AuthGuard] },
-  { path: '**', component: NotfoundComponent, pathMatch: 'full' }
+  { path: '404', component: NotfoundComponent, pathMatch: 'full' },
+  { path: '**', redirectTo: '/404' }
 ];
 
 @NgModule({
