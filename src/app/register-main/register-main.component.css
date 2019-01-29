@@ -26,9 +26,16 @@ button:hover {
     font-size: 1.8em;
     margin: 0px 0px 10px 0px;
 }
+.userInput, .passInput, .emailInput, .roleInput {
+    margin: 10px;
+}
 .inputs {
     display: flex;
     flex-flow: column wrap;
+}
+.inputs img {
+    text-align: left;
+    margin-right: 10px;
 }
 .text, .text2 {
     visibility: hidden;

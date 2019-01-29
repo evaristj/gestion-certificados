@@ -7,20 +7,18 @@
     <div class="userInput">
       <img src="/assets/images/user-silhouette.png" alt="Usuario">
       <input class="subUserInput" type="text" placeholder="usuario" [(ngModel)]="username" name="user">
-
     </div>
     <div class="passInput">
       <img src="/assets/images/key-password.png" alt="Password">
       <input type="password" placeholder="contraseña" [(ngModel)]="password" name="pass">
-
     </div>
     <div class="emailInput">
-      <img src="/assets/images/email-filled-closed-envelope.png" alt="Usuario">
+      <img src="/assets/images/mail.png" alt="Usuario">
       <input type="email" placeholder="email" [(ngModel)]="email" name="pass">
-
     </div>
     <div class="roleInput">
       <img src="/assets/images/semaphore.png" alt="Usuario">
+      Permisos: 
       <select [(ngModel)]="role" name="roleUsers">
         <option selected value="1" >User</option>
         <option value="0" >Admin</option>
