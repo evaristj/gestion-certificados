@@ -13,6 +13,7 @@ import { ApiService } from './api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { JiraUsersConfigComponent } from './jira-users-config/jira-users-config.component';
 import { ShowCertificatesComponent } from './show-certificates/show-certificates.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ShowCertificatesComponent } from './show-certificates/show-certificates
     ViewMainComponent,
     NavbarComponent,
     JiraUsersConfigComponent,
-    ShowCertificatesComponent
+    ShowCertificatesComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,

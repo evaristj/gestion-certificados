@@ -9,6 +9,7 @@ export class ApiService {
   // urlRegister = 'https://localhost:5001/api/users';
   urlRegister = '/api/users';
   urlLogin = '/api/auth'
+  jwt: string;
   constructor(private http: HttpClient) { }
 
   register(username, password, email, role) {
@@ -21,22 +22,30 @@ export class ApiService {
     const body = { username, password };
     return new Promise((resolve, reject) => {
       this.http.post(this.urlLogin, body)
-      .toPromise().then(() => {
-        reject('User o password not found');
-      }).catch(maybeNotAndError => {
-        if (maybeNotAndError.status === 200) {
-          console.log('status.error.200');
-         /*  const jwt = maybeNotAndError.error.text;
-          this.jwt = jwt;
-          localStorage.setItem('jwt', jwt); */
-          resolve(200);
-        } else if (maybeNotAndError.status === 401) {
-          reject('Wrong password');
-        } else {
-          reject('Try again');
-        }
-        console.log('fin login api');
-      });
+        .toPromise().then(() => {
+          reject('User o password not found');
+        }).catch(maybeNotAndError => {
+          if (maybeNotAndError.status === 200) {
+            console.log('status.error.200');
+            const jwt = maybeNotAndError.error.text;
+            this.jwt = jwt;
+            localStorage.setItem('jwt', jwt);
+            resolve(200);
+          } else if (maybeNotAndError.status === 401) {
+            reject('Wrong password');
+          } else {
+            reject('Try again');
+          }
+          console.log('fin login api');
+        });
     });
+  }
+  public isAuthenticated(): boolean {
+    const token = localStorage.getItem('jwt');
+    if (token !== null) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
