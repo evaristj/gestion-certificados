@@ -13,14 +13,11 @@ input {
     border-radius: 0.5em;
 }
 .sendInput {
-    background: #8ed201;
-    color: white;
     border-radius: 1em;
-    margin: 10px 0px 0px 0px;
+    margin: 20px 0px 0px 0px;
 }
 .sendInput:hover {
-    background: #82c400;
-    color: white;
+    background: rgb(230, 230, 230);
 }
 button {
     all: unset;
