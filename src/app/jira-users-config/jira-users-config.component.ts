@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthenticatedService } from '../authenticated.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { JiraUser } from '../models.interface';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-jira-users-config',
@@ -7,27 +8,14 @@ import { AuthenticatedService } from '../authenticated.service';
   styleUrls: ['./jira-users-config.component.css']
 })
 export class JiraUsersConfigComponent implements OnInit {
-  id: number;
-  username: string;
-  password: string;
+  @Input() jiraUser: JiraUser;
 
-  constructor(private auth: AuthenticatedService) { }
-
-  /* jiraUser() {
-    const { username, password } = this;
-
-    this.auth.login(username.trim(), password.trim())
-      .then((response) => {
-        console.log(response, 'entra en then de login');
-        this.error = undefined;
-        this.router.navigate(['/main']);
-      }).catch(error => {
-        this.error = error;
-      });
-    this.password = '';
-    this.username = '';
-  } */
+  constructor(private api: ApiService) { }
+ 
   ngOnInit() {
+    this.api.getJiraUser().then((responseJira: any) => {
+      this.jiraUser = responseJira; 
+    }).catch(console.error);
   }
 
 }

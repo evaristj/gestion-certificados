@@ -15,7 +15,7 @@ export interface Certificate {
     integration_list: string;
 }
 
-export interface Users {
+export interface User {
     id: number;
     username: string;
     password: string;
@@ -23,7 +23,7 @@ export interface Users {
     role: number;
 }
 
-export interface JiraUsers {
+export interface JiraUser {
     id: number;
     user_id: number;
     username: string;

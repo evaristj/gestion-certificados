@@ -8,9 +8,13 @@ export class ApiService {
   jwt: string = localStorage.getItem('jwt');
   urlList: string;
   urlListTasks: string;
-  options = { headers: { Authorization: `Bearer ${this.jwt}` } };
+  urlJiraUser = 'api/jira/2';
+  // options = { headers: { Authorization: `Bearer ${this.jwt}` } };
   constructor(private http: HttpClient) { }
 
+  getJiraUser(){
+    return this.http.get(this.urlJiraUser).toPromise();
+  }
  /*  getLists(): any {
     return this.http.get(this.urlList, this.options).toPromise();
   }

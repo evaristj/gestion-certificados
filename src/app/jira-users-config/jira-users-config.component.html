@@ -5,47 +5,40 @@
       <h2>Modificar usuario de Jira</h2>
     </div>
     <div class="inputs">
-      <div class="userInput">
+      <div class="userInput" *ngIf="jiraUser">
         <img src="/assets/images/user-silhouette.png" alt="Usuario">
-        <input class="subUserInput" type="text" placeholder="usuario..." [(ngModel)]="username" name="user">
+        <h3>{{ jiraUser.username }}</h3>
+        <input *ngIf="!jiraUser" class="subUserInput" type="text" placeholder="usuario..." [(ngModel)]="username" name="user">
       </div>
-      <div class="passInput">
+      <div class="passInput" *ngIf="jiraUser">
         <img src="/assets/images/key-password.png" alt="Password">
-        <input type="password" placeholder="contraseña..." [(ngModel)]="password" name="pass">
+        <h3>{{ jiraUser.password }}</h3>
+        <input *ngIf="!jiraUser" type="password" placeholder="contraseña..." [(ngModel)]="password" name="pass">
       </div>
-      <div class="urlInput">
+      <div class="urlInput" *ngIf="jiraUser">
         <img src="/assets/images/mail.png" alt="url">
-        <input type="url" placeholder="url..." [(ngModel)]="url" name="url">
+        <h3>{{ jiraUser.url }}</h3>
+        <input *ngIf="!jiraUser" type="url" placeholder="url..." [(ngModel)]="url" name="url">
       </div>
-      <div class="projectInput">
+      <div class="projectInput" *ngIf="jiraUser">
         <img src="/assets/images/mail.png" alt="url">
-        <input type="project" placeholder="project..." [(ngModel)]="project" name="project">
+        <h3>{{ jiraUser.project }}</h3>
+        <input *ngIf="!jiraUser" type="project" placeholder="project..." [(ngModel)]="project" name="project">
       </div>
-      <div class="componentInput">
+      <div class="componentInput" *ngIf="jiraUser">
         <img src="/assets/images/mail.png" alt="url">
-        <input type="component" placeholder="component..." [(ngModel)]="component" name="component">
+        <h3>{{ jiraUser.component }}</h3>        
+        <input *ngIf="!jiraUser" type="component" placeholder="component..." [(ngModel)]="component" name="component">
       </div>
 
     </div>
-    <p class="text" *ngIf="!valid">
-      El usuario debe tener 4 caracteres mínimo. Y la contraseña debe contener números y letras.
-    </p>
+   
+    
     <div class="sendInput" *ngIf="!valid">
       <button type="submit" value="Register">
         <img src="/assets/images/cross-in-a-circle.png" alt="enviar formulario">
       </button>
     </div>
-    <div *ngIf="error">{{ error | json }}</div>
-    <div *ngIf="valid">
-      <p class="userCreate">
-        Usuario creado!!!
-      </p>
-    </div>
-    <div *ngIf="valid" class="goToLogin">
-      <button routerLink="/login">
-        <img src="/assets/images/login (1).png" alt="Go to login!">
-      </button>
-      <p class="text2">Ir a login</p>
-    </div>
+   
   </form>
 </div>
