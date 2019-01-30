@@ -47,7 +47,7 @@ export class AuthenticatedService {
     console.log('borrado jwt', this.jwt);
     return false;
  }
- public isAuthenticated(): boolean {
+ isAuthenticated(): boolean {
    const token = localStorage.getItem('jwt');
    if (token !== null) {
      return true;
@@ -55,4 +55,27 @@ export class AuthenticatedService {
      return false;
    }
  }
+
+  /* JiraLogin(username, password) {
+    const body = { username, password };
+    return new Promise((resolve, reject) => {
+      this.http.post(this.urlLogin, body)
+        .toPromise().then(() => {
+          reject('User o password not found');
+        }).catch(response => {
+          if (response.status === 200) {
+            console.log('status.error.200');
+            const jwt = response.error.text;
+            this.jwt = jwt;
+            localStorage.setItem('jwt', jwt);
+            resolve(200);
+          } else if (response.status === 401) {
+            reject('Wrong password');
+          } else {
+            reject('Try again');
+          }
+          console.log('fin login api');
+        });
+    });
+  } */
 }

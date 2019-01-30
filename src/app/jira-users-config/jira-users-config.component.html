@@ -1,23 +1,31 @@
 <app-navbar-login></app-navbar-login>
-<div class="cuerpoPrincipal">
-  <form (submit)="registerUser()">
+<div class="formulario">
+  <form (submit)="registerJira()">
     <div class="title">
-      <h2>Registrar usuario en Jira</h2>
+      <h2>Modificar usuario de Jira</h2>
     </div>
     <div class="inputs">
       <div class="userInput">
         <img src="/assets/images/user-silhouette.png" alt="Usuario">
-        <input class="subUserInput" type="text" placeholder="usuario" [(ngModel)]="username" name="user">
+        <input class="subUserInput" type="text" placeholder="usuario..." [(ngModel)]="username" name="user">
       </div>
       <div class="passInput">
         <img src="/assets/images/key-password.png" alt="Password">
-        <input type="password" placeholder="contraseña" [(ngModel)]="password" name="pass">
+        <input type="password" placeholder="contraseña..." [(ngModel)]="password" name="pass">
       </div>
-      <div class="emailInput">
+      <div class="urlInput">
         <img src="/assets/images/mail.png" alt="url">
-        <input type="email" placeholder="url" [(ngModel)]="url" name="pass">
+        <input type="url" placeholder="url..." [(ngModel)]="url" name="url">
       </div>
-      
+      <div class="projectInput">
+        <img src="/assets/images/mail.png" alt="url">
+        <input type="project" placeholder="project..." [(ngModel)]="project" name="project">
+      </div>
+      <div class="componentInput">
+        <img src="/assets/images/mail.png" alt="url">
+        <input type="component" placeholder="component..." [(ngModel)]="component" name="component">
+      </div>
+
     </div>
     <p class="text" *ngIf="!valid">
       El usuario debe tener 4 caracteres mínimo. Y la contraseña debe contener números y letras.

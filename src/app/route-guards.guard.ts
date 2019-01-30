@@ -22,11 +22,5 @@ export class RouteGuardsGuard implements CanActivate {
     }
     return true;
   }
-/*   isLogin(): boolean {
-    if (this.auth.isAuthenticated()) {
-      this.router.navigate(['/main']);
-      return true;
-    }
-    return false;
-  } */
+
 }
