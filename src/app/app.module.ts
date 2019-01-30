@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { JiraUsersConfigComponent } from './jira-users-config/jira-users-config.component';
 import { ShowCertificatesComponent } from './show-certificates/show-certificates.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { AuthenticatedService } from './authenticated.service';
+import { NavbarLoginComponent } from './navbar-login/navbar-login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
     NavbarComponent,
     JiraUsersConfigComponent,
     ShowCertificatesComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    NavbarLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
   ],
   providers: [
     DataManagerService,
-    ApiService
+    ApiService,
+    AuthenticatedService
   ],
   bootstrap: [AppComponent]
 })

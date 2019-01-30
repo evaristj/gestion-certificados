@@ -26,7 +26,9 @@ export class LoginMainComponent {
       this.router.navigate(['/main']);
     }).catch(error => {
       this.error = error;
-    })
+    });
+    this.password = '';
+    this.username = '';
   }
 
 }

@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { ApiService } from './api.service';
+import { CanActivate, Router } from '@angular/router';
 import { AuthenticatedService } from './authenticated.service';
 
 @Injectable({
@@ -18,9 +16,17 @@ export class RouteGuardsGuard implements CanActivate {
   } */
   canActivate(): boolean {
     if (!this.auth.isAuthenticated()) {
+      window.alert("No puedes ver esta pagina");
       this.router.navigate(['/login']);
       return false;
     }
     return true;
   }
+/*   isLogin(): boolean {
+    if (this.auth.isAuthenticated()) {
+      this.router.navigate(['/main']);
+      return true;
+    }
+    return false;
+  } */
 }

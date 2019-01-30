@@ -1,0 +1,15 @@
+.all {
+    font-family: 'Raleway', sans-serif;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+    background: rgb(102, 102, 102);
+    border-radius: 0.5em;
+}
+a {
+    font-size: 1.3em;
+    margin: 1em;
+    color: white;
+}

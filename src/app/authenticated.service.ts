@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class AuthenticatedService {
  urlRegister = '/api/users';
  urlLogin = '/api/auth'
  jwt: string;
- constructor(private http: HttpClient) { }
+ constructor(private http: HttpClient, private router: Router) { }
 
  register(username, password, email, role) {
    console.log(username, password, email, role, ' - registerFunctionApi.');
@@ -39,6 +40,12 @@ export class AuthenticatedService {
          console.log('fin login api');
        });
    });
+ }
+ authLogout(): boolean {
+    localStorage.removeItem('jwt');
+    this.router.navigate(['/login']);
+    console.log('borrado jwt', this.jwt);
+    return false;
  }
  public isAuthenticated(): boolean {
    const token = localStorage.getItem('jwt');
