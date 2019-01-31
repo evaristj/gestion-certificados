@@ -12,13 +12,14 @@ export class DataManagerService {
   jiraUserId: number;
   constructor(private router: Router, private api: ApiService) { }
 
+  
 /*   loadDataFromBackend() {
     this.api
       .getJiraUser()
       .then((jiraUser: Array<any>) => {
         console.log( 'hola soy una prueba', jiraUser);
       })
-      .catch(() => this.router.navigate(['/login']));
+      .catch(console.error);
   } */
 
 /*   loadDataFromBackend() {

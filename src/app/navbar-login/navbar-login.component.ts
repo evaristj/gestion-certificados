@@ -1,16 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AuthenticatedService } from '../authenticated.service';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-navbar-login',
   templateUrl: './navbar-login.component.html',
   styleUrls: ['./navbar-login.component.css']
 })
-export class NavbarLoginComponent {
-
-  constructor(private auth: AuthenticatedService) { }
+export class NavbarLoginComponent implements OnInit{
+  @Input() userName: string;
+  constructor(private auth: AuthenticatedService, private api: ApiService) { }
 
   logout(){
     this.auth.authLogout();
+  }
+
+  ngOnInit(){
+    console.log(this.api.getUserName(),'welcome');
+    this.userName = this.api.getUserName();
   }
 }

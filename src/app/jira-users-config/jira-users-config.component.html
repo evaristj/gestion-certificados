@@ -1,33 +1,33 @@
 <app-navbar-login></app-navbar-login>
 <div class="formulario">
-  <form (submit)="registerJira()">
+  <form (submit)="updateJiraUser()">
     <div class="title">
       <h2>Modificar usuario de Jira</h2>
     </div>
     <div class="inputs">
       <div class="userInput" *ngIf="jiraUser">
         <img src="/assets/images/user-silhouette.png" alt="Usuario">
-        <h3>{{ jiraUser.username }}</h3>
+        <h4>{{ jiraUser.username }}</h4>
         <input *ngIf="!jiraUser" class="subUserInput" type="text" placeholder="usuario..." [(ngModel)]="username" name="user">
       </div>
       <div class="passInput" *ngIf="jiraUser">
         <img src="/assets/images/key-password.png" alt="Password">
-        <h3>{{ jiraUser.password }}</h3>
+        <h4>{{ jiraUser.password }}</h4>
         <input *ngIf="!jiraUser" type="password" placeholder="contraseña..." [(ngModel)]="password" name="pass">
       </div>
       <div class="urlInput" *ngIf="jiraUser">
         <img src="/assets/images/mail.png" alt="url">
-        <h3>{{ jiraUser.url }}</h3>
+        <h4>{{ jiraUser.url }}</h4>
         <input *ngIf="!jiraUser" type="url" placeholder="url..." [(ngModel)]="url" name="url">
       </div>
       <div class="projectInput" *ngIf="jiraUser">
-        <img src="/assets/images/mail.png" alt="url">
-        <h3>{{ jiraUser.project }}</h3>
+        <img src="/assets/images/web.png" alt="url">
+        <h4>{{ jiraUser.project }}</h4>
         <input *ngIf="!jiraUser" type="project" placeholder="project..." [(ngModel)]="project" name="project">
       </div>
       <div class="componentInput" *ngIf="jiraUser">
-        <img src="/assets/images/mail.png" alt="url">
-        <h3>{{ jiraUser.component }}</h3>        
+        <img src="/assets/images/network-interface-card.png" alt="url">
+        <h4>{{ jiraUser.component }}</h4>        
         <input *ngIf="!jiraUser" type="component" placeholder="component..." [(ngModel)]="component" name="component">
       </div>
 

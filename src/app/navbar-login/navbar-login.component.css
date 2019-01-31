@@ -13,3 +13,12 @@ a {
     margin: 1em;
     color: white;
 }
+.welcome {
+    font-size: 1.3em;
+    margin-left: 1em;
+    color: white;
+    margin-top: 1em;
+    background: rgb(146, 146, 146);
+    border-radius: 0.6em;
+    max-height: 1.6em;
+}

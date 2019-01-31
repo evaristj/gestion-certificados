@@ -30,6 +30,7 @@ export class AuthenticatedService {
           console.log(this.dataUser[0], 'primer valor');
           localStorage.setItem('jwt', this.jwt);
           localStorage.setItem('jiraUserId', this.dataUser[0]);
+          localStorage.setItem('userName', this.dataUser[1]);
           resolve(200);
         console.log('fin login api');
       }).catch(() => {
@@ -39,8 +40,9 @@ export class AuthenticatedService {
  }
  authLogout(): boolean {
     localStorage.removeItem('jwt');
+    localStorage.removeItem('jiraUserId');
     this.router.navigate(['/login']);
-    console.log('borrado jwt', this.jwt);
+    console.log('borrado localStorage', this.jwt, this.dataUser);
     return false;
  }
  isAuthenticated(): boolean {

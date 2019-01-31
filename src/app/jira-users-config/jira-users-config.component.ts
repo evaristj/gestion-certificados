@@ -13,9 +13,12 @@ export class JiraUsersConfigComponent implements OnInit {
   constructor(private api: ApiService) { }
  
   ngOnInit() {
+    console.log('on init');
+    
     this.api.getJiraUser().then((responseJira: any) => {
+      console.log('ts jira config', responseJira.id);
+      
       this.jiraUser = responseJira; 
     }).catch(console.error);
   }
-
 }
