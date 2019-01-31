@@ -3,22 +3,24 @@
 }
 nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     padding: 2px;
     background: rgb(102, 102, 102);
     border-radius: 0.5em;
 }
-a {
+a, .welcome{
     font-size: 1.3em;
     margin: 1em;
     color: white;
 }
-.welcome {
+/* .welcome {
     font-size: 1.3em;
-    margin-left: 1em;
     color: white;
     margin-top: 1em;
-    background: rgb(146, 146, 146);
-    border-radius: 0.6em;
-    max-height: 1.6em;
+} */
+/* .name {
+    background: rgb(255, 255, 255);
+    border-radius: 0.4em;
+    color: #8ed201;
 }
+ */
