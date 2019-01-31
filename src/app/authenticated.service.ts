@@ -6,11 +6,10 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthenticatedService {
-
- // urlRegister = 'https://localhost:5001/api/users';
  urlRegister = '/api/users';
  urlLogin = '/api/auth'
- jwt: string;
+ jwt: any;
+ dataUser: any;
  constructor(private http: HttpClient, private router: Router) { }
 
  register(username, password, email, role) {
@@ -23,22 +22,19 @@ export class AuthenticatedService {
    const body = { username, password };
    return new Promise((resolve, reject) => {
      this.http.post(this.urlLogin, body)
-       .toPromise().then(() => {
-         reject('User o password not found');
-       }).catch(response => {
-         if (response.status === 200) {
-           console.log('status.error.200');
-           const jwt = response.error.text;
-           this.jwt = jwt;
-           localStorage.setItem('jwt', jwt);
-           resolve(200);
-         } else if (response.status === 401) {
-           reject('Wrong password');
-         } else {
-           reject('Try again');
-         }
-         console.log('fin login api');
-       });
+       .toPromise().then(response => {
+          console.log(response, 'status.200');
+          let jwt = response;
+          this.jwt = jwt;
+          this.dataUser = Object.values(response);
+          console.log(this.dataUser[0], 'primer valor');
+          localStorage.setItem('jwt', this.jwt);
+          localStorage.setItem('jiraUserId', this.dataUser[0]);
+          resolve(200);
+        console.log('fin login api');
+      }).catch(() => {
+          reject('User o password not found');
+        });
    });
  }
  authLogout(): boolean {
@@ -56,26 +52,4 @@ export class AuthenticatedService {
    }
  }
 
-  /* JiraLogin(username, password) {
-    const body = { username, password };
-    return new Promise((resolve, reject) => {
-      this.http.post(this.urlLogin, body)
-        .toPromise().then(() => {
-          reject('User o password not found');
-        }).catch(response => {
-          if (response.status === 200) {
-            console.log('status.error.200');
-            const jwt = response.error.text;
-            this.jwt = jwt;
-            localStorage.setItem('jwt', jwt);
-            resolve(200);
-          } else if (response.status === 401) {
-            reject('Wrong password');
-          } else {
-            reject('Try again');
-          }
-          console.log('fin login api');
-        });
-    });
-  } */
 }
