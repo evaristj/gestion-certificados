@@ -9,9 +9,15 @@ import { ApiService } from '../api.service';
 })
 export class JiraUsersConfigComponent implements OnInit {
   @Input() jiraUser: JiraUser;
-
+  userName: string = '';
+  url: string = '';
+  proyecto: string = '';
+  componente: string = '';
   constructor(private api: ApiService) { }
  
+  editJiraUser(){
+
+  }
   ngOnInit() {
     console.log('on init');
     

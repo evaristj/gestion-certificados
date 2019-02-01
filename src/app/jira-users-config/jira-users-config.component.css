@@ -60,3 +60,8 @@ button:hover {
 .datosUsuario {
     text-align: center;
 }
+h4:hover {
+    background-color: rgb(233, 233, 233);
+    opacity: 0.8;
+    border-radius: 0.3em;
+}

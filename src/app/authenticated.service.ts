@@ -24,13 +24,14 @@ export class AuthenticatedService {
      this.http.post(this.urlLogin, body)
        .toPromise().then(response => {
           console.log(response, 'status.200');
-          let jwt = response;
+          this.dataUser = {...response};
+          let jwt = this.dataUser.password;
           this.jwt = jwt;
-          this.dataUser = Object.values(response);
-          console.log(this.dataUser[0], 'primer valor');
+          
+          console.log(this.dataUser.id, 'primer valor');
           localStorage.setItem('jwt', this.jwt);
-          localStorage.setItem('jiraUserId', this.dataUser[0]);
-          localStorage.setItem('userName', this.dataUser[1]);
+          localStorage.setItem('id', this.dataUser.id);
+          localStorage.setItem('userName', this.dataUser.username);
           resolve(200);
         console.log('fin login api');
       }).catch(() => {

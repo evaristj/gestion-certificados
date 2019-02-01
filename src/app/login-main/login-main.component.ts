@@ -19,7 +19,7 @@ export class LoginMainComponent {
   loginUser(){
     const { username, password } = this;
 
-    this.auth.login(username.trim(), password.trim())
+    this.auth.login(username, password)
     .then((response) => {
       console.log(response, 'entra en then de login');
       this.error = undefined;

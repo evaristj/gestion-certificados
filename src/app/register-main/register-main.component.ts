@@ -17,19 +17,17 @@ export class RegisterMainComponent {
 
   constructor(private auth: AuthenticatedService) { }
 
-  registerUser(){
+  registerUser() {
     const { username, password, email, role } = this;
-    if (username.trim() !== '' && password.trim() !== '' && email.trim() !== '') {
-      if (username.trim().length >= 4) {
-         this.auth.register(username.trim(), password.trim(), email.trim(), role).then( result => {
+    if (email.trim() !== '') {
+      this.auth.register(username, password, email.trim(), role).then(result => {
         console.log(result);
         this.valid = result;
       })
-      .catch(error => {
-        console.log(error);
-        this.error = error;        
-      });
-      }
+        .catch(error => {
+          console.log(error);
+          this.error = error;
+        });
     }
   }
 

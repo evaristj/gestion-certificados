@@ -5,15 +5,15 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiService {
-  jiraUserId: string;
+  id: string;
   userName: string;
   urlJira = 'api/jira/';
   // options = { headers: { Authorization: `Bearer ${this.jwt}` } };
   constructor(private http: HttpClient) { }
 
   getJiraUser(){
-    this.jiraUserId = localStorage.getItem('jiraUserId');
-    return this.http.get(this.urlJira + `${this.jiraUserId}`).toPromise();
+    this.id = localStorage.getItem('id');
+    return this.http.get(this.urlJira + `${this.id}`).toPromise();
   }
   getUserName(){
     return this.userName = localStorage.getItem('userName');
