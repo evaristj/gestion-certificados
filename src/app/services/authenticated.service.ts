@@ -7,15 +7,24 @@ import { Router } from '@angular/router';
 })
 export class AuthenticatedService {
  urlRegister = '/api/users';
+ urlRegisterJira = '/api/jira';
  urlLogin = '/api/auth'
  jwt: any;
  dataUser: any;
+ user_id: string;
  constructor(private http: HttpClient, private router: Router) { }
 
  register(username, password, email, role) {
    console.log(username, password, email, role, ' - registerFunctionApi.');
    const body = { username, password, email, role };
+   // creamos un usuario de jira con el username y password del usuario
+   // this.registerJiraUser(username, password);
    return this.http.post(this.urlRegister, body).toPromise();
+ }
+
+ registerJiraUser(user_id, username, password){
+  const body = { user_id, username, password };
+  return this.http.post(this.urlRegisterJira, body).toPromise();
  }
 
  login(username, password) {

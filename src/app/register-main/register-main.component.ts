@@ -14,19 +14,25 @@ export class RegisterMainComponent {
   role: number;
   error: any;
   valid: any;
+  user_id: string;
 
   constructor(private auth: AuthenticatedService) { }
 
   registerUser() {
     const { username, password, email, role } = this;
-      this.auth.register(username, password, email, role).then(result => {
-        console.log(result);
-        this.valid = result;
-      })
-        .catch(error => {
-          console.log(error);
-          this.error = error;
-        });
+    this.auth.register(username, password, email, role).then(result => {
+      console.log(result);
+      this.valid = { ...result };
+      localStorage.setItem('user_id', this.valid.id)
+      this.user_id = localStorage.getItem('user_id');
+      console.log('user_id: ', this.user_id);
+      
+      this.auth.registerJiraUser(this.user_id, username, password);
+    })
+      .catch(error => {
+        console.log(error);
+        this.error = error;
+      });
   }
 
 }

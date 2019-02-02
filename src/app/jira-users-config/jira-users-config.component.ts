@@ -10,7 +10,7 @@ import { ApiService } from '../services/api.service';
 export class JiraUsersConfigComponent implements OnInit {
   @Input() jiraUser: JiraUser;
   id: string;
-  user_id: number;
+  user_id: string;
   newName: string = '';
   newPass: string = '';
   newUrl: string = '';
@@ -85,7 +85,7 @@ export class JiraUsersConfigComponent implements OnInit {
   }
 
   callPutApi(){
-    this.jiraUser.user_id = parseInt(localStorage.getItem('id'));
+    // this.jiraUser.user_id = parseInt(localStorage.getItem('id'));
     this.api.updateJiraUser(this.jiraUser).then(() => {
       console.log(this.jiraUser);
       

@@ -22,7 +22,7 @@
         (blur)="cancelNewPass()">
       </div>
       <div class="urlInput">
-        <img src="/assets/images/mail.png" alt="url">
+        <img src="/assets/images/web.png" alt="url" (click)="editNewUrl()">
         <div *ngIf="jiraUser" (click)="editNewUrl()"><h4>{{ jiraUser.url }}</h4></div>
         <input *ngIf="!jiraUser || editUrl" type="url" placeholder="url..." 
         [(ngModel)]="newUrl" name="url"
@@ -30,17 +30,17 @@
         (blur)="cancelNewUrl()">
       </div>
       <div class="projectInput">
-        <img src="/assets/images/web.png" alt="project">
+        <img src="/assets/images/business-presentation.png" alt="project" (click)="editNewProject()">
         <div *ngIf="jiraUser" (click)="editNewProject()"><h4>{{ jiraUser.project }}</h4></div>
-        <input *ngIf="!jiraUser || editProject" type="project" placeholder="project..." 
+        <input *ngIf="!jiraUser || editProject" type="project" placeholder="proyecto..." 
         [(ngModel)]="newProyecto" name="project"
         (keyup.enter)="editJiraProject()"
         (blur)="cancelNewProject()">
       </div>
       <div class="componentInput">
-        <img src="/assets/images/network-interface-card.png" alt="component">
+        <img src="/assets/images/network-interface-card.png" alt="component" (click)="editNewComponente()">
         <div *ngIf="jiraUser" (click)="editNewComponente()"><h4>{{ jiraUser.component }}</h4></div>      
-        <input *ngIf="!jiraUser || editComponente" type="component" placeholder="component..." 
+        <input *ngIf="!jiraUser || editComponente" type="component" placeholder="componente..." 
         [(ngModel)]="newComponente" name="component"
         (keyup.enter)="editJiraComponente()"
         (blur)="cancelNewComponente()">
