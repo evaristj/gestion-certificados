@@ -14,7 +14,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getJiraUser(){
-    this.id = localStorage.getItem('user_id');
+    this.id = localStorage.getItem('id');
     return this.http.get(this.urlJira + `${this.id}`).toPromise();
   }
   getUserName(){
