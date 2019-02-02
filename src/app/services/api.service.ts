@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { JiraUser } from './models.interface';
+import { JiraUser } from '../models.interface';
 
 @Injectable({
   providedIn: 'root'

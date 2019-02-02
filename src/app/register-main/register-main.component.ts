@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../api.service';
-import { AuthenticatedService } from '../authenticated.service';
+import { ApiService } from '../services/api.service';
+import { AuthenticatedService } from '../services/authenticated.service';
 
 @Component({
   selector: 'app-register-main',

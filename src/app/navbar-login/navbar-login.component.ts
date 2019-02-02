@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AuthenticatedService } from '../authenticated.service';
-import { ApiService } from '../api.service';
+import { AuthenticatedService } from '../services/authenticated.service';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-navbar-login',

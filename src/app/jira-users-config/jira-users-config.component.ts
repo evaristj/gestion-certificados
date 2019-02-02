@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { JiraUser } from '../models.interface';
-import { ApiService } from '../api.service';
-import { DataManagerService } from '../data-manager.service';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-jira-users-config',
@@ -91,7 +90,7 @@ export class JiraUsersConfigComponent implements OnInit {
       console.log(this.jiraUser);
       
     }).catch(console.error);
-    
+
     this.editName = false;
     this.editPass = false;
     this.editUrl = false;
