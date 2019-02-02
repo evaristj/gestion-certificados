@@ -7,20 +7,19 @@ import { Certificate, User, JiraUser } from './models.interface'
   providedIn: 'root'
 })
 export class DataManagerService {
-  data: { lists: Array<Certificate> } = {
-    lists: []};
-  jiraUserId: number;
+  
+  urlPutJira = '/api/jira';
+
   constructor(private router: Router, private api: ApiService) { }
 
   
-/*   loadDataFromBackend() {
-    this.api
-      .getJiraUser()
-      .then((jiraUser: Array<any>) => {
-        console.log( 'hola soy una prueba', jiraUser);
-      })
-      .catch(console.error);
+/*   // actualizar datos usuario jira
+  updateJiraUser(username, password, email, role) {
+    console.log(username, password, email, role, ' - registerFunctionApi.');
+    const body = { username, password, email, role };
+    return this.http.post(this.urlRegister + idUser, body).toPromise();
   } */
+
 
 /*   loadDataFromBackend() {
     this.api

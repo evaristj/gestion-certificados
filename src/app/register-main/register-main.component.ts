@@ -19,8 +19,7 @@ export class RegisterMainComponent {
 
   registerUser() {
     const { username, password, email, role } = this;
-    if (email.trim() !== '') {
-      this.auth.register(username, password, email.trim(), role).then(result => {
+      this.auth.register(username, password, email, role).then(result => {
         console.log(result);
         this.valid = result;
       })
@@ -28,7 +27,6 @@ export class RegisterMainComponent {
           console.log(error);
           this.error = error;
         });
-    }
   }
 
 }
