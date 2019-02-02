@@ -32,6 +32,7 @@ export class AuthenticatedService {
           localStorage.setItem('jwt', this.jwt);
           localStorage.setItem('id', this.dataUser.id);
           localStorage.setItem('userName', this.dataUser.username);
+          // localStorage.setItem('role', this.dataUser.role);
           resolve(200);
         console.log('fin login api');
       }).catch(() => {

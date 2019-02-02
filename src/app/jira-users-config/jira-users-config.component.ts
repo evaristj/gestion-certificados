@@ -86,11 +86,12 @@ export class JiraUsersConfigComponent implements OnInit {
   }
 
   callPutApi(){
+    this.jiraUser.user_id = parseInt(localStorage.getItem('id'));
     this.api.updateJiraUser(this.jiraUser).then(() => {
       console.log(this.jiraUser);
       
     }).catch(console.error);
-    console.log('error al editar el usuario de jira');
+    
     this.editName = false;
     this.editPass = false;
     this.editUrl = false;
@@ -98,7 +99,7 @@ export class JiraUsersConfigComponent implements OnInit {
     this.editComponente = false;
   }
   ngOnInit() {
-    console.log('on init');
+    console.log('on init', localStorage.getItem('id'));
     this.api.getJiraUser().then((responseJira: JiraUser) => {
       console.log('ts jira config', responseJira.id, 'user_id: ', typeof responseJira.user_id);
       this.jiraUser = responseJira;

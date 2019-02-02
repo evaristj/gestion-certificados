@@ -20,40 +20,12 @@ export class ApiService {
   getUserName(){
     return this.userName = localStorage.getItem('userName');
   }
-
+  // actualizar usuario jira
   updateJiraUser(updateJira){
-    console.log(updateJira, 'actualizando jiraUser api.service');
-    this.data = {...updateJira};
-    console.log(this.data.username, 'nombre de usuario a modificar');
-    // me he quedado por aqui, creo que no estoy enviando bien el body
-    //const body = { updateJira };
-    //console.log(body, 'json para enviar al backend');
+    console.log(updateJira, 'ver el user_id');
     
-    this.id = localStorage.getItem('id');
     console.error;
     return this.http.put(this.urlJira + localStorage.getItem('id'), updateJira).toPromise();
-
   }
- /*  getLists(): any {
-    return this.http.get(this.urlList, this.options).toPromise();
-  }
-  getTasks(idlist: number): any {
-    return new Promise((resolve, reject) => {
-      this.http
-        .get(this.urlListTasks + idlist, this.options)
-        .toPromise()
-        .then(tasks => {
-          if (tasks) {
-            resolve(tasks);
-          } else {
-            resolve([]);
-          }
-        })
-        .catch(error => {
-          console.log(error);
-          resolve([]);
-        });
-    });
-  } */
 
 }
