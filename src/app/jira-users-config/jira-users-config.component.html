@@ -6,16 +6,16 @@
     </div>
     <div class="inputs">
       <div class="userInput" >
-        <img src="/assets/images/user-silhouette.png" alt="Usuario">
-        <div *ngIf="jiraUser" (click)="editNewName()"> <h4>{{ jiraUser.username }}</h4></div>
+        <img src="/assets/images/user-silhouette.png" alt="Usuario" (click)="editNewName()">
+        <div *ngIf="jiraUser" (click)="editNewName()"> <h5>{{ jiraUser.username }}</h5></div>
         <input *ngIf="!jiraUser || editName" class="subUserInput" type="text" placeholder="usuario..." 
         [(ngModel)]="newName" name="user"
         (keyup.enter)="editJiraName()"
         (blur)="cancelNewName()">
       </div>
       <div class="passInput" >
-        <img src="/assets/images/key-password.png" alt="Password">
-        <div *ngIf="jiraUser" (click)="editNewPass()"><h4>Modificar contraseña</h4></div>
+        <img src="/assets/images/key-password.png" alt="Password" (click)="editNewPass()">
+        <div *ngIf="jiraUser" (click)="editNewPass()"><h5>Modificar contraseña</h5></div>
         <input *ngIf="!jiraUser || editPass" type="password" placeholder="contraseña..." 
         [(ngModel)]="newPass" name="pass"
         (keyup.enter)="editJiraPass()"
@@ -23,7 +23,7 @@
       </div>
       <div class="urlInput">
         <img src="/assets/images/web.png" alt="url" (click)="editNewUrl()">
-        <div *ngIf="jiraUser" (click)="editNewUrl()"><h4>{{ jiraUser.url }}</h4></div>
+        <div *ngIf="jiraUser" (click)="editNewUrl()"><h5>{{ jiraUser.url }}</h5></div>
         <input *ngIf="!jiraUser || editUrl" type="url" placeholder="url..." 
         [(ngModel)]="newUrl" name="url"
         (keyup.enter)="editJiraUrl()"
@@ -31,7 +31,7 @@
       </div>
       <div class="projectInput">
         <img src="/assets/images/business-presentation.png" alt="project" (click)="editNewProject()">
-        <div *ngIf="jiraUser" (click)="editNewProject()"><h4>{{ jiraUser.project }}</h4></div>
+        <div *ngIf="jiraUser" (click)="editNewProject()"><h5>{{ jiraUser.project }}</h5></div>
         <input *ngIf="!jiraUser || editProject" type="project" placeholder="proyecto..." 
         [(ngModel)]="newProyecto" name="project"
         (keyup.enter)="editJiraProject()"
@@ -39,7 +39,7 @@
       </div>
       <div class="componentInput">
         <img src="/assets/images/network-interface-card.png" alt="component" (click)="editNewComponente()">
-        <div *ngIf="jiraUser" (click)="editNewComponente()"><h4>{{ jiraUser.component }}</h4></div>      
+        <div *ngIf="jiraUser" (click)="editNewComponente()"><h5>{{ jiraUser.component }}</h5></div>      
         <input *ngIf="!jiraUser || editComponente" type="component" placeholder="componente..." 
         [(ngModel)]="newComponente" name="component"
         (keyup.enter)="editJiraComponente()"

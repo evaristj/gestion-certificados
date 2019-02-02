@@ -29,6 +29,7 @@ export class JiraUsersConfigComponent implements OnInit {
   }
   cancelNewName(){
     this.editName = false;
+    this.newName = '';
   }
   // password
   editNewPass() {
@@ -36,6 +37,7 @@ export class JiraUsersConfigComponent implements OnInit {
   }
   cancelNewPass(){
     this.editPass = false;
+    this.newPass = '';
   }
   // url
   editNewUrl() {
@@ -43,6 +45,7 @@ export class JiraUsersConfigComponent implements OnInit {
   }
   cancelNewUrl(){
     this.editUrl = false;
+    this.newUrl = '';
   }
   // proyecto
   editNewProject() {
@@ -50,6 +53,7 @@ export class JiraUsersConfigComponent implements OnInit {
   }
   cancelNewProject(){
     this.editProject = false;
+    this.newProyecto = '';
   }
   // componente
   editNewComponente() {
@@ -57,6 +61,7 @@ export class JiraUsersConfigComponent implements OnInit {
   }
   cancelNewComponente(){
     this.editComponente = false;
+    this.newComponente = '';
   }
   editJiraName() {
     this.jiraUser.username = this.newName.trim();
@@ -83,6 +88,15 @@ export class JiraUsersConfigComponent implements OnInit {
     console.log(this.jiraUser, 'funcion component editar');
     this.callPutApi();
   }
+
+/* funcion que completaré más adelante  
+editAllJiraUser(){
+    this.editNewName();
+    this.editNewPass();
+    this.editNewProject();
+    this.editNewUrl();
+    this.editNewComponente();
+  } */
 
   callPutApi(){
     // this.jiraUser.user_id = parseInt(localStorage.getItem('id'));
