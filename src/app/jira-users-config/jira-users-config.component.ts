@@ -25,41 +25,41 @@ export class JiraUsersConfigComponent implements OnInit {
 
   // name
   editNewName() {
-    this.editName = true;
+    this.editName = !this.editName;
   }
-  cancelNewName(){
+  cancelNewName() {
     this.editName = false;
     this.newName = '';
   }
   // password
   editNewPass() {
-    this.editPass = true;
+    this.editPass = !this.editPass;
   }
-  cancelNewPass(){
+  cancelNewPass() {
     this.editPass = false;
     this.newPass = '';
   }
   // url
   editNewUrl() {
-    this.editUrl = true;
+    this.editUrl = !this.editUrl;
   }
-  cancelNewUrl(){
+  cancelNewUrl() {
     this.editUrl = false;
     this.newUrl = '';
   }
   // proyecto
   editNewProject() {
-    this.editProject = true;
+    this.editProject = !this.editProject;
   }
-  cancelNewProject(){
+  cancelNewProject() {
     this.editProject = false;
     this.newProyecto = '';
   }
   // componente
   editNewComponente() {
-    this.editComponente = true;
+    this.editComponente = !this.editComponente;
   }
-  cancelNewComponente(){
+  cancelNewComponente() {
     this.editComponente = false;
     this.newComponente = '';
   }
@@ -89,10 +89,10 @@ export class JiraUsersConfigComponent implements OnInit {
     this.callPutApi();
   }
 
-  callPutApi(){
+  callPutApi() {
     this.api.updateJiraUser(this.jiraUser).then(() => {
       console.log(this.jiraUser);
-      
+
     }).catch(console.error);
 
     this.editName = false;

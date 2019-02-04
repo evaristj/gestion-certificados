@@ -65,7 +65,7 @@ h5:hover {
     opacity: 0.8;
     border-radius: 0.3em;
 }
-img:hover {
+div .icons:hover {
     background-color: rgb(233, 233, 233);
     border-radius: 0.2em;
 }
