@@ -7,7 +7,7 @@ export interface Certificate {
     subject: string;
     caducidad: Date;
     password: string;
-    id_orga: number;
+    id_orga: string;
     nombre_cliente: string;
     repositorio_url: string;
     contacto_renovación: string;

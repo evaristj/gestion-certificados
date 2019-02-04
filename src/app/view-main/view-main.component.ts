@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ApiService } from '../services/api.service';
+import { Certificate } from '../models.interface';
 
 @Component({
   selector: 'app-view-main',
@@ -6,13 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-main.component.css']
 })
 export class ViewMainComponent implements OnInit {
+  @Input() certificate: any;
 
-/*   data: {lists: Array<List>};
- */
-  constructor() { }
+  constructor(private api: ApiService) { }
 
   ngOnInit() {
-    /* this.data = this.dataManager.getData(); */
+    this.api.loadCertificates().then(({...resCertificate}: any) => {
+      console.log('array de certificados: ', resCertificate);
+      this.certificate = {...resCertificate};
+      console.log(this.certificate[0]);
+      
+    }).catch(() => {
+      (console.error)
+    });
   }
 
 }
