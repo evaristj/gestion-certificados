@@ -4,6 +4,7 @@
 nav {
     display: flex;
     justify-content: space-evenly;
+    flex-flow: row wrap;
     padding: 2px;
     background: rgb(102, 102, 102);
     border-radius: 0.5em;
