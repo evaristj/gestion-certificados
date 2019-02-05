@@ -9,8 +9,16 @@ import { Certificate } from '../models.interface';
 })
 export class ViewMainComponent implements OnInit {
   @Input() certificados: Array<Certificate>;
+  certificate: Certificate;
 
   constructor(private api: ApiService) { }
+
+  sortAlias() { 
+    this.certificados = this.certificados.sort( (a: Certificate,b: Certificate) => a.alias > b.alias ? 1 : -1 );
+    console.log('ordenados por alias',this.certificados);
+    
+    
+  }
 
   ngOnInit() {
     this.api.loadCertificates().then((resCertificate: any) => {

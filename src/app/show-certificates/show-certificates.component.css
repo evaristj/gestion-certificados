@@ -1,1 +1,6 @@
 /* @import 'bootstrap/dist/css/bootstrap.min.css'; */
+.borrar:hover {
+    transition: 500ms;
+    background: rgb(255, 117, 117);
+    border-radius: 0.3em;
+}

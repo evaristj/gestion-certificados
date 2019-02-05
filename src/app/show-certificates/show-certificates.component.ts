@@ -8,6 +8,7 @@ import { Certificate } from '../models.interface';
 })
 export class ShowCertificatesComponent implements OnInit {
   @Input() certificate: Certificate;
+  eliminar: boolean;
   constructor() { }
 
   ngOnInit() {

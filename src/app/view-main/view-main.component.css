@@ -21,22 +21,32 @@
   padding-left: 0.2em;
   border-top: double;
 }
+
 .certificated_head {
-    display: grid;
-    background-color: rgb(92, 255, 43);
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    grid-auto-flow: row;
-    border-radius: 0.2em;
-    font-weight: bold;
-    text-align: center;
-    text-decoration-line: underline;
-    text-decoration-color: darkblue;
-    text-shadow: 4px;
-  }
-.title:hover {
-    background-color:  rgb(80, 223, 37);
+  display: grid;
+  background-color: rgb(92, 255, 43);
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-auto-flow: row;
+  border-radius: 0.2em;
+  font-weight: bold;
+  text-align: center;
+  text-decoration-line: underline;
+  text-decoration-color: darkblue;
+  text-shadow: 4px;
 }
+.title {
+    text-justify: distribute-all-lines;
+    height: 40px;
+}
+.title:hover {
+  background-color: rgb(80, 223, 37);
+}
+
 .certificated:hover {
-    background-color: grey;
+  transition: 500ms;
+  background-color: grey;
+}
+.upload {
+    background: white;
 }

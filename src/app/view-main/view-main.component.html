@@ -1,13 +1,8 @@
 <app-navbar-login></app-navbar-login>
-<!-- <div>
-     <app-show-certificates [certificates]="data.certificates"></app-show-certificates>
-   </div> -->
-<!-- <app-list *ngFor="let listObj of lists" [list]="listObj">
-    </app-list> -->
-
+<div class="upload">Subir certificados</div>
 <section class="grid">
   <div class="certificated_head">
-    <div class="title alias">ALIAS</div>
+    <div class="title alias" (click)="sortAlias()">ALIAS</div>
     <div class="title caducidad">CADUCIDAD</div>
     <div class="title id_orga">ID_ORGA</div>
     <div class="title nombre">NOMBRE</div>
