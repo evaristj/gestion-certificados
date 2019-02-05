@@ -3,10 +3,10 @@
 <section class="grid">
   <div class="certificated_head">
     <div class="title alias" (click)="sortAlias()">ALIAS</div>
-    <div class="title caducidad">CADUCIDAD</div>
-    <div class="title id_orga">ID_ORGA</div>
-    <div class="title nombre">NOMBRE</div>
-    <div class="title contacto">CONTACTO</div>
+    <div class="title caducidad" (click)="sortCaducidad()">CADUCIDAD</div>
+    <div class="title id_orga" (click)="sortId_orga()">ID_ORGA</div>
+    <div class="title nombre" (click)="sortName()">NOMBRE</div>
+    <div class="title contacto" (click)="sortContacto()">CONTACTO</div>
   </div>
 
   <app-show-certificates *ngFor="let cert of certificados" [certificate]="cert" class="certificated">

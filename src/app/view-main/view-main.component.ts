@@ -13,11 +13,28 @@ export class ViewMainComponent implements OnInit {
 
   constructor(private api: ApiService) { }
 
-  sortAlias() { 
-    this.certificados = this.certificados.sort( (a: Certificate,b: Certificate) => a.alias > b.alias ? 1 : -1 );
-    console.log('ordenados por alias',this.certificados);
-    
-    
+  sortAlias() {
+    this.certificados = this.certificados.sort((a: Certificate, b: Certificate) =>
+      a.alias > b.alias ? 1 : -1);
+    console.log('ordenados por alias', this.certificados);
+  }
+  sortCaducidad() {
+    this.certificados = this.certificados.sort((a: Certificate, b: Certificate) =>
+      a.caducidad > b.caducidad ? 1 : -1);
+    console.log('ordenados por caducidad', this.certificados);
+
+  }
+  sortId_orga() {
+    this.certificados = this.certificados.sort((a: Certificate, b: Certificate) =>
+      a.id_orga > b.id_orga ? 1 : -1);
+  }
+  sortName() {
+    this.certificados = this.certificados.sort((a: Certificate, b: Certificate) =>
+      a.nombre_cliente > b.nombre_cliente ? 1 : -1);
+  }
+  sortContacto() {
+    this.certificados = this.certificados.sort((a: Certificate, b: Certificate) =>
+      a.contacto_renovación > b.contacto_renovación ? 1 : -1);
   }
 
   ngOnInit() {
