@@ -22,6 +22,10 @@
   border-top: double;
 }
 
+.lista {
+  margin-top: 148px;
+}
+
 .certificated_head {
   display: grid;
   background-color: rgb(92, 255, 43);
@@ -34,19 +38,34 @@
   text-decoration-line: underline;
   text-decoration-color: darkblue;
   text-shadow: 4px;
+  margin-top: 107px;
+  position: fixed;
+  width: 86.7%;
 }
+
 .title {
-    text-justify: distribute-all-lines;
-    height: 40px;
+  text-justify: distribute-all-lines;
+  height: 40px;
 }
+
 .title:hover {
   background-color: rgb(80, 223, 37);
 }
 
 .certificated:hover {
   transition: 500ms;
-  background-color: grey;
+  background-color: rgb(163, 162, 162);
 }
-.upload {
-    background: white;
+
+.opciones {
+  display: flex;
+  flex-flow: row nowrap;
+  background: white;
+  margin-top: 77px;
+  position: fixed;
+}
+
+.false {
+  opacity: 0.6;
+  text-decoration: line-through;
 }

@@ -8,6 +8,7 @@ import { JiraUser, Certificate } from '../models.interface';
 export class ApiService {
   certificate: any;
   id: string;
+  // certId: string;
   userName: string;
   urlJira = 'api/jira/';
   urlCertif = 'api/certificates/';
@@ -34,11 +35,22 @@ export class ApiService {
     return this.http.get(this.urlCertif).toPromise().then((resCertificate) => {
       console.log('atributos del certificado', resCertificate);
       this.certificate = resCertificate;
-      console.log('entidad emisora', this.certificate);
       return this.certificate;
     }).catch(() => {
       (console.error)
     });;
+  }
+
+  // actualizar certificados completados
+  updateCertCompletado(cert, certId){
+    console.log(cert, ' - ', certId, ' : certificado e id');
+    
+    return this.http.put(this.urlCertif + `${certId}`, cert).toPromise().then( (result) =>{
+      console.log(result, ' funcion api put cert')
+      
+      this.loadCertificates()
+    })
+      .catch(console.error);
   }
 
 }

@@ -1,5 +1,7 @@
 .all {
     font-family: 'Raleway', sans-serif;
+    position: fixed;
+    width: 87%;
 }
 nav {
     display: flex;

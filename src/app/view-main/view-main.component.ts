@@ -40,7 +40,7 @@ export class ViewMainComponent implements OnInit {
   ngOnInit() {
     this.api.loadCertificates().then((resCertificate: any) => {
       console.log('array de certificados: ', resCertificate);
-      this.certificados = resCertificate;
+      this.certificados = resCertificate.filter(result => !result.eliminado);
     }).catch(() => {
       (console.error)
     });

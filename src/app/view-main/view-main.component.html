@@ -1,5 +1,13 @@
-<app-navbar-login></app-navbar-login>
-<div class="upload">Subir certificados</div>
+<app-navbar-login class="fixed"></app-navbar-login>
+<div class="opciones">
+  <button type="submit">Subir certificados</button>
+  <button type="submit">Eliminados</button>
+  <button type="submit">Todos</button>
+  <button type="submit">No eliminados</button>
+  <input type="text" placeholder="filtrar">
+  <input type="text" name="filtrar" id="filter" placeholder="filtrar">
+</div>
+
 <section class="grid">
   <div class="certificated_head">
     <div class="title alias" (click)="sortAlias()">ALIAS</div>
@@ -8,8 +16,9 @@
     <div class="title nombre" (click)="sortName()">NOMBRE</div>
     <div class="title contacto" (click)="sortContacto()">CONTACTO</div>
   </div>
-
-  <app-show-certificates *ngFor="let cert of certificados" [certificate]="cert" class="certificated">
+<div class="lista">
+  <app-show-certificates *ngFor="let cert of certificados" [certificate]="cert" 
+  class="certificated {{ cert.eliminado ? 'false' : 'true' }}">
   </app-show-certificates>
-
+</div>
 </section>
