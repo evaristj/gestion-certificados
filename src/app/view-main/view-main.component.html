@@ -14,28 +14,7 @@
     <div class="title contacto">CONTACTO</div>
   </div>
 
-  <div class="certificated">
-    <div class="alias_c">item-a</div>
-    <div class="caducidad_c">item-b</div>
-    <div class="id_orga_c">item-c</div>
-    <div class="nombre_c">item-d</div>
-    <div class="contacto_c">item-e</div>
-  </div>
-
-  <div class="certificated">
-    <div class="item-a">item-a</div>
-    <div class="item-b">item-b</div>
-    <div class="item-c">item-c</div>
-    <div class="item-d">item-d</div>
-    <div class="item-e">item-e</div>
-  </div>
-
-  <div class="certificated">
-    <div class="item-a">item-a</div>
-    <div class="item-b">item-b</div>
-    <div class="item-c">item-c</div>
-    <div class="item-d">item-d</div>
-    <div class="item-e">item-e</div>
-  </div>
+  <app-show-certificates *ngFor="let cert of certificados" [certificate]="cert" class="certificated">
+  </app-show-certificates>
 
 </section>

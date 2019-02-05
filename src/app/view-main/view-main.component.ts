@@ -8,16 +8,14 @@ import { Certificate } from '../models.interface';
   styleUrls: ['./view-main.component.css']
 })
 export class ViewMainComponent implements OnInit {
-  @Input() certificate: any;
+  @Input() certificados: Array<Certificate>;
 
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    this.api.loadCertificates().then(({...resCertificate}: any) => {
+    this.api.loadCertificates().then((resCertificate: any) => {
       console.log('array de certificados: ', resCertificate);
-      this.certificate = {...resCertificate};
-      console.log(this.certificate[0]);
-      
+      this.certificados = resCertificate;
     }).catch(() => {
       (console.error)
     });

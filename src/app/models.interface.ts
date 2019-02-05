@@ -13,6 +13,8 @@ export interface Certificate {
     contacto_renovación: string;
     observaciones: string;
     integration_list: string;
+    eliminado: boolean;
+    cifrado: string;
 }
 
 export interface User {

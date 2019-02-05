@@ -33,7 +33,7 @@ export class ApiService {
   loadCertificates() {
     return this.http.get(this.urlCertif).toPromise().then((resCertificate) => {
       console.log('atributos del certificado', resCertificate);
-      this.certificate = { ...resCertificate };
+      this.certificate = resCertificate;
       console.log('entidad emisora', this.certificate);
       return this.certificate;
     }).catch(() => {
