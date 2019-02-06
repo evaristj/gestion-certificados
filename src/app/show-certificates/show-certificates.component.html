@@ -1,0 +1,7 @@
+<div class="button alias_c">{{ certificate.alias }}</div>
+<div class="button caducidad_c">{{ certificate.caducidad }}</div>
+<div class="button id_orga_c">{{ certificate.id_orga }}</div>
+<div class="button nombre_c">{{ certificate.nombre_cliente }}</div>
+<div class="button contacto_c">{{ certificate.contacto_renovacion }}</div>
+<div class="borrar"><input type="checkbox" id="eliminar" value="eliminar" [(ngModel)]="certificate.eliminado" (click)="confirmDel(certificate)">
+  Eliminar </div>

@@ -1,0 +1,45 @@
+form {
+    display: flex;
+    justify-content: center;
+    margin: 2px;
+    background: white;
+    padding: 1.5em;
+    flex-flow: column nowrap;
+    align-items: center;
+    border-radius: 0.5em;
+    font-family: 'Raleway', sans-serif;
+}
+input {
+    border-radius: 0.5em;
+}
+.sendInput {
+    border-radius: 1em;
+    margin: 20px 0px 0px 0px;
+}
+.sendInput:hover {
+    background: rgb(230, 230, 230);
+}
+button {
+    all: unset;
+}
+/* button:hover {
+    background-color: rgb(235, 231, 231);
+    border-radius: 1em;
+} */
+
+.title {
+    background: white;
+    color: #8ed201;
+    font-size: 1.8em;
+    margin: 0px 0px 10px 0px;
+}
+.inputs {
+    display: flex;
+    flex-flow: row wrap;
+}
+.subUserInput {
+    margin-right: 2em;
+}
+.userInput {
+    margin-right: 0.5em;
+}

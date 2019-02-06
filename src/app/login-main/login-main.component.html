@@ -1,3 +1,28 @@
-<p>
-  login-main works!
-</p>
+<app-navbar></app-navbar>
+<form (submit)="loginUser()">
+  <div class="title">
+    <h2>Login</h2>
+  </div>
+  <div class="inputs">
+    <div class="userInput">
+      <img src="/assets/images/user-silhouette.png" alt="Usuario">
+    </div>
+    <input class="subUserInput" type="text" placeholder="usuario" [(ngModel)]="username" name="user">
+    <div class="userInput">
+      <img src="/assets/images/key-password.png" alt="Password">
+    </div>
+    <input type="password" placeholder="contraseña" [(ngModel)]="password" name="pass">
+  </div>
+  <div class="sendInput" *ngIf="!valid">
+    <button type="submit" value="Register">
+      <img src="/assets/images/checked-symbol.png" alt="entrar">
+    </button>
+  </div>
+  <div *ngIf="error">
+    {{ error | json }}
+  </div>
+  <div *ngIf="valid">
+    Login!
+    <button routerLink="/main">Go to Main!!!</button>
+  </div>
+</form>

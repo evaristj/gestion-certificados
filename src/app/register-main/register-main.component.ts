@@ -1,15 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ApiService } from '../services/api.service';
+import { AuthenticatedService } from '../services/authenticated.service';
 
 @Component({
   selector: 'app-register-main',
   templateUrl: './register-main.component.html',
   styleUrls: ['./register-main.component.css']
 })
-export class RegisterMainComponent implements OnInit {
+export class RegisterMainComponent {
+  username: string;
+  password: string;
+  email: string;
+  role: number;
+  error: any;
+  valid: any;
+  user_id: string;
 
-  constructor() { }
+  constructor(private auth: AuthenticatedService) { }
 
-  ngOnInit() {
+  registerUser() {
+    const { username, password, email, role } = this;
+    this.auth.register(username, password, email, role).then(result => {
+      console.log(result);
+      this.valid = { ...result };
+      localStorage.setItem('user_id', this.valid.id)
+      this.user_id = localStorage.getItem('user_id');
+      console.log('user_id: ', this.user_id);
+      
+      this.auth.registerJiraUser(this.user_id, username, password);
+    })
+      .catch(error => {
+        console.log(error);
+        this.error = error;
+      });
   }
 
 }
