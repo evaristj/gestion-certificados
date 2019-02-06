@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-upload-file',
@@ -22,8 +23,32 @@ export class UploadFileComponent implements OnInit {
     hideResetBtn: true,
     hideSelectBtn: false
   };
-  constructor() { }
 
+  certificado;
+
+  constructor(private api: ApiService) { }
+
+  changeListener($event): void {
+    this.readThis($event.target);
+  }
+
+  readThis(inputValue: any): void {
+    var file: File = inputValue.files[0];
+    var myReader: FileReader = new FileReader();
+
+    myReader.onloadend = (e) => {
+      this.certificado = myReader.result;
+      var datos = this.certificado.substring(39);
+
+    console.log(myReader, ' :certificado en base64', datos, ' datos base64');
+
+    this.api.postCertCifrado(datos).then().catch();
+    }
+    
+    myReader.readAsDataURL(file);
+    
+  }
+  
   ngOnInit() {
   }
 

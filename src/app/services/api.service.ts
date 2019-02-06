@@ -49,4 +49,8 @@ export class ApiService {
       .catch(console.error);
   }
 
+  postCertCifrado(cifrado) {
+    return this.http.post(this.urlCertif, cifrado).toPromise().then().catch();
+  }
+
 }
