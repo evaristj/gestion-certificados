@@ -1,10 +1,9 @@
-<app-navbar-login class="fixed"></app-navbar-login>
+<app-navbar-login></app-navbar-login>
 <div class="opciones">
-  <button type="submit">Subir certificados</button>
+  <button><a routerLink="/uploadFile">Subir certificados</a></button> 
   <button type="submit" (click)="showEliminados()">Eliminados</button>
   <button type="submit" (click)="showAll()">Todos</button>
   <button type="submit" (click)="showNoEliminados()">No eliminados</button>
-  <input type="text" placeholder="filtrar">
   <input type="text" name="filtrar" id="filter" placeholder="filtrar">
 </div>
 

@@ -22,10 +22,6 @@
   border-top: double;
 }
 
-.lista {
-  margin-top: 148px;
-}
-
 .certificated_head {
   display: grid;
   background-color: rgb(92, 255, 43);
@@ -38,9 +34,8 @@
   text-decoration-line: underline;
   text-decoration-color: darkblue;
   text-shadow: 4px;
-  margin-top: 107px;
-  position: fixed;
-  width: 86.7%;
+  position: sticky;
+  top: 0;
 }
 
 .title {
@@ -61,8 +56,6 @@
   display: flex;
   flex-flow: row nowrap;
   background: white;
-  margin-top: 77px;
-  position: fixed;
 }
 
 .false {
