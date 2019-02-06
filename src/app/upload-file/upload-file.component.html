@@ -4,7 +4,9 @@
     Selecciona un archivo
   </h5>
   <div class="upload">
-    <angular-file-uploader [config]="afuConfig">
+    <angular-file-uploader [config]="afuConfig" 
+    [resetUpload]=resetVar 
+    (ApiResponse)="DocUpload($event)">
     </angular-file-uploader>
   </div>
 

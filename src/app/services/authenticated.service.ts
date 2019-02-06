@@ -40,6 +40,9 @@ export class AuthenticatedService {
           console.log(this.dataUser.id, 'primer valor');
           localStorage.setItem('jwt', this.jwt);
           localStorage.setItem('id', this.dataUser.id);
+          localStorage.setItem('role', this.dataUser.role);
+          console.log(this.dataUser.role, ' : role de usuario');
+          
           localStorage.setItem('userName', this.dataUser.username);
           // localStorage.setItem('role', this.dataUser.role);
           resolve(200);
@@ -54,6 +57,7 @@ export class AuthenticatedService {
     localStorage.removeItem('id');
     localStorage.removeItem('user_id');
     localStorage.removeItem('userName');
+    localStorage.removeItem('role');
     this.router.navigate(['/login']);
     console.log('borrado localStorage', this.jwt, this.dataUser);
     return false;
