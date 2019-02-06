@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar-login></app-navbar-login>
 <form (submit)="registerUser()">
   <div class="title">
     <h2>Registrar usuario</h2>
@@ -19,9 +19,9 @@
     <div class="roleInput">
       <img src="/assets/images/semaphore.png" alt="permisos">
       Permisos: 
-      <select [(ngModel)]="role" name="roleUsers">
-        <option selected value="1" >User</option>
-        <option value="0" >Admin</option>
+      <select autofocus [(ngModel)]="role" name="roleUsers" class="selector">
+        <option [value]="0" >User</option>
+        <option [value]="1" >Admin</option>
       </select>
     </div>
   </div>
@@ -38,11 +38,5 @@
     <p class="userCreate">
       Usuario creado!!!
     </p>
-  </div>
-  <div *ngIf="valid" class="goToLogin">
-    <button routerLink="/login">
-      <img src="/assets/images/login (1).png" alt="Go to login!">
-    </button>
-    <p class="text2">Ir a login</p>
   </div>
 </form>
