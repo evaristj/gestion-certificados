@@ -6,14 +6,12 @@ import { JiraUser, Certificate } from '../models.interface';
   providedIn: 'root'
 })
 export class ApiService {
-  certificate: any;
+  certificate: Array<Certificate>;
   id: string;
-  // certId: string;
   userName: string;
   urlJira = 'api/jira/';
   urlCertif = 'api/certificates/';
   data: JiraUser;
-  // options = { headers: { Authorization: `Bearer ${this.jwt}` } };
   constructor(private http: HttpClient) { }
 
   getJiraUser() {
@@ -32,7 +30,7 @@ export class ApiService {
   }
   // traer certificados
   loadCertificates() {
-    return this.http.get(this.urlCertif).toPromise().then((resCertificate) => {
+    return this.http.get(this.urlCertif).toPromise().then((resCertificate: any) => {
       console.log('atributos del certificado', resCertificate);
       this.certificate = resCertificate;
       return this.certificate;
@@ -42,13 +40,11 @@ export class ApiService {
   }
 
   // actualizar certificados completados
-  updateCertCompletado(cert, certId){
+  updateCertCompletado(cert, certId) {
     console.log(cert, ' - ', certId, ' : certificado e id');
-    
-    return this.http.put(this.urlCertif + `${certId}`, cert).toPromise().then( (result) =>{
+
+    return this.http.put(this.urlCertif + `${certId}`, cert).toPromise().then((result) => {
       console.log(result, ' funcion api put cert')
-      
-      this.loadCertificates()
     })
       .catch(console.error);
   }

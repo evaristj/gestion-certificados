@@ -37,6 +37,24 @@ export class ViewMainComponent implements OnInit {
       a.contacto_renovación > b.contacto_renovación ? 1 : -1);
   }
 
+  showEliminados() {
+    this.api.loadCertificates().then((arrCert: any) => {
+      console.log('show certificados', arrCert);
+      this.certificados = arrCert.filter(result => result.eliminado);
+    }).catch(console.error);
+  }
+  showNoEliminados() {
+    this.api.loadCertificates().then((arrCert: any) => {
+      console.log('show certificados', arrCert);
+      this.certificados = arrCert.filter(result => !result.eliminado);
+    }).catch(console.error);
+  }
+  showAll() {
+    this.api.loadCertificates().then((arrCert: any) => {
+      console.log('show certificados', arrCert);
+      this.certificados = arrCert;
+    }).catch(console.error);
+  }
   ngOnInit() {
     this.api.loadCertificates().then((resCertificate: any) => {
       console.log('array de certificados: ', resCertificate);
