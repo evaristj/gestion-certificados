@@ -16,13 +16,7 @@ export class ShowCertificatesComponent implements OnInit {
   constructor(private api: ApiService, private view: ViewMainComponent) { }
 
   confirmDel(cert: Certificate) {
-    if (confirm(this.mensaje)) {
-      console.log(cert, 'enviar este certificado', cert.id);
-      cert.eliminado = !cert.eliminado;
-      this.api.updateCertCompletado(cert, cert.id)/* .then( () =>
-        this.view.ngOnInit()); */
-    };
-    
+    this.api.updateCertCompletado(cert, cert.id);    
   }
   ngOnInit() {
 
