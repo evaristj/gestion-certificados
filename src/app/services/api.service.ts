@@ -25,15 +25,12 @@ export class ApiService {
   }
   // actualizar usuario jira
   updateJiraUser(updateJira) {
-    console.log(updateJira, 'ver el user_id');
-
     console.error;
     return this.http.put(this.urlJira + localStorage.getItem('id'), updateJira).toPromise();
   }
   // traer certificados
   loadCertificates() {
     return this.http.get(this.urlCertif).toPromise().then((resCertificate: any) => {
-      console.log('atributos del certificado', resCertificate);
       this.certificates = resCertificate;
       return this.certificates;
     }).catch(() => {
@@ -43,7 +40,6 @@ export class ApiService {
 
   // actualizar certificados completados
   updateCertCompletado(cert, certId) {
-    console.log(cert, ' - ', certId, ' : certificado e id');
 
     return this.http.put(this.urlCertif + `${certId}`, cert).toPromise().then((result) => {
       console.log(result, ' funcion api put cert')

@@ -30,25 +30,18 @@ export class UploadFileComponent implements OnInit {
     myReader.onloadend = (e) => {
       this.base64 = myReader.result;
       this.certificadoCifrado = this.base64.split(',');
-
-      console.log(myReader, ' :certificado en base64', this.certificadoCifrado[1].toString(), ' datos base64');
-
     }
-
     myReader.readAsDataURL(file);
 
   }
 
   enviarCert() {
-
-    console.log(this.certificadoCifrado[1], ' ', this.newName, ' ', this.newPass, ' ', this.newContacto, ' ', this.newIdOrga,
-      ' ', this.newRepo, ' ', this.newLista, ' ', this.newObser, ' enviado con exito');
-
-    this.api.postCertCifrado(this.certificadoCifrado[1], this.newName, this.newPass, 
+    this.api.postCertCifrado(this.certificadoCifrado[1], this.newName, this.newPass,
       this.newIdOrga, this.newRepo, this.newLista, this.newObser, this.newContacto)
       .then(console.error)
       .catch(console.error);
   }
+  
   ngOnInit() {
   }
 

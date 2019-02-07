@@ -16,13 +16,10 @@ export class ViewMainComponent implements OnInit {
   sortAlias() {
     this.certificados = this.certificados.sort((a: Certificate, b: Certificate) =>
       a.alias > b.alias ? 1 : -1);
-    console.log('ordenados por alias', this.certificados);
   }
   sortCaducidad() {
     this.certificados = this.certificados.sort((a: Certificate, b: Certificate) =>
       a.caducidad > b.caducidad ? 1 : -1);
-    console.log('ordenados por caducidad', this.certificados);
-
   }
   sortId_orga() {
     this.certificados = this.certificados.sort((a: Certificate, b: Certificate) =>
@@ -39,25 +36,21 @@ export class ViewMainComponent implements OnInit {
 
   showEliminados() {
     this.api.loadCertificates().then((arrCert: any) => {
-      console.log('show certificados', arrCert);
       this.certificados = arrCert.filter(result => result.eliminado);
     }).catch(console.error);
   }
   showNoEliminados() {
     this.api.loadCertificates().then((arrCert: any) => {
-      console.log('show certificados', arrCert);
       this.certificados = arrCert.filter(result => !result.eliminado);
     }).catch(console.error);
   }
   showAll() {
     this.api.loadCertificates().then((arrCert: any) => {
-      console.log('show certificados', arrCert);
       this.certificados = arrCert;
     }).catch(console.error);
   }
   ngOnInit() {
     this.api.loadCertificates().then((resCertificate: any) => {
-      console.log('array de certificados: ', resCertificate);
       this.certificados = resCertificate.filter(result => !result.eliminado);
     }).catch(() => {
       (console.error)

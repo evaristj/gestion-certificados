@@ -7,16 +7,15 @@ import { ApiService } from '../services/api.service';
   templateUrl: './navbar-login.component.html',
   styleUrls: ['./navbar-login.component.css']
 })
-export class NavbarLoginComponent implements OnInit{
+export class NavbarLoginComponent implements OnInit {
   @Input() userName: string;
   constructor(private auth: AuthenticatedService, private api: ApiService) { }
 
-  logout(){
+  logout() {
     this.auth.authLogout();
   }
 
-  ngOnInit(){
-    console.log(this.api.getUserName(),'welcome');
+  ngOnInit() {
     this.userName = this.api.getUserName();
   }
 }
