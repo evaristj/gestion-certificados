@@ -6,12 +6,14 @@ import { JiraUser, Certificate } from '../models.interface';
   providedIn: 'root'
 })
 export class ApiService {
-  certificate: Array<Certificate>;
+  certificates: Array<Certificate>;
+  certificate: Certificate;
   id: string;
   userName: string;
   urlJira = 'api/jira/';
   urlCertif = 'api/certificates/';
   data: JiraUser;
+
   constructor(private http: HttpClient) { }
 
   getJiraUser() {
@@ -32,8 +34,8 @@ export class ApiService {
   loadCertificates() {
     return this.http.get(this.urlCertif).toPromise().then((resCertificate: any) => {
       console.log('atributos del certificado', resCertificate);
-      this.certificate = resCertificate;
-      return this.certificate;
+      this.certificates = resCertificate;
+      return this.certificates;
     }).catch(() => {
       (console.error)
     });;
@@ -49,8 +51,18 @@ export class ApiService {
       .catch(console.error);
   }
 
-  postCertCifrado(cifrado) {
-    return this.http.post(this.urlCertif, cifrado).toPromise().then().catch();
+  postCertCifrado(cifrado, alias, password, id_orga, repositorio_url, integration_list,
+    observaciones, contacto_renovacion ) {
+    let nombre_cliente = id_orga;
+
+    const body = {
+      alias, password, id_orga, nombre_cliente, repositorio_url, contacto_renovacion,
+      integration_list, observaciones, cifrado
+    };
+
+    return this.http.post(this.urlCertif, body).toPromise()
+      .then(console.error)
+      .catch(console.error);
   }
 
 }

@@ -1,33 +1,41 @@
 .principal {
-    background-color: white;
-    padding: 1em;
-    border-radius: 0.2em;
+  background-color: white;
+  padding: 1em;
+  border-radius: 0.2em;
 }
+
 .upload {
-    background-color: whitesmoke;
-    padding: 1em;
-    border-radius: 0.3em;
+  background-color: whitesmoke;
+  padding: 1em;
+  border-radius: 0.3em;
 }
+
 .title {
-    text-align: center;
+  text-align: center;
 }
+
 .inputs {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
 }
 
 .certProperties {
-    all: unset;
-    border-bottom: 1px solid;
-    margin-bottom: 1em;
-    margin-top: 0.2em;
+  all: unset;
+  border-bottom: 1px solid;
+  margin-bottom: 1em;
+  margin-top: 0.2em;
 }
+
 .sendInput button {
-    all: unset;
-    /* align-items: center; centrar icono*/
-    margin: 1em;
+  all: unset;
+  margin: 1em;
 }
+
+.sendInput button img {
+  text-align: center;
+}
+
 .textarea {
-    word-wrap: break-word;
+  word-wrap: break-word;
 }

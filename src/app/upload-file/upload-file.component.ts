@@ -7,8 +7,15 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./upload-file.component.css']
 })
 export class UploadFileComponent implements OnInit {
-
-  certificado;
+  base64;
+  newName: string;
+  newRepo: string;
+  newPass: string;
+  newContacto: string;
+  newLista: string;
+  newIdOrga: string;
+  newObser: string;
+  certificadoCifrado: string;
 
   constructor(private api: ApiService) { }
 
@@ -21,20 +28,26 @@ export class UploadFileComponent implements OnInit {
     var myReader: FileReader = new FileReader();
 
     myReader.onloadend = (e) => {
-      this.certificado = myReader.result;
-      var datos = this.certificado.split(',');
+      this.base64 = myReader.result;
+      this.certificadoCifrado = this.base64.split(',');
 
-    console.log(myReader, ' :certificado en base64', datos[1].toString(), ' datos base64');
+      console.log(myReader, ' :certificado en base64', this.certificadoCifrado[1].toString(), ' datos base64');
 
-    this.api.postCertCifrado(datos).then().catch();
     }
-    
+
     myReader.readAsDataURL(file);
-    
+
   }
-  
-  enviarCert(){
-    console.log('enviado con exito');
+
+  enviarCert() {
+
+    console.log(this.certificadoCifrado[1], ' ', this.newName, ' ', this.newPass, ' ', this.newContacto, ' ', this.newIdOrga,
+      ' ', this.newRepo, ' ', this.newLista, ' ', this.newObser, ' enviado con exito');
+
+    this.api.postCertCifrado(this.certificadoCifrado[1], this.newName, this.newPass, 
+      this.newIdOrga, this.newRepo, this.newLista, this.newObser, this.newContacto)
+      .then(console.error)
+      .catch(console.error);
   }
   ngOnInit() {
   }

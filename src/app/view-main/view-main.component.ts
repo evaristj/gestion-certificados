@@ -34,7 +34,7 @@ export class ViewMainComponent implements OnInit {
   }
   sortContacto() {
     this.certificados = this.certificados.sort((a: Certificate, b: Certificate) =>
-      a.contacto_renovación > b.contacto_renovación ? 1 : -1);
+      a.contacto_renovacion > b.contacto_renovacion ? 1 : -1);
   }
 
   showEliminados() {

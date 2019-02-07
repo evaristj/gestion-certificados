@@ -8,61 +8,63 @@
       <div class="userInput">
         <div class="icons">
           <img src="/assets/images/user-silhouette.png" alt="Usuario">
+          Alias
         </div>
-        <input class="certProperties" type="text" placeholder="alias" 
-        [(ngModel)]="newName" name="user" (keyup.enter)="editJiraName()">
+        <input class="certProperties" type="text"
+        [(ngModel)]="newName" name="user">
       </div>
 
       <div class="passInput">
-        <div class="icons" (click)="editNewPass()">
+        <div class="icons">
           <img src="/assets/images/key-password.png" alt="Password">
+          Contraseña
         </div>
-        <input class="certProperties" type="password" placeholder="contraseña" 
-        [(ngModel)]="newPass" name="pass"
-          (keyup.enter)="editJiraPass()">
+        <input class="certProperties" type="password"
+        [(ngModel)]="newPass" name="pass">
       </div>
 
       <div class="idOrgaInput">
-        <div class="icons" (click)="editNewUrl()">
-          <img src="/assets/images/phone-book.png" alt="url">
+        <div class="icons">
+          <img src="/assets/images/phone-book.png" alt="img idOrga">
+          Id organización y nombre de cliente
         </div>
-        <input class="certProperties" placeholder="Id_orga, nombre de cliente" 
-        [(ngModel)]="newUrl" name="url"
-          (keyup.enter)="editJiraUrl()">
+        <input class="certProperties" type="idOrga"
+        [(ngModel)]="newIdOrga" name="idOrga">
       </div>
 
       <div class="listaInput">
-        <div class="icons" (click)="editNewProject()">
-          <img src="/assets/images/business-presentation.png" alt="project">
+        <div class="icons">
+          <img src="/assets/images/business-presentation.png" alt="img lista">
+          Lista de integraciones
         </div>
-        <input class="certProperties" type="project" placeholder="lista de integraciones" 
-        [(ngModel)]="newProyecto"
-          name="project" (keyup.enter)="editJiraProject()">
+        <input class="certProperties" type="lista_integracion"
+        [(ngModel)]="newLista" name="lista">
       </div>
 
       <div class="contactoInput">
-        <div class="icons" (click)="editNewComponente()">
-          <img src="/assets/images/mail.png" alt="component">
+        <div class="icons">
+          <img src="/assets/images/mail.png" alt="img renovaciones">
+          Contacto para renovaciones
         </div>
-        <input class="certProperties" type="contacto" placeholder="contacto" 
-        [(ngModel)]="newContacto" name="component"
-          (keyup.enter)="editJiraComponente()">
+        <input class="certProperties" type="email" 
+        [(ngModel)]="newContacto" name="renovaciones">
       </div>
 
       <div class="repositorioInput">
-        <div class="icons" (click)="editNewComponente()">
-          <img src="/assets/images/database.png" alt="component">
+        <div class="icons">
+          <img src="/assets/images/database.png" alt="repositorio">
+          Repositorio
         </div>
-        <input class="certProperties" type="repo" placeholder="repositorio" 
-        [(ngModel)]="newRepo" name="component"
-          (keyup.enter)="editJiraComponente()">
+        <input class="certProperties" type="url"
+        [(ngModel)]="newRepo" name="repositorio">
       </div>
 
       <div class="observacionesInput">
-        <div class="icons" (click)="editNewComponente()">
-          <img src="/assets/images/eye.png" alt="component">
+        <div class="icons">
+          <img src="/assets/images/eye.png" alt="observaciones">
+          Observaciones
         </div>
-        <textarea class="certProperties textarea" name="observaciones" cols="35" rows="5" placeholder="observaciones"></textarea>
+        <textarea [(ngModel)]="newObser" class="certProperties textarea" name="observaciones" cols="35" rows="5"></textarea>
        <!--  <input class="certProperties" type="component" placeholder="observaciones" 
         [(ngModel)]="newComponente" name="component"
           (keyup.enter)="editJiraComponente()"> -->
