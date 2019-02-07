@@ -9,3 +9,7 @@
     transition: 500ms;
     background-color: whitesmoke;
 }
+.descargar input:hover {
+   background-color: rgb(80, 223, 37);
+   border-radius: 0.2em;
+}

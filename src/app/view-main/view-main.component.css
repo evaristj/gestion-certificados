@@ -55,7 +55,6 @@
 .opciones {
   display: flex;
   flex-flow: row nowrap;
-  background: white;
 }
 
 .false {

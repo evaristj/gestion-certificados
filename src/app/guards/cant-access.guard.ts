@@ -18,14 +18,7 @@ export class CantAccessGuard implements CanActivate {
     let role = localStorage.getItem('role');
     console.log(role, 'role canActivate y expected', expectedRole.toString());
 
-    if (role === expectedRole.toString()) {
-      console.log('son iguales');
-
-    } else {
-      console.log('no son iguales');
-    }
-
-    if (role !== expectedRole.toString()/* this.auth.isAuthenticated() */) {
+    if (role !== expectedRole.toString()) {
       console.log('no tienes permisos de admin');
       this.router.navigate(['/main']);
       return false;

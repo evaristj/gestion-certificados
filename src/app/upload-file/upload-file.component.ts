@@ -7,22 +7,6 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./upload-file.component.css']
 })
 export class UploadFileComponent implements OnInit {
-  afuConfig = {
-    multiple: false,
-    formatsAllowed: ".pfx,.p12",
-    maxSize: "1",
-    uploadAPI: {
-      url: "https://example-file-upload-api",
-      headers: {
-        "Content-Type": "text/plain;charset=UTF-8",
-        /* "Authorization": `Bearer ${token}` */
-      }
-    },
-    theme: "dragNDrop",
-    hideProgressBar: false,
-    hideResetBtn: true,
-    hideSelectBtn: false
-  };
 
   certificado;
 
@@ -38,9 +22,9 @@ export class UploadFileComponent implements OnInit {
 
     myReader.onloadend = (e) => {
       this.certificado = myReader.result;
-      var datos = this.certificado.substring(39);
+      var datos = this.certificado.split(',');
 
-    console.log(myReader, ' :certificado en base64', datos, ' datos base64');
+    console.log(myReader, ' :certificado en base64', datos[1].toString(), ' datos base64');
 
     this.api.postCertCifrado(datos).then().catch();
     }
@@ -49,6 +33,9 @@ export class UploadFileComponent implements OnInit {
     
   }
   
+  enviarCert(){
+    console.log('enviado con exito');
+  }
   ngOnInit() {
   }
 

@@ -8,3 +8,26 @@
     padding: 1em;
     border-radius: 0.3em;
 }
+.title {
+    text-align: center;
+}
+.inputs {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.certProperties {
+    all: unset;
+    border-bottom: 1px solid;
+    margin-bottom: 1em;
+    margin-top: 0.2em;
+}
+.sendInput button {
+    all: unset;
+    /* align-items: center; centrar icono*/
+    margin: 1em;
+}
+.textarea {
+    word-wrap: break-word;
+}

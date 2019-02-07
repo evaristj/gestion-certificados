@@ -1,15 +1,83 @@
 <app-navbar-login></app-navbar-login>
 <div class="principal">
-  <h5>
-    Selecciona un archivo
-  </h5>
-  <div class="upload">
-    <angular-file-uploader [config]="afuConfig" 
-    [resetUpload]=resetVar 
-    (ApiResponse)="DocUpload($event)">
-    </angular-file-uploader>
-  </div>
+  <form (submit)="enviarCert()">
+    <div class="title">
+      <h3>Formulario Certificado</h3>
+    </div>
+    <div class="inputs">
+      <div class="userInput">
+        <div class="icons">
+          <img src="/assets/images/user-silhouette.png" alt="Usuario">
+        </div>
+        <input class="certProperties" type="text" placeholder="alias" 
+        [(ngModel)]="newName" name="user" (keyup.enter)="editJiraName()">
+      </div>
 
-  <input type="file" accept="pfx/*" (change)="changeListener($event)">
+      <div class="passInput">
+        <div class="icons" (click)="editNewPass()">
+          <img src="/assets/images/key-password.png" alt="Password">
+        </div>
+        <input class="certProperties" type="password" placeholder="contraseña" 
+        [(ngModel)]="newPass" name="pass"
+          (keyup.enter)="editJiraPass()">
+      </div>
+
+      <div class="idOrgaInput">
+        <div class="icons" (click)="editNewUrl()">
+          <img src="/assets/images/phone-book.png" alt="url">
+        </div>
+        <input class="certProperties" placeholder="Id_orga, nombre de cliente" 
+        [(ngModel)]="newUrl" name="url"
+          (keyup.enter)="editJiraUrl()">
+      </div>
+
+      <div class="listaInput">
+        <div class="icons" (click)="editNewProject()">
+          <img src="/assets/images/business-presentation.png" alt="project">
+        </div>
+        <input class="certProperties" type="project" placeholder="lista de integraciones" 
+        [(ngModel)]="newProyecto"
+          name="project" (keyup.enter)="editJiraProject()">
+      </div>
+
+      <div class="contactoInput">
+        <div class="icons" (click)="editNewComponente()">
+          <img src="/assets/images/mail.png" alt="component">
+        </div>
+        <input class="certProperties" type="contacto" placeholder="contacto" 
+        [(ngModel)]="newContacto" name="component"
+          (keyup.enter)="editJiraComponente()">
+      </div>
+
+      <div class="repositorioInput">
+        <div class="icons" (click)="editNewComponente()">
+          <img src="/assets/images/database.png" alt="component">
+        </div>
+        <input class="certProperties" type="repo" placeholder="repositorio" 
+        [(ngModel)]="newRepo" name="component"
+          (keyup.enter)="editJiraComponente()">
+      </div>
+
+      <div class="observacionesInput">
+        <div class="icons" (click)="editNewComponente()">
+          <img src="/assets/images/eye.png" alt="component">
+        </div>
+        <textarea class="certProperties textarea" name="observaciones" cols="35" rows="5" placeholder="observaciones"></textarea>
+       <!--  <input class="certProperties" type="component" placeholder="observaciones" 
+        [(ngModel)]="newComponente" name="component"
+          (keyup.enter)="editJiraComponente()"> -->
+      </div>
+
+    </div>
+    <input type="file" accept=".pfx,.p12,.crt" (change)="changeListener($event)">
+
+    <div class="sendInput">
+      <button type="submit" value="Register">
+        <img src="/assets/images/cross-in-a-circle.png" alt="enviar formulario">
+      </button>
+    </div>
+
+  </form>
+
 
 </div>
