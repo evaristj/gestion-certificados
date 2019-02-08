@@ -16,6 +16,8 @@ export class UploadFileComponent implements OnInit {
   newIdOrga: string;
   newObser: string;
   certificadoCifrado: string;
+  menSuccess: string = 'Certificado guardado en base de datos.';
+  menFail: string = 'Certificado NO guardado, error';
 
   constructor(private api: ApiService) { }
 
@@ -38,8 +40,14 @@ export class UploadFileComponent implements OnInit {
   enviarCert() {
     this.api.postCertCifrado(this.certificadoCifrado[1], this.newName, this.newPass,
       this.newIdOrga, this.newRepo, this.newLista, this.newObser, this.newContacto)
-      .then(console.error)
-      .catch(console.error);
+      .then((result) => {
+        if (result) 
+          alert(this.menSuccess);
+      })
+      .catch((error) => {
+        if (error) 
+          alert(this.menFail);
+      });
   }
   
   ngOnInit() {

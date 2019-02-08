@@ -17,6 +17,7 @@ import { AuthenticatedService } from './services/authenticated.service';
 import { NavbarLoginComponent } from './navbar-login/navbar-login.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { AngularFileUploaderModule } from "angular-file-uploader";
+import { DetailCertificateComponent } from './detail-certificate/detail-certificate.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AngularFileUploaderModule } from "angular-file-uploader";
     ShowCertificatesComponent,
     NotfoundComponent,
     NavbarLoginComponent,
-    UploadFileComponent
+    UploadFileComponent,
+    DetailCertificateComponent
   ],
   imports: [
     BrowserModule,

@@ -56,9 +56,7 @@ export class ApiService {
       integration_list, observaciones, cifrado
     };
 
-    return this.http.post(this.urlCertif, body).toPromise()
-      .then(console.error)
-      .catch(console.error);
+    return this.http.post(this.urlCertif, body).toPromise();
   }
 
 }
