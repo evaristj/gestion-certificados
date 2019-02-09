@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Certificate } from '../models.interface';
 import { ApiService } from '../services/api.service';
-import { ViewMainComponent } from '../view-main/view-main.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-show-certificates',
@@ -13,11 +13,17 @@ export class ShowCertificatesComponent implements OnInit {
   @Input() certificate: Certificate;
   eliminar: boolean;
   mensaje = '¿Seguro que quieres eliminar este certificado?';
-  constructor(private api: ApiService, private view: ViewMainComponent) { }
+  constructor(private api: ApiService, private route: Router) { }
 
   confirmDel(cert: Certificate) {
     this.api.updateCertCompletado(cert, cert.id);    
   }
+
+  detailCert(cert: Certificate) {
+    localStorage.setItem('idCert', cert.id.toString());
+    this.route.navigate(['/detailCertificate']);
+  }
+
   ngOnInit() {
 
   }

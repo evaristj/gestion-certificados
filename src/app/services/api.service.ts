@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JiraUser, Certificate } from '../models.interface';
+import { DetailCertificateComponent } from '../detail-certificate/detail-certificate.component';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,11 @@ export class ApiService {
     }).catch(() => {
       (console.error)
     });;
+  }
+
+  getOneCertificate(){
+    let id = localStorage.getItem('idCert');
+    return this.http.get(this.urlCertif + id).toPromise();
   }
 
   // actualizar certificados completados

@@ -1,0 +1,33 @@
+.certificado {
+  background: white;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: space-around;
+  padding: 2em;
+}
+
+.campos {
+  text-align: center;
+  max-width: 85%;
+}
+
+.celdas {
+  border: 1px solid;
+  display: flex;
+  flex-flow: column wrap;
+}
+.title {
+    background: greenyellow;
+}
+p {
+    padding: 0.3em;
+}
+.description {
+    line-height: 1.1;
+    margin-bottom: 0.2em;
+    padding: 0.2em;
+}
+.descargar input:hover {
+    background-color: rgb(9, 119, 9);
+}

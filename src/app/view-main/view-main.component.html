@@ -12,12 +12,10 @@
     <div class="title alias" (click)="sortAlias()">ALIAS</div>
     <div class="title caducidad" (click)="sortCaducidad()">CADUCIDAD</div>
     <div class="title id_orga" (click)="sortId_orga()">ID_ORGA</div>
-    <div class="title nombre" (click)="sortName()">NOMBRE</div>
+    <div class="title nombre" (click)="sortName()">NOMBRE CLIENTE</div>
     <div class="title contacto" (click)="sortContacto()">CONTACTO</div>
   </div>
-<div class="lista">
   <app-show-certificates *ngFor="let cert of certificados" [certificate]="cert"
   class="certificated {{ cert.eliminado ? 'false' : 'true' }}">
   </app-show-certificates>
-</div>
 </section>

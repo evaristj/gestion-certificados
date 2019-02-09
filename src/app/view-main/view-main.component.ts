@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Certificate } from '../models.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-main',
@@ -11,7 +12,7 @@ export class ViewMainComponent implements OnInit {
   @Input() certificados: Array<Certificate>;
   certificate: Certificate;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private route: Router) { }
 
   sortAlias() {
     this.certificados = this.certificados.sort((a: Certificate, b: Certificate) =>
@@ -49,6 +50,7 @@ export class ViewMainComponent implements OnInit {
       this.certificados = arrCert;
     }).catch(console.error);
   }
+
   ngOnInit() {
     this.api.loadCertificates().then((resCertificate: any) => {
       this.certificados = resCertificate.filter(result => !result.eliminado);
