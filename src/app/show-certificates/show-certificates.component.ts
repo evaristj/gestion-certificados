@@ -16,12 +16,16 @@ export class ShowCertificatesComponent implements OnInit {
   constructor(private api: ApiService, private route: Router) { }
 
   confirmDel(cert: Certificate) {
-    this.api.updateCertCompletado(cert, cert.id);    
+    this.api.updateCertCompletado(cert, cert.id);
   }
 
   detailCert(cert: Certificate) {
     localStorage.setItem('idCert', cert.id.toString());
     this.route.navigate(['/detailCertificate']);
+  }
+
+  downloadFile(certificate: Certificate) {
+    this.api.downloadCertificate(certificate);
   }
 
   ngOnInit() {

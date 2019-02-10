@@ -13,7 +13,7 @@
     <div class="celdas repositorio"><p class="title">REPOSITORIO URL</p><p class="description">{{ certificate.repositorio_url }}</p></div>
     <div class="celdas observaciones"><p class="title">OBSERVACIONES</p><p class="description">{{ certificate.observaciones }}</p></div>
     <div class="celdas descargar">
-      <input type="button" value="Descargar">
+      <input type="button" value="Descargar" (click)="downloadFile(certificate)">
     </div>
   </div>
   <div class="menError" *ngIf="!valid">

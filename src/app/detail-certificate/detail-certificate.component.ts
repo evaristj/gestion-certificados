@@ -13,9 +13,9 @@ export class DetailCertificateComponent implements OnInit {
   valid: boolean;
   constructor(private api: ApiService) { }
 
- /*  showDetails(cert){
-    this.certificate = cert;
-  } */
+  downloadFile(certificate: Certificate) {
+    this.api.downloadCertificate(certificate);
+  }
 
   ngOnInit() {
     this.api.getOneCertificate().then( (result: Certificate) => {

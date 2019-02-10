@@ -39,7 +39,7 @@ export class ApiService {
     });;
   }
 
-  getOneCertificate(){
+  getOneCertificate() {
     let id = localStorage.getItem('idCert');
     return this.http.get(this.urlCertif + id).toPromise();
   }
@@ -54,7 +54,7 @@ export class ApiService {
   }
 
   postCertCifrado(cifrado, alias, password, id_orga, repositorio_url, integration_list,
-    observaciones, contacto_renovacion ) {
+    observaciones, contacto_renovacion) {
     let nombre_cliente = id_orga;
 
     const body = {
@@ -65,4 +65,25 @@ export class ApiService {
     return this.http.post(this.urlCertif, body).toPromise();
   }
 
+  downloadCertificate(certificate: Certificate) {
+    let certificateType = certificate.alias;
+    let contentType = "file/" + certificateType;
+    let byteCharacters = atob(certificate.cifrado);
+    let byteNumbers = new Array(byteCharacters.length);
+
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+
+    let byteArray = new Uint8Array(byteNumbers);
+    let blob = new Blob([byteArray], {
+      type: contentType
+    });
+
+    let newFile = document.createElement("a");
+    newFile.href = URL.createObjectURL(blob);
+    newFile.download = `${certificate.alias}` + '.crt';
+    document.body.appendChild(newFile);
+    newFile.click();
+  }
 }
