@@ -37,7 +37,7 @@ button:hover {
     text-align: left;
     margin-right: 10px;
 }
-.text, .text2 {
+.text {
     visibility: hidden;
 }
 form:hover .text{
@@ -49,12 +49,6 @@ form:hover .text{
 }
 .userInput, .passInput {
     margin-right: 0.5em;
-}
-.goToLogin:hover .text2{
-    visibility: visible;
-}
-.goToLogin {
-    margin-top: 0.5em;
 }
 .userCreate {
     font-size: 1.4em;

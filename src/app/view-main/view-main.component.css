@@ -12,7 +12,7 @@
   grid-auto-flow: row;
 }
 
-.certificated {
+/* .certificated {
   display: grid;
   background-color: white;
   grid-template-columns: repeat(5, 1fr);
@@ -20,11 +20,7 @@
   grid-auto-flow: row;
   padding-left: 0.2em;
   border-top: double;
-}
-
-.lista {
-  margin-top: 148px;
-}
+} */
 
 .certificated_head {
   display: grid;
@@ -38,9 +34,8 @@
   text-decoration-line: underline;
   text-decoration-color: darkblue;
   text-shadow: 4px;
-  margin-top: 107px;
-  position: fixed;
-  width: 86.7%;
+  position: sticky;
+  top: 0;
 }
 
 .title {
@@ -60,9 +55,6 @@
 .opciones {
   display: flex;
   flex-flow: row nowrap;
-  background: white;
-  margin-top: 77px;
-  position: fixed;
 }
 
 .false {

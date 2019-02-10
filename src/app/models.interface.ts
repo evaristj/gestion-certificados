@@ -1,6 +1,5 @@
 export interface Certificate {
     id: number;
-    user_id: number;
     alias: string;
     entidad_emisora: string;
     num_serie: string;
@@ -10,7 +9,7 @@ export interface Certificate {
     id_orga: string;
     nombre_cliente: string;
     repositorio_url: string;
-    contacto_renovación: string;
+    contacto_renovacion: string;
     observaciones: string;
     integration_list: string;
     eliminado: boolean;
@@ -33,4 +32,6 @@ export interface JiraUser {
     url: string;
     project: string;
     component: string;
+    issueType: string;
+    description: string;
 }

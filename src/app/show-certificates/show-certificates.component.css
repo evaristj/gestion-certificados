@@ -1,11 +1,53 @@
 /* @import 'bootstrap/dist/css/bootstrap.min.css'; */
 .borrar:hover {
-    transition: 500ms;
-    background: rgb(255, 117, 117);
-    border-radius: 0.3em;
+  transition: 500ms;
+  background: rgb(255, 117, 117);
+  border-radius: 0.3em;
 }
-.alias_c:hover, .caducidad_c:hover, .id_orga_c:hover, .contacto_c:hover, .nombre_c:hover {
-    border-radius: 0.3em;
-    transition: 500ms;
-    background-color: whitesmoke;
+
+.alias_c:hover,
+.caducidad_c:hover,
+.id_orga_c:hover,
+.contacto_c:hover,
+.nombre_c:hover {
+  border-radius: 0.4em;
+  transition: 500ms;
+  background-color: rgb(206, 206, 206);
+}
+
+.button {
+  border-radius: 1em;
+  padding: 2px;
+}
+
+.descargar input:hover {
+  background-color: rgb(80, 223, 37);
+  border-radius: 0.2em;
+}
+
+.principal {
+  background-color: white;
+  border-radius: 0.7em;
+}
+
+.listado {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-auto-flow: row;
+  padding-left: 0.2em;
+  border: black 5px double;
+  border-top-left-radius: 0.8em;
+  border-bottom-right-radius: 0.8em;
+}
+
+.listado:hover {
+  transition: 500ms;
+  background-color: rgb(163, 162, 162);
+}
+
+.listadoOpciones {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 2px;
 }

@@ -6,12 +6,16 @@ import { JiraUser, Certificate } from '../models.interface';
   providedIn: 'root'
 })
 export class ApiService {
-  certificate: Array<Certificate>;
+  certificates: Array<Certificate>;
+  certificate: Certificate;
   id: string;
   userName: string;
   urlJira = 'api/jira/';
   urlCertif = 'api/certificates/';
   data: JiraUser;
+  jwt: string = localStorage.getItem('jwt');
+  options = { headers: { Authorization: `Bearer ${this.jwt}` } };
+
   constructor(private http: HttpClient) { }
 
   getJiraUser() {
@@ -23,30 +27,62 @@ export class ApiService {
   }
   // actualizar usuario jira
   updateJiraUser(updateJira) {
-    console.log(updateJira, 'ver el user_id');
-
     console.error;
     return this.http.put(this.urlJira + localStorage.getItem('id'), updateJira).toPromise();
   }
   // traer certificados
   loadCertificates() {
-    return this.http.get(this.urlCertif).toPromise().then((resCertificate: any) => {
-      console.log('atributos del certificado', resCertificate);
-      this.certificate = resCertificate;
-      return this.certificate;
+    return this.http.get(this.urlCertif, this.options).toPromise().then((resCertificate: any) => {
+      this.certificates = resCertificate;
+      return this.certificates;
     }).catch(() => {
       (console.error)
     });;
   }
 
+  getOneCertificate() {
+    let id = localStorage.getItem('idCert');
+    return this.http.get(this.urlCertif + id, this.options).toPromise();
+  }
+
   // actualizar certificados completados
   updateCertCompletado(cert, certId) {
-    console.log(cert, ' - ', certId, ' : certificado e id');
-
-    return this.http.put(this.urlCertif + `${certId}`, cert).toPromise().then((result) => {
-      console.log(result, ' funcion api put cert')
+    return this.http.put(this.urlCertif + `${certId}`, cert, this.options).toPromise().then((result) => {
     })
       .catch(console.error);
   }
 
+  postCertCifrado(cifrado, alias, password, id_orga, repositorio_url, integration_list,
+    observaciones, contacto_renovacion) {
+    let nombre_cliente = id_orga;
+
+    const body = {
+      alias, password, id_orga, nombre_cliente, repositorio_url, contacto_renovacion,
+      integration_list, observaciones, cifrado
+    };
+
+    return this.http.post(this.urlCertif, body, this.options).toPromise();
+  }
+
+  downloadCertificate(certificate: Certificate) {
+    let certificateType = certificate.alias;
+    let contentType = "file/" + certificateType;
+    let byteCharacters = atob(certificate.cifrado);
+    let byteNumbers = new Array(byteCharacters.length);
+
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+
+    let byteArray = new Uint8Array(byteNumbers);
+    let blob = new Blob([byteArray], {
+      type: contentType
+    });
+
+    let newFile = document.createElement("a");
+    newFile.href = URL.createObjectURL(blob);
+    newFile.download = `${certificate.alias}` + '.crt';
+    document.body.appendChild(newFile);
+    newFile.click();
+  }
 }

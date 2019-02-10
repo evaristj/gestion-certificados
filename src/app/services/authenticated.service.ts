@@ -6,65 +6,59 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthenticatedService {
- urlRegister = '/api/users';
- urlRegisterJira = '/api/jira';
- urlLogin = '/api/auth'
- jwt: any;
- dataUser: any;
- user_id: string;
- constructor(private http: HttpClient, private router: Router) { }
+  urlRegister = '/api/users';
+  urlRegisterJira = '/api/jira';
+  urlLogin = '/api/auth'
+  dataUser: any;
+  user_id: string;
+  jwt: string = localStorage.getItem('jwt');
+  options = { headers: { Authorization: `Bearer ${this.jwt}` } };
+  
+  constructor(private http: HttpClient, private router: Router) { }
 
- register(username, password, email, role) {
-   console.log(username, password, email, role, ' - registerFunctionApi.');
-   const body = { username, password, email, role };
-   // creamos un usuario de jira con el username y password del usuario
-   // this.registerJiraUser(username, password);
-   return this.http.post(this.urlRegister, body).toPromise();
- }
+  register(username, password, email, role) {
+    const body = { username, password, email, role };
+    // creamos un usuario de jira con el username y password del usuario
+    // this.registerJiraUser(username, password);
+    return this.http.post(this.urlRegister, body, this.options).toPromise();
+  }
 
- registerJiraUser(user_id, username, password){
-  const body = { user_id, username, password };
-  return this.http.post(this.urlRegisterJira, body).toPromise();
- }
+  registerJiraUser(user_id, username, password) {
+    const body = { user_id, username, password };
+    return this.http.post(this.urlRegisterJira, body).toPromise();
+  }
 
- login(username, password) {
-   const body = { username, password };
-   return new Promise((resolve, reject) => {
-     this.http.post(this.urlLogin, body)
-       .toPromise().then(response => {
-          console.log(response, 'status.200');
-          this.dataUser = {...response};
-          let jwt = this.dataUser.password;
+  login(username, password) {
+    const body = { username, password };
+    return new Promise((resolve, reject) => {
+      this.http.post(this.urlLogin, body)
+        .toPromise().then(response => {
+          this.dataUser = { ...response };
+          let jwt = this.dataUser.handlerToken;
           this.jwt = jwt;
-          
-          console.log(this.dataUser.id, 'primer valor');
+
           localStorage.setItem('jwt', this.jwt);
           localStorage.setItem('id', this.dataUser.id);
+          localStorage.setItem('role', this.dataUser.role);
           localStorage.setItem('userName', this.dataUser.username);
-          // localStorage.setItem('role', this.dataUser.role);
           resolve(200);
-        console.log('fin login api');
-      }).catch(() => {
+        }).catch(() => {
           reject('User o password not found');
         });
-   });
- }
- authLogout(): boolean {
-    localStorage.removeItem('jwt');
-    localStorage.removeItem('id');
-    localStorage.removeItem('user_id');
-    localStorage.removeItem('userName');
+    });
+  }
+  authLogout(): boolean {
+    localStorage.clear();
     this.router.navigate(['/login']);
-    console.log('borrado localStorage', this.jwt, this.dataUser);
     return false;
- }
- isAuthenticated(): boolean {
-   const token = localStorage.getItem('jwt');
-   if (token !== null) {
-     return true;
-   } else {
-     return false;
-   }
- }
+  }
+  isAuthenticated(): boolean {
+    const token = localStorage.getItem('jwt');
+    if (token !== null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
 }

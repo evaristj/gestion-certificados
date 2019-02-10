@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../services/api.service';
 import { AuthenticatedService } from '../services/authenticated.service';
 
 @Component({
@@ -11,7 +10,7 @@ export class RegisterMainComponent {
   username: string;
   password: string;
   email: string;
-  role: number;
+  role: number = 0;
   error: any;
   valid: any;
   user_id: string;
@@ -21,12 +20,10 @@ export class RegisterMainComponent {
   registerUser() {
     const { username, password, email, role } = this;
     this.auth.register(username, password, email, role).then(result => {
-      console.log(result);
       this.valid = { ...result };
       localStorage.setItem('user_id', this.valid.id)
       this.user_id = localStorage.getItem('user_id');
-      console.log('user_id: ', this.user_id);
-      
+
       this.auth.registerJiraUser(this.user_id, username, password);
     })
       .catch(error => {

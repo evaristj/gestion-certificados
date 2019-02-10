@@ -15,6 +15,9 @@ import { ShowCertificatesComponent } from './show-certificates/show-certificates
 import { NotfoundComponent } from './notfound/notfound.component';
 import { AuthenticatedService } from './services/authenticated.service';
 import { NavbarLoginComponent } from './navbar-login/navbar-login.component';
+import { UploadFileComponent } from './upload-file/upload-file.component';
+import { AngularFileUploaderModule } from "angular-file-uploader";
+import { DetailCertificateComponent } from './detail-certificate/detail-certificate.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +29,16 @@ import { NavbarLoginComponent } from './navbar-login/navbar-login.component';
     JiraUsersConfigComponent,
     ShowCertificatesComponent,
     NotfoundComponent,
-    NavbarLoginComponent
+    NavbarLoginComponent,
+    UploadFileComponent,
+    DetailCertificateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFileUploaderModule
   ],
   providers: [
     ApiService,

@@ -16,17 +16,16 @@ export class LoginMainComponent {
 
   constructor(private auth: AuthenticatedService, private router: Router) { }
 
-  loginUser(){
+  loginUser() {
     const { username, password } = this;
 
     this.auth.login(username, password)
-    .then((response) => {
-      console.log(response, 'entra en then de login');
-      this.error = undefined;
-      this.router.navigate(['/main']);
-    }).catch(error => {
-      this.error = error;
-    });
+      .then(() => {
+        this.error = undefined;
+        this.router.navigate(['/main']);
+      }).catch(error => {
+        this.error = error;
+      });
     this.password = '';
     this.username = '';
   }
