@@ -12,7 +12,7 @@
 .nombre_c:hover {
   border-radius: 0.4em;
   transition: 500ms;
-  background-color: whitesmoke;
+  background-color: rgb(206, 206, 206);
 }
 
 .button {
