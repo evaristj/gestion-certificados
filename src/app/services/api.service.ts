@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JiraUser, Certificate } from '../models.interface';
-import { DetailCertificateComponent } from '../detail-certificate/detail-certificate.component';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +13,8 @@ export class ApiService {
   urlJira = 'api/jira/';
   urlCertif = 'api/certificates/';
   data: JiraUser;
+  jwt: string = localStorage.getItem('jwt');
+  options = { headers: { Authorization: `Bearer ${this.jwt}` } };
 
   constructor(private http: HttpClient) { }
 
@@ -31,7 +32,7 @@ export class ApiService {
   }
   // traer certificados
   loadCertificates() {
-    return this.http.get(this.urlCertif).toPromise().then((resCertificate: any) => {
+    return this.http.get(this.urlCertif, this.options).toPromise().then((resCertificate: any) => {
       this.certificates = resCertificate;
       return this.certificates;
     }).catch(() => {
@@ -41,14 +42,12 @@ export class ApiService {
 
   getOneCertificate() {
     let id = localStorage.getItem('idCert');
-    return this.http.get(this.urlCertif + id).toPromise();
+    return this.http.get(this.urlCertif + id, this.options).toPromise();
   }
 
   // actualizar certificados completados
   updateCertCompletado(cert, certId) {
-
-    return this.http.put(this.urlCertif + `${certId}`, cert).toPromise().then((result) => {
-      console.log(result, ' funcion api put cert')
+    return this.http.put(this.urlCertif + `${certId}`, cert, this.options).toPromise().then((result) => {
     })
       .catch(console.error);
   }
@@ -62,7 +61,7 @@ export class ApiService {
       integration_list, observaciones, cifrado
     };
 
-    return this.http.post(this.urlCertif, body).toPromise();
+    return this.http.post(this.urlCertif, body, this.options).toPromise();
   }
 
   downloadCertificate(certificate: Certificate) {

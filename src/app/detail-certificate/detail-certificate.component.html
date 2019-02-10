@@ -2,16 +2,46 @@
 
 <div class="certificado">
   <div class="campos" *ngIf="valid">
-    <div class="celdas alias"><p class="title">ALIAS:</p><p class="description" (dblclick)="modifyCert()">{{ certificate.alias }}</p></div>
-    <div class="celdas entidad"><p class="title">ENTIDAD EMISORA</p><p class="description">{{ certificate.entidad_emisora }}</p></div>
-    <div class="celdas numSerie"><p class="title">NUMERO DE SERIE</p><p class="description">{{ certificate.num_serie }}</p></div>
-    <div class="celdas subject"><p class="title">SUBJECT</p><p class="description">{{ certificate.subject }}</p></div>
-    <div class="celdas caducidad"><p class="title">FECHA DE CADUCIDAD</p><p class="description">{{ certificate.caducidad }}</p></div>
-    <div class="celdas idOrga_cliente"><p class="title">ID_ORGANIZACIÓN</p><p class="description">{{ certificate.id_orga }}</p></div>
-    <div class="celdas lista_integraciones"><p class="title">LISTA DE INTEGRACIÓN</p><p class="description">{{ certificate.integration_list }}</p></div>
-    <div class="celdas contacto"><p class="title">CONTACTO DE RENOVACIÓN</p><p class="description">{{ certificate.contacto_renovacion }}</p></div>
-    <div class="celdas repositorio"><p class="title">REPOSITORIO URL</p><p class="description">{{ certificate.repositorio_url }}</p></div>
-    <div class="celdas observaciones"><p class="title">OBSERVACIONES</p><p class="description">{{ certificate.observaciones }}</p></div>
+    <div class="celdas alias">
+      <p class="title">ALIAS:</p>
+      <p class="description" (dblclick)="modifyCert()">{{ certificate.alias }}</p>
+    </div>
+    <div class="celdas entidad">
+      <p class="title">ENTIDAD EMISORA</p>
+      <p class="description">{{ certificate.entidad_emisora }}</p>
+    </div>
+    <div class="celdas numSerie">
+      <p class="title">NUMERO DE SERIE</p>
+      <p class="description">{{ certificate.num_serie }}</p>
+    </div>
+    <div class="celdas subject">
+      <p class="title">SUBJECT</p>
+      <p class="description">{{ certificate.subject }}</p>
+    </div>
+    <div class="celdas caducidad">
+      <p class="title">FECHA DE CADUCIDAD</p>
+      <p class="description">{{ certificate.caducidad }}</p>
+    </div>
+    <div class="celdas idOrga_cliente">
+      <p class="title">ID_ORGANIZACIÓN</p>
+      <p class="description">{{ certificate.id_orga }}</p>
+    </div>
+    <div class="celdas lista_integraciones">
+      <p class="title">LISTA DE INTEGRACIÓN</p>
+      <p class="description">{{ certificate.integration_list }}</p>
+    </div>
+    <div class="celdas contacto">
+      <p class="title">CONTACTO DE RENOVACIÓN</p>
+      <p class="description">{{ certificate.contacto_renovacion }}</p>
+    </div>
+    <div class="celdas repositorio">
+      <p class="title">REPOSITORIO URL</p>
+      <p class="description">{{ certificate.repositorio_url }}</p>
+    </div>
+    <div class="celdas observaciones">
+      <p class="title">OBSERVACIONES</p>
+      <p class="description">{{ certificate.observaciones }}</p>
+    </div>
     <div class="celdas descargar">
       <input type="button" value="Descargar" (click)="downloadFile(certificate)">
     </div>

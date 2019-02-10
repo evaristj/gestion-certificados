@@ -9,17 +9,18 @@ export class AuthenticatedService {
   urlRegister = '/api/users';
   urlRegisterJira = '/api/jira';
   urlLogin = '/api/auth'
-  jwt: any;
   dataUser: any;
   user_id: string;
+  jwt: string = localStorage.getItem('jwt');
+  options = { headers: { Authorization: `Bearer ${this.jwt}` } };
+  
   constructor(private http: HttpClient, private router: Router) { }
 
   register(username, password, email, role) {
-    console.log(username, password, email, role, ' - registerFunctionApi.');
     const body = { username, password, email, role };
     // creamos un usuario de jira con el username y password del usuario
     // this.registerJiraUser(username, password);
-    return this.http.post(this.urlRegister, body).toPromise();
+    return this.http.post(this.urlRegister, body, this.options).toPromise();
   }
 
   registerJiraUser(user_id, username, password) {
@@ -32,9 +33,8 @@ export class AuthenticatedService {
     return new Promise((resolve, reject) => {
       this.http.post(this.urlLogin, body)
         .toPromise().then(response => {
-          console.log(response, 'status.200');
           this.dataUser = { ...response };
-          let jwt = this.dataUser.password;
+          let jwt = this.dataUser.handlerToken;
           this.jwt = jwt;
 
           localStorage.setItem('jwt', this.jwt);
@@ -50,7 +50,6 @@ export class AuthenticatedService {
   authLogout(): boolean {
     localStorage.clear();
     this.router.navigate(['/login']);
-    console.log('borrado localStorage', this.jwt, this.dataUser);
     return false;
   }
   isAuthenticated(): boolean {

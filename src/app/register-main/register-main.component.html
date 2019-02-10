@@ -33,7 +33,7 @@
       <img src="/assets/images/cross-in-a-circle.png" alt="enviar formulario">
     </button>
   </div>
-  <div *ngIf="error">{{ error | json }}</div>
+  <div *ngIf="error"><h6>Error al crear el usuario</h6></div>
   <div *ngIf="valid">
     <p class="userCreate">
       Usuario creado!!!

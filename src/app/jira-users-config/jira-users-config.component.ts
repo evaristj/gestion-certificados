@@ -65,35 +65,32 @@ export class JiraUsersConfigComponent implements OnInit {
   }
   editJiraName() {
     this.jiraUser.username = this.newName.trim();
-    console.log(this.jiraUser, 'funcion name editar');
     this.callPutApi();
   }
   editJiraPass() {
     this.jiraUser.password = this.newPass.trim();
-    console.log(this.jiraUser, 'funcion password editar');
     this.callPutApi();
   }
   editJiraUrl() {
     this.jiraUser.url = this.newUrl.trim();
-    console.log(this.jiraUser, 'funcion url editar');
     this.callPutApi();
   }
   editJiraProject() {
     this.jiraUser.project = this.newProyecto.trim();
-    console.log(this.jiraUser, 'funcion project editar');
     this.callPutApi();
   }
   editJiraComponente() {
     this.jiraUser.component = this.newComponente.trim();
-    console.log(this.jiraUser, 'funcion component editar');
     this.callPutApi();
   }
 
   callPutApi() {
     this.api.updateJiraUser(this.jiraUser).then(() => {
-      console.log(this.jiraUser);
-
-    }).catch(console.error);
+      alert('Usuario de jira actualizado correctamente.');
+    }).catch( () => {
+      alert('Usuario de jira no se ha podido actualizar.');
+      console.error
+    });
 
     this.editName = false;
     this.editPass = false;
@@ -102,9 +99,7 @@ export class JiraUsersConfigComponent implements OnInit {
     this.editComponente = false;
   }
   ngOnInit() {
-    console.log('on init', localStorage.getItem('id'));
     this.api.getJiraUser().then((responseJira: JiraUser) => {
-      console.log('ts jira config', responseJira.user_id);
       this.jiraUser = responseJira;
     }).catch(() => {
       (console.error)
