@@ -42,8 +42,9 @@
       <p class="title">OBSERVACIONES</p>
       <p class="description">{{ certificate.observaciones }}</p>
     </div>
-    <div class="celdas descargar">
-      <input type="button" value="Descargar" (click)="downloadFile(certificate)">
+    <div class="descargar">
+      <button type="button" class="btn btn-success" 
+      (click)="downloadFile(certificate)">Descargar Certificado</button>
     </div>
   </div>
   <div class="menError" *ngIf="!valid">
