@@ -14,6 +14,7 @@ export interface Certificate {
     integration_list: string;
     eliminado: boolean;
     cifrado: string;
+    nombre_archivo: string;
 }
 
 export interface User {

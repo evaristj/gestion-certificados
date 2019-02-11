@@ -18,11 +18,15 @@ export class UploadFileComponent implements OnInit {
   certificadoCifrado: string;
   menSuccess: string = 'Certificado guardado en base de datos.';
   menFail: string = 'Certificado NO guardado, error';
+  nombre_archivo: string;
 
   constructor(private api: ApiService) { }
 
-  changeListener($event): void {
-    this.readThis($event.target);
+  changeListener(event): void {
+    this.nombre_archivo = event.target.value.split("\\")[2];
+    console.log(this.nombre_archivo, ' : nombre del archivo a subir.');
+    
+    this.readThis(event.target);
   }
 
   readThis(inputValue: any): void {
@@ -39,7 +43,7 @@ export class UploadFileComponent implements OnInit {
 
   enviarCert() {
     this.api.postCertCifrado(this.certificadoCifrado[1], this.newName, this.newPass,
-      this.newIdOrga, this.newRepo, this.newLista, this.newObser, this.newContacto)
+      this.newIdOrga, this.newRepo, this.newLista, this.newObser, this.newContacto, this.nombre_archivo)
       .then((result) => {
         if (result) 
           alert(this.menSuccess);

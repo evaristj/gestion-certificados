@@ -6,6 +6,10 @@
       <p class="title">ALIAS:</p>
       <p class="description" (dblclick)="modifyCert()">{{ certificate.alias }}</p>
     </div>
+    <div class="celdas nArchivo">
+      <p class="title">NOMBRE ARCHIVO</p>
+      <p class="description">{{ certificate.nombre_archivo }}</p>
+    </div>
     <div class="celdas entidad">
       <p class="title">ENTIDAD EMISORA</p>
       <p class="description">{{ certificate.entidad_emisora }}</p>
@@ -43,8 +47,7 @@
       <p class="description">{{ certificate.observaciones }}</p>
     </div>
     <div class="descargar">
-      <button type="button" class="btn btn-success" 
-      (click)="downloadFile(certificate)">Descargar Certificado</button>
+      <button type="button" class="btn btn-success" (click)="downloadFile(certificate)">Descargar Certificado</button>
     </div>
   </div>
   <div class="menError" *ngIf="!valid">

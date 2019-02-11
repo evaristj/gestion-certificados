@@ -53,12 +53,12 @@ export class ApiService {
   }
 
   postCertCifrado(cifrado, alias, password, id_orga, repositorio_url, integration_list,
-    observaciones, contacto_renovacion) {
+    observaciones, contacto_renovacion, nombre_archivo) {
     let nombre_cliente = id_orga;
 
     const body = {
       alias, password, id_orga, nombre_cliente, repositorio_url, contacto_renovacion,
-      integration_list, observaciones, cifrado
+      integration_list, observaciones, cifrado, nombre_archivo
     };
 
     return this.http.post(this.urlCertif, body, this.options).toPromise();
@@ -81,7 +81,7 @@ export class ApiService {
 
     let newFile = document.createElement("a");
     newFile.href = URL.createObjectURL(blob);
-    newFile.download = `${certificate.alias}` + '.crt';
+    newFile.download = `${certificate.nombre_archivo}`;
     document.body.appendChild(newFile);
     newFile.click();
   }
