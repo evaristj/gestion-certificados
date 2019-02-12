@@ -6,59 +6,59 @@
     </div>
     <div class="inputs">
       <div class="userInput" >
-        <div class="icons" (click)="editNewName()">
+        <div class="icons" (click)="handlerEdit('editName')">
           <img src="/assets/images/pencil-edit.png" alt="pencil">
           <img src="/assets/images/user-silhouette.png" alt="Usuario">
         </div>
-        <div *ngIf="jiraUser" (click)="editNewName()"> <h5>{{ jiraUser.username }}</h5></div>
+        <div *ngIf="jiraUser" (click)="handlerEdit('editName')"> <h5>{{ jiraUser.username }}</h5></div>
         <input *ngIf="!jiraUser || editName" class="subUserInput" type="text" placeholder="nuevo nombre..." 
         [(ngModel)]="newName" name="user"
         (keyup.enter)="editJiraName()"
-        (blur)="cancelNewName()">
+        (blur)="cancelHandlerEdit('editName', 'newName')">
       </div>
       <div class="passInput">
-        <div class="icons" (click)="editNewPass()">
+        <div class="icons" (click)="handlerEdit('editPass')">
           <img src="/assets/images/pencil-edit.png" alt="pencil">
           <img src="/assets/images/key-password.png" alt="Password">
         </div>
-        <div *ngIf="jiraUser" (click)="editNewPass()"><h5>Modificar contraseña</h5></div>
+        <div *ngIf="jiraUser" (click)="handlerEdit('editPass')"><h5>Modificar contraseña</h5></div>
         <input *ngIf="!jiraUser || editPass" type="password" placeholder="nueva contraseña..." 
         [(ngModel)]="newPass" name="pass"
         (keyup.enter)="editJiraPass()"
-        (blur)="cancelNewPass()">
+        (blur)="cancelHandlerEdit('editPass', 'newPass')">
       </div>
       <div class="urlInput">
-        <div class="icons" (click)="editNewUrl()">
+        <div class="icons" (click)="handlerEdit('editUrl')">
           <img src="/assets/images/pencil-edit.png" alt="pencil">
           <img src="/assets/images/web.png" alt="url">
         </div>
-        <div *ngIf="jiraUser" (click)="editNewUrl()"><h5>{{ jiraUser.url }}</h5></div>
+        <div *ngIf="jiraUser" (click)="handlerEdit('editUrl')"><h5>{{ jiraUser.url }}</h5></div>
         <input *ngIf="!jiraUser || editUrl" type="url" placeholder="nueva url..." 
         [(ngModel)]="newUrl" name="url"
         (keyup.enter)="editJiraUrl()"
-        (blur)="cancelNewUrl()">
+        (blur)="cancelHandlerEdit('editUrl', 'newUrl')">
       </div>
       <div class="projectInput">
-        <div class="icons" (click)="editNewProject()">
+        <div class="icons" (click)="handlerEdit('editProject')">
           <img src="/assets/images/pencil-edit.png" alt="pencil">
           <img src="/assets/images/business-presentation.png" alt="project">
         </div>
-        <div *ngIf="jiraUser" (click)="editNewProject()"><h5>{{ jiraUser.project }}</h5></div>
+        <div *ngIf="jiraUser" (click)="handlerEdit('editProject')"><h5>{{ jiraUser.project }}</h5></div>
         <input *ngIf="!jiraUser || editProject" type="project" placeholder=" nuevo proyecto..." 
         [(ngModel)]="newProyecto" name="project"
         (keyup.enter)="editJiraProject()"
-        (blur)="cancelNewProject()">
+        (blur)="cancelHandlerEdit('editProject', 'newProject')">
       </div>
       <div class="componentInput">
-        <div class="icons" (click)="editNewComponente()">
+        <div class="icons" (click)="handlerEdit('editComponente')">
           <img src="/assets/images/pencil-edit.png" alt="pencil">
           <img src="/assets/images/network-interface-card.png" alt="component">
         </div>
-        <div *ngIf="jiraUser" (click)="editNewComponente()"><h5>{{ jiraUser.component }}</h5></div>      
+        <div *ngIf="jiraUser" (click)="handlerEdit('editComponente')"><h5>{{ jiraUser.component }}</h5></div>      
         <input *ngIf="!jiraUser || editComponente" type="component" placeholder="nuevo componente..." 
         [(ngModel)]="newComponente" name="component"
         (keyup.enter)="editJiraComponente()"
-        (blur)="cancelNewComponente()">
+        (blur)="cancelHandlerEdit('editComponente', 'newComponente')">
       </div>
 
     </div>

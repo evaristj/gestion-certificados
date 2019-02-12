@@ -23,46 +23,14 @@ export class JiraUsersConfigComponent implements OnInit {
   editComponente = false;
   constructor(private api: ApiService) { }
 
-  // name
-  editNewName() {
-    this.editName = !this.editName;
+  handlerEdit(edit: string){
+    this[edit] = !this[edit];
   }
-  cancelNewName() {
-    this.editName = false;
-    this.newName = '';
+  cancelHandlerEdit(edit: string, newInput: string){
+    this[edit] = false;
+    this[newInput] = '';
   }
-  // password
-  editNewPass() {
-    this.editPass = !this.editPass;
-  }
-  cancelNewPass() {
-    this.editPass = false;
-    this.newPass = '';
-  }
-  // url
-  editNewUrl() {
-    this.editUrl = !this.editUrl;
-  }
-  cancelNewUrl() {
-    this.editUrl = false;
-    this.newUrl = '';
-  }
-  // proyecto
-  editNewProject() {
-    this.editProject = !this.editProject;
-  }
-  cancelNewProject() {
-    this.editProject = false;
-    this.newProyecto = '';
-  }
-  // componente
-  editNewComponente() {
-    this.editComponente = !this.editComponente;
-  }
-  cancelNewComponente() {
-    this.editComponente = false;
-    this.newComponente = '';
-  }
+
   editJiraName() {
     this.jiraUser.username = this.newName.trim();
     this.callPutApi();
