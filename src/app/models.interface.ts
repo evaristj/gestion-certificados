@@ -15,6 +15,8 @@ export interface Certificate {
     eliminado: boolean;
     cifrado: string;
     nombre_archivo: string;
+    caducado: boolean;
+    proxCaducidad: boolean;
 }
 
 export interface User {
