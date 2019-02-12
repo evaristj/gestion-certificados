@@ -48,6 +48,8 @@ export class ApiService {
   // actualizar certificados completados
   updateCertCompletado(cert, certId) {
     return this.http.put(this.urlCertif + `${certId}`, cert, this.options).toPromise().then((result) => {
+      console.log(result, ' : return backend');
+      
     })
       .catch(console.error);
   }
