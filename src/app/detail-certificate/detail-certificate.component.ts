@@ -9,7 +9,7 @@ import { ApiService } from '../services/api.service';
 })
 export class DetailCertificateComponent implements OnInit {
   @Input() certificate: Certificate;
-  menError = 'Fallo al ver los detalles del certificado.'
+  menError = 'Fallo al descargar los detalles del certificado.'
   valid: boolean;
   modify: boolean;
   editAlias; editArchivo; editEntidad; editSubject; editCaducidad; editIdOrga = false;

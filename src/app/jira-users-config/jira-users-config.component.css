@@ -1,10 +1,9 @@
 /*formulario*/
-form {
+
+.formulario {
     display: flex;
-    justify-content: center;
-    margin: 2px;
     background: white;
-    padding: 1.5em;
+    padding: 1em;
     flex-flow: column nowrap;
     align-items: center;
     border-radius: 0.5em;
@@ -34,7 +33,12 @@ button:hover {
 } */
 .inputs {
     display: flex;
+    width: 50%;
     flex-flow: column wrap;
+    padding: 1em;
+    background: whitesmoke;
+    justify-content: space-around;
+    align-content: space-around;
 }
 .inputs img {
     text-align: left;

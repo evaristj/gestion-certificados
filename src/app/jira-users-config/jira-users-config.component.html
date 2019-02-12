@@ -1,73 +1,94 @@
 <app-navbar-login></app-navbar-login>
 <div class="formulario">
-  <form>
     <div class="title">
-      <h2>Modificar usuario de Jira</h2>
+        <h2>Datos usuario de Jira (Configurables)</h2>
+      </div>
+  <div class="inputs">
+    <div class="userInput" >
+      <div class="icons" (click)="handlerEdit('editName')">
+        <img src="/assets/images/pencil-edit.png" alt="pencil">
+        <img src="/assets/images/user-silhouette.png" alt="Usuario">
+      </div>
+      <div *ngIf="jiraUser" (click)="handlerEdit('editName')"> <h5>{{ jiraUser.username }}</h5></div>
+      <input *ngIf="!jiraUser || editName" class="subUserInput" type="text" placeholder="nuevo nombre..." 
+      [(ngModel)]="newName" name="user"
+      (keyup.enter)="editJiraName()"
+      (blur)="cancelHandlerEdit('editName', 'newName')">
     </div>
-    <div class="inputs">
-      <div class="userInput" >
-        <div class="icons" (click)="handlerEdit('editName')">
-          <img src="/assets/images/pencil-edit.png" alt="pencil">
-          <img src="/assets/images/user-silhouette.png" alt="Usuario">
-        </div>
-        <div *ngIf="jiraUser" (click)="handlerEdit('editName')"> <h5>{{ jiraUser.username }}</h5></div>
-        <input *ngIf="!jiraUser || editName" class="subUserInput" type="text" placeholder="nuevo nombre..." 
-        [(ngModel)]="newName" name="user"
-        (keyup.enter)="editJiraName()"
-        (blur)="cancelHandlerEdit('editName', 'newName')">
+    <div class="passInput">
+      <div class="icons" (click)="handlerEdit('editPass')">
+        <img src="/assets/images/pencil-edit.png" alt="pencil">
+        <img src="/assets/images/key-password.png" alt="Password">
       </div>
-      <div class="passInput">
-        <div class="icons" (click)="handlerEdit('editPass')">
-          <img src="/assets/images/pencil-edit.png" alt="pencil">
-          <img src="/assets/images/key-password.png" alt="Password">
-        </div>
-        <div *ngIf="jiraUser" (click)="handlerEdit('editPass')"><h5>Modificar contraseña</h5></div>
-        <input *ngIf="!jiraUser || editPass" type="password" placeholder="nueva contraseña..." 
-        [(ngModel)]="newPass" name="pass"
-        (keyup.enter)="editJiraPass()"
-        (blur)="cancelHandlerEdit('editPass', 'newPass')">
+      <div *ngIf="jiraUser" (click)="handlerEdit('editPass')"><h5>Modificar contraseña</h5></div>
+      <input *ngIf="!jiraUser || editPass" type="password" placeholder="nueva contraseña..." 
+      [(ngModel)]="newPass" name="pass"
+      (keyup.enter)="editJiraPass()"
+      (blur)="cancelHandlerEdit('editPass', 'newPass')">
+    </div>
+    <div class="urlInput">
+      <div class="icons" (click)="handlerEdit('editUrl')">
+        <img src="/assets/images/pencil-edit.png" alt="pencil">
+        <img src="/assets/images/web.png" alt="url">
       </div>
-      <div class="urlInput">
-        <div class="icons" (click)="handlerEdit('editUrl')">
-          <img src="/assets/images/pencil-edit.png" alt="pencil">
-          <img src="/assets/images/web.png" alt="url">
-        </div>
-        <div *ngIf="jiraUser" (click)="handlerEdit('editUrl')"><h5>{{ jiraUser.url }}</h5></div>
-        <input *ngIf="!jiraUser || editUrl" type="url" placeholder="nueva url..." 
-        [(ngModel)]="newUrl" name="url"
-        (keyup.enter)="editJiraUrl()"
-        (blur)="cancelHandlerEdit('editUrl', 'newUrl')">
+      <div *ngIf="jiraUser" (click)="handlerEdit('editUrl')"><h5>{{ jiraUser.url }}</h5></div>
+      <input *ngIf="!jiraUser || editUrl" type="url" placeholder="nueva url..." 
+      [(ngModel)]="newUrl" name="url"
+      (keyup.enter)="editJiraUrl()"
+      (blur)="cancelHandlerEdit('editUrl', 'newUrl')">
+    </div>
+    <div class="projectInput">
+      <div class="icons" (click)="handlerEdit('editProject')">
+        <img src="/assets/images/pencil-edit.png" alt="pencil">
+        <img src="/assets/images/business-presentation.png" alt="project">
       </div>
-      <div class="projectInput">
-        <div class="icons" (click)="handlerEdit('editProject')">
-          <img src="/assets/images/pencil-edit.png" alt="pencil">
-          <img src="/assets/images/business-presentation.png" alt="project">
-        </div>
-        <div *ngIf="jiraUser" (click)="handlerEdit('editProject')"><h5>{{ jiraUser.project }}</h5></div>
-        <input *ngIf="!jiraUser || editProject" type="project" placeholder=" nuevo proyecto..." 
-        [(ngModel)]="newProyecto" name="project"
-        (keyup.enter)="editJiraProject()"
-        (blur)="cancelHandlerEdit('editProject', 'newProject')">
+      <div *ngIf="jiraUser" (click)="handlerEdit('editProject')"><h5>{{ jiraUser.project }}</h5></div>
+      <input *ngIf="!jiraUser || editProject" type="project" placeholder=" nuevo proyecto..." 
+      [(ngModel)]="newProyecto" name="project"
+      (keyup.enter)="editJiraProject()"
+      (blur)="cancelHandlerEdit('editProject', 'newProject')">
+    </div>
+    <div class="componentInput">
+      <div class="icons" (click)="handlerEdit('editComponente')">
+        <img src="/assets/images/pencil-edit.png" alt="pencil">
+        <img src="/assets/images/network-interface-card.png" alt="component">
       </div>
-      <div class="componentInput">
-        <div class="icons" (click)="handlerEdit('editComponente')">
-          <img src="/assets/images/pencil-edit.png" alt="pencil">
-          <img src="/assets/images/network-interface-card.png" alt="component">
-        </div>
-        <div *ngIf="jiraUser" (click)="handlerEdit('editComponente')"><h5>{{ jiraUser.component }}</h5></div>      
-        <input *ngIf="!jiraUser || editComponente" type="component" placeholder="nuevo componente..." 
-        [(ngModel)]="newComponente" name="component"
-        (keyup.enter)="editJiraComponente()"
-        (blur)="cancelHandlerEdit('editComponente', 'newComponente')">
-      </div>
+      <div *ngIf="jiraUser" (click)="handlerEdit('editComponente')"><h5>{{ jiraUser.component }}</h5></div>      
+      <input *ngIf="!jiraUser || editComponente" type="component" placeholder="nuevo componente..." 
+      [(ngModel)]="newComponente" name="component"
+      (keyup.enter)="editJiraComponente()"
+      (blur)="cancelHandlerEdit('editComponente', 'newComponente')">
+    </div>
 
+    <div class="IssueTypeInput">
+      <div class="icons" (click)="handlerEdit('editIssueType')">
+        <img src="/assets/images/pencil-edit.png" alt="pencil">
+        <img src="/assets/images/live-chat-support.png" alt="IssueType">
+      </div>
+      <div *ngIf="jiraUser" (click)="handlerEdit('editIssueType')"><h5>{{ jiraUser.issueType }}</h5></div>      
+      <input *ngIf="!jiraUser || editIssueType" type="IssueType" placeholder="nuevo IssueType..." 
+      [(ngModel)]="newIssueType" name="IssueType"
+      (keyup.enter)="editJiraIssueType()"
+      (blur)="cancelHandlerEdit('editIssueType', 'newIssueType')">
     </div>
-   
+
+    <div class="descriptionInput">
+      <div class="icons" (click)="handlerEdit('editDescription')">
+        <img src="/assets/images/pencil-edit.png" alt="pencil">
+        <img src="/assets/images/content.png" alt="description">
+      </div>
+      <div *ngIf="jiraUser" (click)="handlerEdit('editDescription')"><h5>{{ jiraUser.description }}</h5></div>      
+      <input *ngIf="!jiraUser || editDescription" type="description" placeholder="nuevo description..." 
+      [(ngModel)]="newDescription" name="description"
+      (keyup.enter)="editJiraDescription()"
+      (blur)="cancelHandlerEdit('editDescription', 'newDescription')">
+    </div>
+
 <!--     <div class="sendInput" *ngIf="!valid">
       <button type="submit" value="Register">
         <img src="/assets/images/cross-in-a-circle.png" alt="enviar formulario">
       </button>
     </div> -->
    
-  </form>
+  </div>
 </div>

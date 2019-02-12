@@ -1,12 +1,10 @@
 <app-navbar-login></app-navbar-login>
 <div class="opciones">
-  <button><a routerLink="/uploadFile">Subir certificados</a></button> 
-  <button type="submit" (click)="showEliminados()">Eliminados</button>
-  <button type="submit" (click)="showAll()">Todos</button>
-  <button type="submit" (click)="showNoEliminados()">No eliminados</button>
-  <input type="text" name="filtrar" id="filter" placeholder="filtrar">
+  <button class="button"><a routerLink="/uploadFile">Subir certificados</a></button>
+  <button class="button" type="submit" (click)="showEliminados()">Eliminados</button>
+  <button class="button" type="submit" (click)="showAll()">Todos</button>
+  <button class="button" type="submit" (click)="showNoEliminados()">No eliminados</button>
 </div>
-
 <section class="grid">
   <div class="certificated_head">
     <div class="title alias" (click)="sortAlias()">ALIAS</div>
@@ -15,7 +13,6 @@
     <div class="title nombre" (click)="sortName()">NOMBRE CLIENTE</div>
     <div class="title contacto" (click)="sortContacto()">CONTACTO</div>
   </div>
-  <app-show-certificates *ngFor="let cert of certificados" [certificate]="cert"
-  class="certificated {{ cert.eliminado ? 'false' : 'true' }}">
+  <app-show-certificates *ngFor="let cert of certificados" [certificate]="cert" class="certificated {{ cert.eliminado ? 'false' : 'true' }}">
   </app-show-certificates>
 </section>

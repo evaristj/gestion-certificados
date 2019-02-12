@@ -61,3 +61,21 @@
   opacity: 0.6;
   text-decoration: line-through;
 }
+
+.button {
+  all: unset;
+  background-color: rgb(87, 146, 97);
+  color: aliceblue;
+  padding: 1em;
+  border-radius: 0.2em;
+  width: 100%;
+  border: 1px solid black;
+}
+.button:hover {
+  transition: 300ms;
+  background: rgb(62, 102, 69);
+}
+
+a {
+  color: aliceblue;
+}
