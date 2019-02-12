@@ -16,11 +16,15 @@ export class JiraUsersConfigComponent implements OnInit {
   newUrl: string = '';
   newProyecto: string = '';
   newComponente: string = '';
+  newIssueType: string = '';
+  newDescription: string= '';
   editName = false;
   editPass = false;
   editUrl = false;
   editProject = false;
   editComponente = false;
+  editIssueType = false;
+  editDescription = false;
   constructor(private api: ApiService) { }
 
   handlerEdit(edit: string){
@@ -49,6 +53,14 @@ export class JiraUsersConfigComponent implements OnInit {
   }
   editJiraComponente() {
     this.jiraUser.component = this.newComponente.trim();
+    this.callPutApi();
+  }
+  editJiraIssueType() {
+    this.jiraUser.issueType = this.newIssueType.trim();
+    this.callPutApi();
+  }
+  editJiraDescription() {
+    this.jiraUser.description = this.newDescription.trim();
     this.callPutApi();
   }
 
