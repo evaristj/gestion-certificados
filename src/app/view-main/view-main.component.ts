@@ -51,6 +51,12 @@ export class ViewMainComponent implements OnInit {
     }).catch(console.error);
   }
 
+  showProxCaducidad(){
+    this.api.loadCertificates().then((arrCert: any) => {
+      this.certificados = arrCert.filter( result => result.proxCaducidad);
+    }).catch(console.error);
+  }
+
   ngOnInit() {
     this.api.loadCertificates().then((resCertificate: any) => {
       this.certificados = resCertificate.filter(result => !result.eliminado);

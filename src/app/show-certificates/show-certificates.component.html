@@ -1,4 +1,4 @@
-<div class="principal">
+<div class="principal" class="{{ certificate.caducado ? 'principal' : 'caducado' }}">
   <div class="listado" (click)="detailCert(certificate)">
     <div class="button alias_c">{{ certificate.alias }}</div>
     <div class="button caducidad_c">{{ certificate.caducidad }}</div>

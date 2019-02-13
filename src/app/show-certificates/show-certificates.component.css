@@ -1,4 +1,3 @@
-/* @import 'bootstrap/dist/css/bootstrap.min.css'; */
 .borrar:hover {
   transition: 500ms;
   background: rgb(255, 117, 117);
@@ -36,8 +35,6 @@
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(1, 1fr);
   grid-auto-flow: row;
- /*  padding: 0.5em;
-  padding-left: 0.2em; */
   border: black 5px double;
   border-top-left-radius: 0.8em;
   border-bottom-right-radius: 0.8em;
@@ -57,4 +54,10 @@
 
 .borrar {
   padding-right: 1em;
+}
+
+.caducado {
+  background-color: white;
+  border-radius: 0.7em;
+  background: rgb(252, 255, 81);
 }

@@ -29,7 +29,7 @@ export class ShowCertificatesComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    
   }
 
 }

@@ -1,26 +1,9 @@
-/* .container {
-    background-color: aquamarine;
-    height: 100px;
-    grid-template-columns: 1fr, 1fr, 1fr;
-    grid-template-rows: 1fr, 1fr, 1fr, 1fr;
-    
-} */
 .grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(1, 1fr);
   grid-auto-flow: row;
 }
-
-/* .certificated {
-  display: grid;
-  background-color: white;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  grid-auto-flow: row;
-  padding-left: 0.2em;
-  border-top: double;
-} */
 
 .certificated_head {
   display: grid;
@@ -71,6 +54,7 @@
   width: 100%;
   border: 1px solid black;
 }
+
 .button:hover {
   transition: 300ms;
   background: rgb(62, 102, 69);
@@ -78,4 +62,12 @@
 
 a {
   color: aliceblue;
+}
+
+.ProxCaducidad {
+  background: rgb(206, 209, 2);
+}
+
+.ProxCaducidad:hover {
+  background: rgb(160, 163, 0);
 }
