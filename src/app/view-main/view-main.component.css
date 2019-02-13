@@ -71,3 +71,10 @@ a {
 .ProxCaducidad:hover {
   background: rgb(160, 163, 0);
 }
+.caducados {
+  background: rgb(255, 43, 43);
+}
+
+.caducados:hover {
+  background: rgb(163, 0, 0);
+}

@@ -56,8 +56,14 @@
   padding-right: 1em;
 }
 
-.caducado {
+.proxCaducidad{
   background-color: white;
   border-radius: 0.7em;
   background: rgb(252, 255, 81);
+}
+
+.caducado {
+  background-color: white;
+  border-radius: 0.7em;
+  background: rgb(253, 102, 102);
 }

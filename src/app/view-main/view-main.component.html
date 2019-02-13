@@ -5,6 +5,7 @@
   <button class="button" type="submit" (click)="showAll()">Todos</button>
   <button class="button" type="submit" (click)="showNoEliminados()">No eliminados</button>
   <button class="button ProxCaducidad" type="submit" (click)="showProxCaducidad()">Prox. Caducidad</button>
+  <button class="button caducados" type="submit" (click)="showCaducados()">Caducados</button>
 </div>
 <section class="grid">
   <div class="certificated_head">
@@ -14,6 +15,7 @@
     <div class="title nombre" (click)="sortName()">NOMBRE CLIENTE</div>
     <div class="title contacto" (click)="sortContacto()">CONTACTO</div>
   </div>
-  <app-show-certificates *ngFor="let cert of certificados" [certificate]="cert" class="certificated {{ cert.eliminado ? 'false' : 'true' }}">
+  <app-show-certificates *ngFor="let cert of certificados" [certificate]="cert" 
+    class="certificated {{ cert.eliminado ? 'false' : 'true' }}">
   </app-show-certificates>
 </section>
