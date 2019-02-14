@@ -59,6 +59,10 @@
   transition: 300ms;
   background: rgb(62, 102, 69);
 }
+.button:focus {
+  transition: 300ms;
+  background: rgb(62, 102, 69);
+}
 
 a {
   color: aliceblue;
@@ -71,10 +75,16 @@ a {
 .ProxCaducidad:hover {
   background: rgb(160, 163, 0);
 }
+.ProxCaducidad:focus {
+  background: rgb(160, 163, 0);
+}
 .caducados {
   background: rgb(255, 43, 43);
 }
 
 .caducados:hover {
+  background: rgb(163, 0, 0);
+}
+.caducados:focus {
   background: rgb(163, 0, 0);
 }
