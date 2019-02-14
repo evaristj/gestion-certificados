@@ -1,7 +1,13 @@
 {
-    "/api/*": {
-        "target": "https://localhost:5001/",
-        "secure": false,
-        "changeOrigin": true
-    }
+  "/api/*": {
+    "target": "https://localhost:5001/",
+    "secure": false,
+    "changeOrigin": true
+  },
+
+  "/rest/*": {
+    "target": "https://pruebagtt.atlassian.net/",
+    "secure": false,
+    "changeOrigin": true
+  }
 }

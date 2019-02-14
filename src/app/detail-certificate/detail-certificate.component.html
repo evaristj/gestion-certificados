@@ -80,6 +80,8 @@
     <div class="descargar">
       <button type="button" class="btn btn-success" 
       (click)="downloadFile(certificate)">Descargar Certificado</button>
+      <button type="button" class="btn btn-primary" 
+      (click)="connectJira()" *ngIf="proxCaducidad">Conectar con Jira</button>
       <button type="button" class="btn btn-warning" 
       (click)="ticketJira(certificate)" *ngIf="proxCaducidad">Abrir ticket en Jira</button>
     </div>

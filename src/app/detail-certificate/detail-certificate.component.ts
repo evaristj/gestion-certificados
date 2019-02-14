@@ -21,7 +21,7 @@ export class DetailCertificateComponent implements OnInit {
   newObser: string = '';
   newList: string = '';
   newRepo: string = '';
-  proxCaducidad:boolean;
+  proxCaducidad: boolean;
 
   constructor(private api: ApiService) { }
 
@@ -118,16 +118,25 @@ export class DetailCertificateComponent implements OnInit {
     this.api.downloadCertificate(certificate);
   }
 
-/*   ticketJira(certificate){
+  ticketJira(certificate) {
     this.api.postTicketJira(certificate).then((result) => {
       console.log(result, ' objeto de vuelta exito.');
-      
+
     }).catch((error) => {
       console.error;
       console.log(error, ' : error');
-      
+
     });
-  } */
+  }
+
+  connectJira() {
+    this.api.loginJira().then((response) => {
+      alert('Tienes conexión con Jira, puedes crear una incidencia.');
+    }).catch((error) => {
+      console.log(error, ':  error');
+      console.error
+    });
+  }
 
   ngOnInit() {
     this.api.getOneCertificate().then((result: Certificate) => {
