@@ -11,7 +11,8 @@ export class DetailCertificateComponent implements OnInit {
   @Input() certificate: Certificate;
   menError = 'Fallo al descargar los detalles del certificado.'
   valid: boolean;
-  modify: boolean;
+  canModify: boolean = false;
+  roleAdmin = localStorage.getItem('role');
   editAlias; editArchivo; editEntidad; editSubject; editCaducidad; editIdOrga = false;
   editObservaciones; editRepositorio; editContacto; editLista = false;
   newAlias: string = '';
@@ -146,6 +147,8 @@ export class DetailCertificateComponent implements OnInit {
       this.valid = true;
       this.certificate = result;
       this.proxCaducidad = result.proxCaducidad;
+      (this.roleAdmin == '1') ? this.canModify = true : this.canModify = false;
+      
     }).catch(() => {
       console.error;
       this.valid = false;

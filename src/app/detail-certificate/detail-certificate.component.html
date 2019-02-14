@@ -8,7 +8,7 @@
     <div class="celdas alias">
       <p class="title titleMod" (click)="handlerEdit('editAlias')">ALIAS:</p>
       <p class="description">{{ certificate.alias }}</p>
-      <input *ngIf="editAlias" type="text" name="alias" placeholder="nuevo alias"
+      <input *ngIf="editAlias && canModify" type="text" name="alias" placeholder="nuevo alias"
       [(ngModel)]="newAlias"
       (keyup.enter)="editCertAlias('newAlias')"
       (blur)="cancelHandlerEdit('editAlias', 'newAlias')">
@@ -16,7 +16,7 @@
     <div class="celdas nArchivo">
       <p class="title titleMod" (click)="handlerEdit('editArchivo')">NOMBRE ARCHIVO</p>
       <p class="description">{{ certificate.nombre_archivo }}</p>
-      <input *ngIf="editArchivo" type="text" name="alias" placeholder="nuevo nombre archivo"
+      <input *ngIf="editArchivo && canModify" type="text" name="alias" placeholder="nuevo nombre archivo"
       [(ngModel)]="newNameFile"
       (keyup.enter)="editCertFile('newNameFile')"
       (blur)="cancelHandlerEdit('editArchivo', 'newNameFile')">
@@ -40,7 +40,7 @@
     <div class="celdas idOrga_cliente">
       <p class="title titleMod" (click)="handlerEdit('editIdOrga')">ID_ORGANIZACIÓN</p>
       <p class="description">{{ certificate.id_orga }}</p>
-      <input *ngIf="editIdOrga" type="text" name="alias" placeholder="nuevo id_orga"
+      <input *ngIf="editIdOrga && canModify" type="text" name="alias" placeholder="nuevo id_orga"
       [(ngModel)]="newIdOrga"
       (keyup.enter)="editCertIdOrga('newIdOrga')"
       (blur)="cancelHandlerEdit('editIdOrga', 'newIdOrga')">
@@ -48,7 +48,7 @@
     <div class="celdas lista_integraciones">
       <p class="title titleMod" (click)="handlerEdit('editLista')">LISTA DE INTEGRACIÓN</p>
       <p class="description">{{ certificate.integration_list }}</p>
-      <input *ngIf="editLista" type="text" name="alias" placeholder="nueva lista de integracion"
+      <input *ngIf="editLista && canModify" type="text" name="alias" placeholder="nueva lista de integracion"
       [(ngModel)]="newList"
       (keyup.enter)="editCertList('newList')"
       (blur)="cancelHandlerEdit('editLista', 'newList')">
@@ -56,7 +56,7 @@
     <div class="celdas contacto">
       <p class="title titleMod" (click)="handlerEdit('editContacto')">CONTACTO DE RENOVACIÓN</p>
       <p class="description">{{ certificate.contacto_renovacion }}</p>
-      <input *ngIf="editContacto" type="text" name="alias" placeholder="nuevo contacto de renovacion"
+      <input *ngIf="editContacto && canModify" type="text" name="alias" placeholder="nuevo contacto de renovacion"
       [(ngModel)]="newContacto"
       (keyup.enter)="editCertContacto('newContacto')"
       (blur)="cancelHandlerEdit('editContacto', 'newContacto')">
@@ -64,7 +64,7 @@
     <div class="celdas repositorio">
       <p class="title titleMod" (click)="handlerEdit('editRepositorio')">REPOSITORIO URL</p>
       <p class="description">{{ certificate.repositorio_url }}</p>
-      <input *ngIf="editRepositorio" type="text" name="alias" placeholder="nueva url repositorio"
+      <input *ngIf="editRepositorio && canModify" type="text" name="alias" placeholder="nueva url repositorio"
       [(ngModel)]="newRepo"
       (keyup.enter)="editCertRepo('newRepo')"
       (blur)="cancelHandlerEdit('editRepositorio', 'newRepo')">
@@ -72,7 +72,7 @@
     <div class="celdas observaciones">
       <p class="title titleMod" (click)="handlerEdit('editObservaciones')">OBSERVACIONES</p>
       <p class="description">{{ certificate.observaciones }}</p>
-      <input *ngIf="editObservaciones" type="text" name="alias" placeholder="nuevas observaciones"
+      <input *ngIf="editObservaciones && canModify" type="text" name="alias" placeholder="nuevas observaciones"
       [(ngModel)]="newObser"
       (keyup.enter)="editCertObser('newObser')"
       (blur)="cancelHandlerEdit('editObservaciones', 'newObser')">
