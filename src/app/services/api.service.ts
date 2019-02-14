@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JiraUser, Certificate } from '../models.interface';
+import { Base64 } from "js-base64";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,6 @@ export class ApiService {
   jwt: string = localStorage.getItem('jwt');
   options = { headers: { Authorization: `Bearer ${this.jwt}` } };
   headerJira = { headers: { 'User-Agent': 'xx' } };
-  optionsJira = { headers: { Authorization: `bearer eyJraWQiOiJzZXNzaW9uLXNlcnZpY2VcL3Nlc3Npb24tc2VydmljZSIsImFsZyI6IlJTMjU2In0.eyJhc3NvY2lhdGlvbnMiOltdLCJzdWIiOiI1YzYzZjJlMzI3ZGFmMjJlZGM1ZGI2NjEiLCJhdWQiOiJhdGxhc3NpYW4iLCJpbXBlcnNvbmF0aW9uIjpbXSwibmJmIjoxNTUwMDU1MzMzLCJyZWZyZXNoVGltZW91dCI6MTU1MDA1NTkzMywiaXNzIjoic2Vzc2lvbi1zZXJ2aWNlIiwic2Vzc2lvbklkIjoiZGE5MDFhNjYtNzJiOS00Y2QwLTg5YjItNDY1YWY1MzVmOTI0IiwiZXhwIjoxNTUyNjQ3MzMzLCJpYXQiOjE1NTAwNTUzMzMsImVtYWlsIjoiZXZhcmlzdC5qYXVtZUBnbWFpbC5jb20iLCJqdGkiOiJkYTkwMWE2Ni03MmI5LTRjZDAtODliMi00NjVhZjUzNWY5MjQifQ.DzxQm-IIOtANegfEy139Zp7O6xwaLn27FK-IXD9rP7Y5_T8IXDpoAIJbTqjisVZVHsqcfmKk9tLFP7cMl1zrbBhJdn3tQ4goTLmVcfbH0f-YBhZh6p9ssF0R9o_3Al3NPsp1jwf_8JMnyhwYUjaQiVEu_PhK37SwjuNhkkez0K_uJkSuPzSPZbCDcR1RlSnfFx_gPopjY1Iye-9XqVaHgCJQsz_nGhDmb4QLDN6ur1DY7yobvnTg-nY45gkXeQlsbiSrbO7jnGpJXDmeijUZvEoiyp1TFj_W4nvJtbXzsOiNSrNGACifJpDk8kMy8UIhPkem3Z6UVeN_ExAqcVlelw` } }
 
   constructor(private http: HttpClient) { }
 
@@ -89,27 +89,30 @@ export class ApiService {
   }
 
   postTicketJira(certificate) {
+    let objJsonB64 = Base64.encode('evarist.jaume@gmail.com' + ':' + '12345678');
+
+    const optionsJira = { headers: { Authorization: `Basic ${objJsonB64}`, 'User-Agent': 'xx'  } }
+
     const fields = { project : { key: 'CER'}, summary: 'Certificado proximo caducar.',
       description: certificate.observaciones, issuetype: { name: 'Epic'}};
     const body = {
-      "fields": {
-        "project":
+      fields: {
+        project:
         {
-          "key": "CER"
+          key: "CER"
         },
-        "summary": "Certificado va a caducar",
-        "description": certificate.observaciones,
-        "issuetype": {
-          "name": "Epic"
+        summary: "Certificado va a caducar",
+        description: "hola",
+        issuetype: {
+          name: "Epic"
         }
       }
     }
-    console.log(body, ' :body');
+   /*  console.log(body, ' :body');
     console.log('fields => ', fields, ' : fields');
+     */
     
-    
-    return this.http.post('/rest/api/2/issue',
-    fields, this.optionsJira).toPromise();
+    return this.http.post('/rest/api/2/issue', body, optionsJira).toPromise();
   }
 
   loginJira(){

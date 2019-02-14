@@ -83,7 +83,7 @@
       <button type="button" class="btn btn-primary" 
       (click)="connectJira()" *ngIf="proxCaducidad">Conectar con Jira</button>
       <button type="button" class="btn btn-warning" 
-      (click)="ticketJira(certificate)" *ngIf="proxCaducidad">Abrir ticket en Jira</button>
+      (click)="createTicketJira(certificate)" *ngIf="proxCaducidad">Abrir ticket en Jira</button>
     </div>
   </div>
   <div class="menError" *ngIf="!valid">
