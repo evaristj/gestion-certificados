@@ -64,6 +64,12 @@ export class ViewMainComponent implements OnInit {
     }).catch(console.error);
   }
 
+  showAtivos(){
+    this.api.loadCertificates().then((arrCert: any) => {
+      this.certificados = arrCert.filter(result => !result.caducado && !result.eliminado);
+    }).catch();
+  }
+
   ngOnInit() {
     this.api.loadCertificates().then((resCertificate: any) => {
       this.certificados = resCertificate.filter(result => !result.eliminado);

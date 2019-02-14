@@ -1,6 +1,9 @@
 <app-navbar-login></app-navbar-login>
 
 <div class="certificado">
+  <div class="proxCaducidad2" *ngIf="proxCaducidad">
+    <p>Este certificado está a punto de caducar!</p>
+  </div>
   <div class="campos" *ngIf="valid">
     <div class="celdas alias">
       <p class="title titleMod" (click)="handlerEdit('editAlias')">ALIAS:</p>
@@ -75,7 +78,10 @@
       (blur)="cancelHandlerEdit('editObservaciones', 'newObser')">
     </div>
     <div class="descargar">
-      <button type="button" class="btn btn-success" (click)="downloadFile(certificate)">Descargar Certificado</button>
+      <button type="button" class="btn btn-success" 
+      (click)="downloadFile(certificate)">Descargar Certificado</button>
+      <button type="button" class="btn btn-warning" 
+      (click)="ticketJira(certificate)" *ngIf="proxCaducidad">Abrir ticket en Jira</button>
     </div>
   </div>
   <div class="menError" *ngIf="!valid">

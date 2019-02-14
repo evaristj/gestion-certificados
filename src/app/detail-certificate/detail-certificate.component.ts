@@ -21,6 +21,7 @@ export class DetailCertificateComponent implements OnInit {
   newObser: string = '';
   newList: string = '';
   newRepo: string = '';
+  proxCaducidad:boolean;
 
   constructor(private api: ApiService) { }
 
@@ -117,10 +118,22 @@ export class DetailCertificateComponent implements OnInit {
     this.api.downloadCertificate(certificate);
   }
 
+/*   ticketJira(certificate){
+    this.api.postTicketJira(certificate).then((result) => {
+      console.log(result, ' objeto de vuelta exito.');
+      
+    }).catch((error) => {
+      console.error;
+      console.log(error, ' : error');
+      
+    });
+  } */
+
   ngOnInit() {
     this.api.getOneCertificate().then((result: Certificate) => {
       this.valid = true;
       this.certificate = result;
+      this.proxCaducidad = result.proxCaducidad;
     }).catch(() => {
       console.error;
       this.valid = false;
