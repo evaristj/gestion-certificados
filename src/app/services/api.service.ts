@@ -93,8 +93,6 @@ export class ApiService {
 
     const optionsJira = { headers: { Authorization: `Basic ${objJsonB64}`, 'User-Agent': 'xx'  } }
 
-    const fields = { project : { key: 'CER'}, summary: 'Certificado proximo caducar.',
-      description: certificate.observaciones, issuetype: { name: 'Epic'}};
     const body = {
       fields: {
         project:
@@ -102,15 +100,12 @@ export class ApiService {
           key: "CER"
         },
         summary: "Certificado va a caducar",
-        description: "hola",
+        description: certificate.observaciones,
         issuetype: {
           name: "Epic"
         }
       }
     }
-   /*  console.log(body, ' :body');
-    console.log('fields => ', fields, ' : fields');
-     */
     
     return this.http.post('/rest/api/2/issue', body, optionsJira).toPromise();
   }

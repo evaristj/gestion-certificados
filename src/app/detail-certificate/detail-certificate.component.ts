@@ -22,6 +22,7 @@ export class DetailCertificateComponent implements OnInit {
   newList: string = '';
   newRepo: string = '';
   proxCaducidad: boolean;
+  ticket: any;
 
   constructor(private api: ApiService) { }
 
@@ -121,8 +122,9 @@ export class DetailCertificateComponent implements OnInit {
   createTicketJira(certificate) {
 
     this.api.postTicketJira(certificate).then((result) => {
-      console.log(result, ' objeto de vuelta exito.');
-      alert('Ticket creado con éxito en Jira.');
+      this.ticket = {...result};
+      console.log(this.ticket, ' objeto de vuelta exito.');
+      alert('Ticket creado con éxito en Jira.' + '\nId: ' + this.ticket.id + '\nProyecto: ' + this.ticket.key);
     }).catch((error) => {
       console.error;
       console.log(error, ' : error');
