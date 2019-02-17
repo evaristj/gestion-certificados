@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../services/api.service';
+import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
-import { AuthenticatedService } from '../services/authenticated.service';
+import { AuthenticatedService } from '../../services/authenticated.service';
 
 @Component({
   selector: 'app-login-main',

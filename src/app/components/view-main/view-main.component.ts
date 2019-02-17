@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ApiService } from '../services/api.service';
-import { Certificate } from '../models.interface';
+import { ApiService } from '../../services/api.service';
+import { Certificate } from '../../models.interface';
 import { Router } from '@angular/router';
 
 @Component({

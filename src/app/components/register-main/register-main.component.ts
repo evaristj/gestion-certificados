@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthenticatedService } from '../services/authenticated.service';
+import { AuthenticatedService } from '../../services/authenticated.service';
 
 @Component({
   selector: 'app-register-main',

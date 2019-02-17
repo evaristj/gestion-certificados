@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { JiraUser } from '../models.interface';
-import { ApiService } from '../services/api.service';
+import { JiraUser } from '../../models.interface';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-jira-users-config',
