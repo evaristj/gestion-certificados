@@ -12,6 +12,7 @@ import { DetailCertificateComponent } from './components/detail-certificate/deta
 
 const routes: Routes = [
   { path: 'login', component: LoginMainComponent },
+  { path: '', component: LoginMainComponent, pathMatch: 'full' },
   { path: 'register', component: RegisterMainComponent, canActivate: [CantAccessGuard],
     data: { expectedRole: ['1'] }},
   { path: 'uploadFile', component: UploadFileComponent, canActivate: [CantAccessGuard], 
@@ -19,7 +20,7 @@ const routes: Routes = [
   { path: 'detailCertificate', component: DetailCertificateComponent, canActivate: [AuthGuard]},
   { path: 'main', component: ViewMainComponent, canActivate: [AuthGuard] },
   { path: 'jiraUsersConfig', component: JiraUsersConfigComponent, canActivate: [AuthGuard] },
-  { path: '**', component: NotfoundComponent, pathMatch: 'full' }
+  { path: '**', component: NotfoundComponent }
 ];
 
 @NgModule({

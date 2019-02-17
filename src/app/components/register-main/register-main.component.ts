@@ -24,7 +24,9 @@ export class RegisterMainComponent {
       localStorage.setItem('user_id', this.valid.id)
       this.user_id = localStorage.getItem('user_id');
 
-      this.auth.registerJiraUser(this.user_id, username, password);
+      this.auth.registerJiraUser(this.user_id, username, password).then((result) => {
+        alert('Usuario: ' + username + '\nEmail: ' + email + '\nCreado en Jira y en aplicación.');
+      }).catch();
     })
       .catch(error => {
         console.log(error);
