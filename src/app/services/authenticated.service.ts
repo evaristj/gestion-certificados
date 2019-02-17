@@ -49,11 +49,7 @@ export class AuthenticatedService {
   }
   isAuthenticated(): boolean {
     const token = localStorage.getItem('jwt');
-    if (token !== null) {
-      return true;
-    } else {
-      return false;
-    }
+    return (token !== null) ? true : false;
   }
 
 }

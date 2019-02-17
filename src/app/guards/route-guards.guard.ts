@@ -9,11 +9,6 @@ export class RouteGuardsGuard implements CanActivate {
 
   constructor(public auth: AuthenticatedService, public router: Router) {}
 
-  /* canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    return true;
-  } */
   canActivate(): boolean {
     if (!this.auth.isAuthenticated()) {
       window.alert("No puedes ver esta pagina");
