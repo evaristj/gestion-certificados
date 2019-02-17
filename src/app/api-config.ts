@@ -1,10 +1,9 @@
-/* import { environment } from 'src/environments/environment';
+const urlJira = 'api/jira/';
+const urlCertif = 'api/certificates/';
+const urlTicketJira = '/rest/api/2/issue';
+const urlLoginJira = '/rest/auth/1/session/';
+const urlRegister = '/api/users';
+const urlRegisterJira = '/api/jira';
+const urlLogin = '/api/auth'
 
-const config = {
-    dev: {
-        urlJira: 'api/jira/',
-        urlCertif: 'api/certificates/'
-    },
-};
-
-export const { [environment]: { urlJira, urlCertif } } = config; */
+export { urlJira, urlCertif, urlTicketJira, urlLoginJira, urlRegister, urlRegisterJira, urlLogin };

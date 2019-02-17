@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JiraUser, Certificate } from '../models.interface';
 import { Base64 } from "js-base64";
+import { urlCertif, urlJira, urlLoginJira, urlTicketJira } from "../api-config";
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,6 @@ export class ApiService {
   certificate: Certificate;
   id: string;
   userName: string;
-  urlJira = 'api/jira/';
-  urlCertif = 'api/certificates/';
   data: JiraUser;
   jwt: string = localStorage.getItem('jwt');
   options = { headers: { Authorization: `Bearer ${this.jwt}` } };
@@ -22,7 +21,7 @@ export class ApiService {
 
   getJiraUser() {
     this.id = localStorage.getItem('id');
-    return this.http.get(this.urlJira + `${this.id}`).toPromise();
+    return this.http.get(urlJira + `${this.id}`).toPromise();
   }
   getUserName() {
     return this.userName = localStorage.getItem('userName');
@@ -30,11 +29,11 @@ export class ApiService {
   // actualizar usuario jira
   updateJiraUser(updateJira) {
     console.error;
-    return this.http.put(this.urlJira + localStorage.getItem('id'), updateJira).toPromise();
+    return this.http.put(urlJira + localStorage.getItem('id'), updateJira).toPromise();
   }
   // traer certificados
   loadCertificates() {
-    return this.http.get(this.urlCertif, this.options).toPromise().then((resCertificate: any) => {
+    return this.http.get(urlCertif, this.options).toPromise().then((resCertificate: any) => {
       this.certificates = resCertificate;
       return this.certificates;
     }).catch(() => {
@@ -44,12 +43,12 @@ export class ApiService {
 
   getOneCertificate() {
     let id = localStorage.getItem('idCert');
-    return this.http.get(this.urlCertif + id, this.options).toPromise();
+    return this.http.get(urlCertif + id, this.options).toPromise();
   }
 
   // actualizar certificados completados
   updateCertCompletado(cert, certId) {
-    return this.http.put(this.urlCertif + `${certId}`, cert, this.options).toPromise().then((result) => {
+    return this.http.put(urlCertif + `${certId}`, cert, this.options).toPromise().then((result) => {
     })
       .catch(console.error);
   }
@@ -63,7 +62,7 @@ export class ApiService {
       integration_list, observaciones, cifrado, nombre_archivo
     };
 
-    return this.http.post(this.urlCertif, body, this.options).toPromise();
+    return this.http.post(urlCertif, body, this.options).toPromise();
   }
 
   downloadCertificate(certificate: Certificate) {
@@ -107,7 +106,7 @@ export class ApiService {
       }
     }
     
-    return this.http.post('/rest/api/2/issue', body, optionsJira).toPromise();
+    return this.http.post(urlTicketJira, body, optionsJira).toPromise();
   }
 
   loginJira(){
@@ -115,6 +114,6 @@ export class ApiService {
     let password = '12345678';
     const body = { username, password };
     
-    return this.http.post('/rest/auth/1/session/', body, this.headerJira).toPromise();
+    return this.http.post(urlLoginJira, body, this.headerJira).toPromise();
   }
 }
