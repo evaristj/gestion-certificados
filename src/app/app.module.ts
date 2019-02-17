@@ -9,7 +9,7 @@ import { AuthenticatedService } from './services/authenticated.service';
 import { AngularFileUploaderModule } from "angular-file-uploader";
 import {
   DetailCertificateComponent, JiraUsersConfigComponent, LoginMainComponent,
-  RegisterMainComponent, ViewMainComponent, NavbarComponent, ShowCertificatesComponent,
+  RegisterMainComponent, ViewMainComponent, ShowCertificatesComponent,
   NotfoundComponent, NavbarLoginComponent, UploadFileComponent
 } from './components';
 
@@ -19,7 +19,6 @@ import {
     RegisterMainComponent,
     LoginMainComponent,
     ViewMainComponent,
-    NavbarComponent,
     JiraUsersConfigComponent,
     ShowCertificatesComponent,
     NotfoundComponent,
