@@ -19,8 +19,7 @@ const routes: Routes = [
   { path: 'detailCertificate', component: DetailCertificateComponent, canActivate: [AuthGuard]},
   { path: 'main', component: ViewMainComponent, canActivate: [AuthGuard] },
   { path: 'jiraUsersConfig', component: JiraUsersConfigComponent, canActivate: [AuthGuard] },
-  { path: '404', component: NotfoundComponent, pathMatch: 'full' },
-  { path: '**' || '', redirectTo: 'login' },
+  { path: '**', component: NotfoundComponent, pathMatch: 'full' }
 ];
 
 @NgModule({

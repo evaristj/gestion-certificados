@@ -1,0 +1,20 @@
+.principal {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  background: rgb(102, 102, 102);
+  color: white;
+  padding: 1em;
+  border-radius: 0.5em;
+}
+
+.error {
+  padding: 1em;
+}
+
+.link {
+  background-color: greenyellow;
+  padding: 2em;
+  font-size: 2em;
+  border-radius: 0.5em;
+}
