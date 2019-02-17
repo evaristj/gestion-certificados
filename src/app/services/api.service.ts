@@ -99,7 +99,7 @@ export class ApiService {
         {
           key: "CER"
         },
-        summary: "Certificado va a caducar",
+        summary: "Certificado: " + certificate.id + " va a caducar. Alias: " + certificate.alias,
         description: certificate.observaciones,
         issuetype: {
           name: "Epic"
@@ -114,7 +114,6 @@ export class ApiService {
     let username = 'evarist.jaume@gmail.com';
     let password = '12345678';
     const body = { username, password };
-    console.log(body, ' body login jira');
     
     return this.http.post('/rest/auth/1/session/', body, this.headerJira).toPromise();
   }

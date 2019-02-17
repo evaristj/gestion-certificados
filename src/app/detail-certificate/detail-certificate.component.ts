@@ -121,10 +121,8 @@ export class DetailCertificateComponent implements OnInit {
   }
 
   createTicketJira(certificate) {
-
     this.api.postTicketJira(certificate).then((result) => {
       this.ticket = {...result};
-      console.log(this.ticket, ' objeto de vuelta exito.');
       alert('Ticket creado con éxito en Jira.' + '\nId: ' + this.ticket.id + '\nProyecto: ' + this.ticket.key);
     }).catch((error) => {
       console.error;
@@ -134,7 +132,6 @@ export class DetailCertificateComponent implements OnInit {
 
   connectJira() {
     this.api.loginJira().then((response) => {
-      console.log(response, ' : respuesta jira');
       alert('Tienes conexión con Jira, puedes crear una incidencia.');
     }).catch((error) => {
       console.log(error, ':  error');
