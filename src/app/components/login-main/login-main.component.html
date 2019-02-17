@@ -1,4 +1,6 @@
-<app-navbar></app-navbar>
+<div class="welcome">
+  <h1>Gestión de Certificados</h1>
+</div>
 <form (submit)="loginUser()">
   <div class="title">
     <h2>Login</h2>
@@ -17,9 +19,6 @@
     <button type="submit" value="Register">
       <img src="/assets/images/checked-symbol.png" alt="entrar">
     </button>
-  </div>
-  <div *ngIf="error">
-    {{ error | json }}
   </div>
   <div *ngIf="valid">
     Login!

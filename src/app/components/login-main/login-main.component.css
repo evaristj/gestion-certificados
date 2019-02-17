@@ -22,10 +22,6 @@ input {
 button {
     all: unset;
 }
-/* button:hover {
-    background-color: rgb(235, 231, 231);
-    border-radius: 1em;
-} */
 
 .title {
     background: white;
@@ -42,4 +38,13 @@ button {
 }
 .userInput {
     margin-right: 0.5em;
+}
+
+.welcome{
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    background: rgb(102, 102, 102);
+    border-radius: 0.5em;
+    color: white;
 }

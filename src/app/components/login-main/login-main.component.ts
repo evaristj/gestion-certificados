@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
 import { AuthenticatedService } from '../../services/authenticated.service';
 
@@ -9,10 +8,8 @@ import { AuthenticatedService } from '../../services/authenticated.service';
   styleUrls: ['./login-main.component.css']
 })
 export class LoginMainComponent {
-  urlLogin: '/api/auth';
   username: string;
   password: string;
-  error: any;
 
   constructor(private auth: AuthenticatedService, private router: Router) { }
 
@@ -21,10 +18,9 @@ export class LoginMainComponent {
 
     this.auth.login(username, password)
       .then(() => {
-        this.error = undefined;
         this.router.navigate(['/main']);
-      }).catch(error => {
-        this.error = error;
+      }).catch(() => {
+        console.error;
       });
     this.password = '';
     this.username = '';
