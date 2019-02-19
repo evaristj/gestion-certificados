@@ -23,6 +23,7 @@ export class DetailCertificateComponent implements OnInit {
   newList: string = '';
   newRepo: string = '';
   proxCaducidad: boolean;
+  caducado: boolean;
   ticket: any;
 
   constructor(private api: ApiService) { }
@@ -144,6 +145,7 @@ export class DetailCertificateComponent implements OnInit {
       this.valid = true;
       this.certificate = result;
       this.proxCaducidad = result.proxCaducidad;
+      this.caducado = result.caducado;
       (this.roleAdmin == '1') ? this.canModify = true : this.canModify = false;
       
     }).catch(() => {

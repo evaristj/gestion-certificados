@@ -68,9 +68,9 @@ export class ApiService {
   downloadCertificate(certificate: Certificate) {
     let certificateType = certificate.alias;
     let contentType = "file/" + certificateType;
+
     let byteCharacters = atob(certificate.cifrado);
     let byteNumbers = new Array(byteCharacters.length);
-
     for (let i = 0; i < byteCharacters.length; i++) {
       byteNumbers[i] = byteCharacters.charCodeAt(i);
     }

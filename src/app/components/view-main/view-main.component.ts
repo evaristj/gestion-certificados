@@ -28,7 +28,7 @@ export class ViewMainComponent implements OnInit {
   }
   sortName() {
     this.certificados = this.certificados.sort((a: Certificate, b: Certificate) =>
-      a.nombre_cliente > b.nombre_cliente ? 1 : -1);
+      a.integration_list > b.integration_list ? 1 : -1);
   }
   sortContacto() {
     this.certificados = this.certificados.sort((a: Certificate, b: Certificate) =>
