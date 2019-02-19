@@ -24,8 +24,6 @@ export class UploadFileComponent implements OnInit {
 
   changeListener(event): void {
     this.nombre_archivo = event.target.value.split("\\")[2];
-    console.log(this.nombre_archivo, ' : nombre del archivo a subir.');
-    
     this.readThis(event.target);
   }
 
@@ -47,6 +45,13 @@ export class UploadFileComponent implements OnInit {
       .then((result) => {
         if (result) 
           alert(this.menSuccess);
+          this.newName = '';
+          this.newPass = '';
+          this.newIdOrga = '';
+          this.newRepo = '';
+          this.newLista = '';
+          this.newObser = '';
+          this.newContacto = '';
       })
       .catch((error) => {
         if (error) 

@@ -27,17 +27,25 @@
   display: flex;
   justify-content: center;
 }
+
 .sendInput button {
   all: unset;
 }
+
 .sendInput button:hover {
   transition: 500ms;
   background-color: greenyellow;
   border-radius: 0.5em;
 }
+
 .observacionesInput {
   margin-top: 1em;
 }
+
 .textarea {
   word-wrap: break-word;
+}
+
+.examinar {
+  margin-left: 3em;
 }

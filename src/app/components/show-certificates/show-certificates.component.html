@@ -1,6 +1,5 @@
-<div class="principal {{ certificate.proxCaducidad ? 'proxCaducidad' : 'principal' }}">
-<!-- class="{{ certificate.caducado ? 'caducado' : 'principal' }}" -->
-  <div class="listado {{ certificate.caducado ? 'caducado' : 'principal' }}" (click)="detailCert(certificate)">
+<div class="principal {{ certificate.proxCaducidad ? 'proxCaducidad' : 'false' }}">
+  <div class="listado {{ certificate.caducado ? 'caducado' : 'bodyCert' }}" (click)="detailCert(certificate)">
     <div class="button alias_c">{{ certificate.alias }}</div>
     <div class="button caducidad_c">{{ certificate.caducidad }}</div>
     <div class="button id_orga_c">{{ certificate.id_orga }}</div>
@@ -18,3 +17,4 @@
     </div>
   </div>
 </div>
+<div class="separator"></div>
