@@ -25,6 +25,7 @@ export class DetailCertificateComponent implements OnInit {
   proxCaducidad: boolean;
   caducado: boolean;
   ticket: any;
+  eliminado: boolean;
 
   constructor(private api: ApiService) { }
 
@@ -123,19 +124,19 @@ export class DetailCertificateComponent implements OnInit {
 
   createTicketJira(certificate) {
     this.api.postTicketJira(certificate).then((result) => {
-      this.ticket = {...result};
-      alert('Ticket creado con éxito en Jira.' + '\nId: ' + this.ticket.id + '\nProyecto: ' + this.ticket.key);
-    }).catch((error) => {
+      this.ticket = { ...result };
+      alert('Ticket creado con éxito en Jira.' +
+        '\nId: ' + this.ticket.id +
+        '\nProyecto: ' + this.ticket.key);
+    }).catch(() => {
       console.error;
-      console.log(error, ' : error');
     });
   }
 
   connectJira() {
-    this.api.loginJira().then((response) => {
+    this.api.loginJira().then(() => {
       alert('Tienes conexión con Jira, puedes crear una incidencia.');
-    }).catch((error) => {
-      console.log(error, ':  error');
+    }).catch(() => {
       console.error
     });
   }
@@ -146,8 +147,9 @@ export class DetailCertificateComponent implements OnInit {
       this.certificate = result;
       this.proxCaducidad = result.proxCaducidad;
       this.caducado = result.caducado;
+      this.eliminado = result.eliminado;
       (this.roleAdmin == '1') ? this.canModify = true : this.canModify = false;
-      
+
     }).catch(() => {
       console.error;
       this.valid = false;

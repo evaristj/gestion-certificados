@@ -32,6 +32,7 @@ export class UploadFileComponent implements OnInit {
     var myReader: FileReader = new FileReader();
 
     myReader.onloadend = (e) => {
+      // los datos de la parte privada se suben en base64
       this.base64 = myReader.result;
       this.certificadoCifrado = this.base64.split(',');
     }
@@ -43,7 +44,7 @@ export class UploadFileComponent implements OnInit {
     this.api.postCertCifrado(this.certificadoCifrado[1], this.newName, this.newPass,
       this.newIdOrga, this.newRepo, this.newLista, this.newObser, this.newContacto, this.nombre_archivo)
       .then((result) => {
-        if (result) 
+        if (result == 'Guardado con éxito.') 
           alert(this.menSuccess);
           this.newName = '';
           this.newPass = '';

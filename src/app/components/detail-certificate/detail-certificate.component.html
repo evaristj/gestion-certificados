@@ -2,13 +2,16 @@
 
 <div class="certificado">
   <div class="proxCaducidad2" *ngIf="proxCaducidad">
-    <p>Este certificado está a punto de caducar!</p>
+    <p>¡Este certificado está a punto de caducar!</p>
   </div>
   <div class="caducado2" *ngIf="caducado">
-    <p>Este certificado está caducado!</p>
+    <p>¡Este certificado está caducado!</p>
   </div>
   <div class="activo2" *ngIf="!caducado && !proxCaducidad">
     <p>Este certificado está activo.</p>
+  </div>
+  <div class="eliminado2" *ngIf="eliminado">
+    <p>¡Este certificado está eliminado!</p>
   </div>
   <div class="campos" *ngIf="valid">
     <div class="celdas alias">
