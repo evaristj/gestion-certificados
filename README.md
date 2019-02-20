@@ -19,8 +19,8 @@ En el vídeo habrás podido comprobar todas las funcionalidades que tiene la apl
  * Puedes crear incidencias en Jira de tickets a punto de caducar.
  * Prueba que tienes conexión con Jira.
  * Puedes modificar tus datos en Jira, nombre, contraseña, proyecto, componente, etc.
- * Tiene un proceso automático que revisa cada 15 minutos con la base de datos que un certificado esté a punto de caducar, esté caducado o esté activo.
- * Tiene control de rutas, guards.
+ * Proceso automático que revisa cada 15 minutos con la base de datos que un certificado esté a punto de caducar, esté caducado o esté activo.
+ * Control de rutas, guards.
  
  #### Para que funcione con el backend es necesario descargarlo y arrancar una imagen en el docker con PostgreSQL.
 
