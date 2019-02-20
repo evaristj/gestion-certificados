@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JiraUser, Certificate } from '../models.interface';
-import { Base64 } from "js-base64";
-import { urlCertif, urlJira, urlLoginJira, urlTicketJira } from "../api-config";
+import { urlCertif, urlJira, urlLoginJira, urlTicketJira, 
+  bodyLogin, objJsonB64 } from "../api-config";
 
 @Injectable({
   providedIn: 'root'
@@ -66,11 +66,11 @@ export class ApiService {
   }
 
   downloadCertificate(certificate: Certificate) {
-    let certificateType = certificate.alias;
+    let certificateType = certificate.nombre_archivo.split('.')[1];
     let contentType = "file/" + certificateType;
+
     let byteCharacters = atob(certificate.cifrado);
     let byteNumbers = new Array(byteCharacters.length);
-
     for (let i = 0; i < byteCharacters.length; i++) {
       byteNumbers[i] = byteCharacters.charCodeAt(i);
     }
@@ -88,11 +88,10 @@ export class ApiService {
   }
 
   postTicketJira(certificate) {
-    let objJsonB64 = Base64.encode('evarist.jaume@gmail.com' + ':' + '12345678');
 
     const optionsJira = { headers: { Authorization: `Basic ${objJsonB64}`, 'User-Agent': 'xx'  } }
 
-    const body = {
+    const bodyTicket = {
       fields: {
         project:
         {
@@ -106,14 +105,10 @@ export class ApiService {
       }
     }
     
-    return this.http.post(urlTicketJira, body, optionsJira).toPromise();
+    return this.http.post(urlTicketJira, bodyTicket, optionsJira).toPromise();
   }
 
   loginJira(){
-    let username = 'evarist.jaume@gmail.com';
-    let password = '12345678';
-    const body = { username, password };
-    
-    return this.http.post(urlLoginJira, body, this.headerJira).toPromise();
+    return this.http.post(urlLoginJira, bodyLogin, this.headerJira).toPromise();
   }
 }

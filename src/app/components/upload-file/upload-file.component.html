@@ -1,0 +1,79 @@
+<app-navbar-login></app-navbar-login>
+<div class="principal">
+  <form (submit)="enviarCert()">
+    <div class="title">
+      <h3>Formulario Certificado</h3>
+    </div>
+    <div class="inputs">
+    <div>
+      <div class="userInput">
+        <div class="icons">
+          <img src="/assets/images/user-silhouette.png" alt="Usuario">
+          Alias
+        </div>
+        <input class="certProperties" type="text" [(ngModel)]="newName" name="user">
+      </div>
+
+      <div class="passInput">
+        <div class="icons">
+          <img src="/assets/images/key-password.png" alt="Password">
+          Contraseña
+        </div>
+        <input class="certProperties" type="password" [(ngModel)]="newPass" name="pass">
+      </div>
+
+      <div class="idOrgaInput">
+        <div class="icons">
+          <img src="/assets/images/phone-book.png" alt="img idOrga">
+          Id organización y nombre de cliente
+        </div>
+        <input class="certProperties" type="idOrga" [(ngModel)]="newIdOrga" name="idOrga">
+      </div>
+
+      <div class="listaInput">
+        <div class="icons">
+          <img src="/assets/images/business-presentation.png" alt="img lista">
+          Lista de integraciones
+        </div>
+        <input class="certProperties" type="lista_integracion" [(ngModel)]="newLista" name="lista">
+      </div>
+    </div>
+    <div>
+      <div class="contactoInput">
+        <div class="icons">
+          <img src="/assets/images/mail.png" alt="img renovaciones">
+          Contacto para renovaciones
+        </div>
+        <input class="certProperties" type="email" [(ngModel)]="newContacto" name="renovaciones">
+      </div>
+
+      <div class="repositorioInput">
+        <div class="icons">
+          <img src="/assets/images/database.png" alt="repositorio">
+          Repositorio
+        </div>
+        <input class="certProperties" type="url" [(ngModel)]="newRepo" name="repositorio">
+      </div>
+
+      <div class="observacionesInput">
+        <div class="icons">
+          <img src="/assets/images/eye.png" alt="observaciones">
+          Observaciones
+        </div>
+        <textarea [(ngModel)]="newObser" class="certProperties textarea" 
+          name="observaciones" cols="35" rows="3"></textarea>
+      </div>
+
+    </div>
+  </div>
+    <input class="examinar" type="file" accept=".pfx,.p12" (change)="changeListener($event)">
+
+    <div class="sendInput">
+      <button type="submit" value="Register">
+        <img src="/assets/images/cross-in-a-circle.png" alt="enviar formulario">
+      </button>
+    </div>
+
+  </form>
+
+</div>

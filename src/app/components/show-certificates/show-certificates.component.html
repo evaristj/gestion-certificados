@@ -1,0 +1,20 @@
+<div class="principal {{ certificate.proxCaducidad ? 'proxCaducidad' : 'false' }}">
+  <div class="listado {{ certificate.caducado ? 'caducado' : 'bodyCert' }}" (click)="detailCert(certificate)">
+    <div class="button alias_c">{{ certificate.alias }}</div>
+    <div class="button caducidad_c">{{ certificate.caducidad }}</div>
+    <div class="button id_orga_c">{{ certificate.id_orga }}</div>
+    <div class="button nombre_c">{{ certificate.integration_list }}</div>
+    <div class="button contacto_c">{{ certificate.contacto_renovacion }}</div>
+  </div>
+  <div class="listadoOpciones">
+    <div class="borrar"><input type="checkbox" id="eliminar" value="eliminar" 
+      [(ngModel)]="certificate.eliminado"
+        (change)="confirmDel(certificate)">
+      Eliminar
+    </div>
+    <div class="descargar">
+      <input type="button" value="Descargar" (click)="downloadFile(certificate)">
+    </div>
+  </div>
+</div>
+<div class="separator"></div>
