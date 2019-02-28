@@ -2,7 +2,7 @@
 
 Este proyecto ha sido desarrollado como trabajo final del Bootcamp con GeeksHubs Academy.
 
-[DEMO del preoyecto](https://www.youtube.com/watch?v=suLfYeIugZY)
+[DEMO del preoyecto](https://youtu.be/YUW7FZYamjc)
 
 ## Funcionalidades
 
